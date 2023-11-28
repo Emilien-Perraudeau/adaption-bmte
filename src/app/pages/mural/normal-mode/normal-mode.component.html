@@ -1,0 +1,18 @@
+<div class="big-container">
+  <div class="tables-container">
+<div *ngFor="let table of tables">
+  <app-table
+    [numberTable]="table.numberTable"
+    [numberOrder]="table.numberOrder"
+    [dishes]="table.dishes"
+  ></app-table>
+</div>
+  </div>
+
+<div class="side-table-container">
+<app-side-table
+  [numberTable]="1"
+  [numberOrder]="56"
+  [numberOfOrders]="6"
+></app-side-table></div>
+</div>

@@ -1,1 +1,15 @@
-<p>table works!</p>
+<div class="table-container">
+<div class="table-info">
+  <h2>Table {{ this.numberTable }}</h2>
+  <p>#{{ this.numberOrder }}</p>
+</div>
+
+<div class="dishes-list">
+  <app-dish *ngFor="let dish of dishes"
+            [name]="dish.name"
+            [image]="dish.image"
+            [quantity]="dish.quantity"
+            [customerSpecification]="dish.customerSpecification"
+  ></app-dish>
+</div>
+</div>

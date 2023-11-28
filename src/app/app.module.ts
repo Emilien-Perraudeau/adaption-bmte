@@ -7,6 +7,7 @@ import { TableComponent } from './shared/components/table/table.component';
 import { DishComponent } from './shared/components/dish/dish.component';
 import { SideTableComponent } from './shared/components/side-table/side-table.component';
 import { RecipeComponent } from './shared/components/recipe/recipe.component';
+import { NormalModeComponent } from './pages/mural/normal-mode/normal-mode.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { RecipeComponent } from './shared/components/recipe/recipe.component';
     TableComponent,
     DishComponent,
     SideTableComponent,
-    RecipeComponent
+    RecipeComponent,
+    NormalModeComponent
   ],
   imports: [
     BrowserModule

@@ -1,0 +1,24 @@
+.table-container {
+  border: 1px solid #ccc;
+  padding: 15px;
+  margin: 10px;
+  border-radius: 8px;
+  width: 300px;
+  height: 100%;
+}
+
+.table-info {
+  background-color: #f2f2f2;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+  border-radius: 8px 8px 0 0;
+}
+
+.table-info h2 {
+  margin: 0;
+  color: #333;
+}
+
+.dishes-list {
+  padding: 10px;
+}

@@ -1,1 +1,9 @@
-<p>plat works!</p>
+<div class="dish-container">
+  <div class="image-container">
+  <img [src]="image" class="image" alt="Image du plat"></div>
+  <div class="text-container">
+  <p>{{ this.quantity }}x {{ name }}</p>
+  <div *ngIf="customerSpecification && customerSpecification.length > 0">
+    <p>{{ customerSpecification.join(', ') }}</p></div>
+  </div>
+</div>

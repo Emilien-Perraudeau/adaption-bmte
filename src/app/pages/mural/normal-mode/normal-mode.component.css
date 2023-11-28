@@ -1,0 +1,17 @@
+.side-table-container{
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 150px;
+  float: right;
+}
+
+.big-container{
+  position: relative;
+}
+
+.tables-container{
+  position: absolute;
+  top: 0;
+  left: 0;
+}
