@@ -1,21 +1,27 @@
 import { Component, OnInit } from '@angular/core';
-import {TableComponent} from "../../../shared/components/table/table.component";
+import { TableService} from "../../../services/table.service";
+import { SideTableService} from "../../../services/side-table.service";
+import { TableComponent } from "../../../shared/components/table/table.component";
+import { SideTableComponent } from "../../../shared/components/side-table/side-table.component";
 
 @Component({
   selector: 'app-normal-mode',
   templateUrl: './normal-mode.component.html',
   styleUrls: ['./normal-mode.component.css']
 })
-export class NormalModeComponent {
-  tables: TableComponent[] = [
-    {
-      numberTable: 1,
-      numberOrder: 101,
-      dishes: [
-        { name: 'Plat 1', image: './assets/lasagne.jpg', quantity: 2, customerSpecification: [`Supplément A`] },
-        { name: 'Plat 2', image: './assets/lasagne.jpg', quantity: 1, customerSpecification: [] }
-      ]
-    },
-  ];
+export class NormalModeComponent implements OnInit {
+  tables: TableComponent[] = [];
+  sideTable: SideTableComponent | null = null;
 
+  constructor(private tableService: TableService, private sideTableService: SideTableService) {}
+
+  ngOnInit() {
+    this.tableService.getTables().subscribe(receivedTables => {
+      this.tables = receivedTables;
+    });
+
+    this.sideTableService.getSideTables().subscribe(receivedSideTables => {
+      this.sideTable = receivedSideTables.length > 0 ? receivedSideTables[0] : null;
+    });
+  }
 }

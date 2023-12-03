@@ -8,6 +8,7 @@ import { DishComponent } from './shared/components/dish/dish.component';
 import { SideTableComponent } from './shared/components/side-table/side-table.component';
 import { RecipeComponent } from './shared/components/recipe/recipe.component';
 import { NormalModeComponent } from './pages/mural/normal-mode/normal-mode.component';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { NormalModeComponent } from './pages/mural/normal-mode/normal-mode.compo
     NormalModeComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

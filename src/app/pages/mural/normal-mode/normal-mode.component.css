@@ -1,13 +1,23 @@
-.side-table-container{
+.side-table-container {
+  background-color: grey;
   position: absolute;
-  top: 0;
   right: 0;
-  width: 150px;
-  float: right;
+  top: 0;
+  bottom: 0;
+  width: max-content; /* S'adapte à la largeur du contenu */
+  padding: 10px; /* Ajustez selon vos besoins */
 }
 
-.big-container{
-  position: relative;
+.side-table-container h1 {
+  white-space: nowrap; /* Empêche le texte de passer à la ligne */
+  color: white; /* Couleur du texte, ajustez selon vos besoins */
+  margin: 0;
+}
+
+
+.big-container {
+  display: flex;
+  justify-content: space-between; /* Pour aligner les éléments côte à côte */
 }
 
 .tables-container{
@@ -15,3 +25,5 @@
   top: 0;
   left: 0;
 }
+
+

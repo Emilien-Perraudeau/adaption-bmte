@@ -1,0 +1,65 @@
+{
+  "dishes": [
+    {
+      "name": "Poulet Rôti",
+      "image": "images/poulet_roti.jpg",
+      "quantity": 10,
+      "customerSpecification": ["Sans peau", "Extra sauce"]
+    },
+    {
+      "name": "Pizza Margherita",
+      "image": "src/assets/images/pizza_margherita.jpg",
+      "quantity": 5
+    }
+  ],
+  "positions": [
+    {
+      "numberOfPosition": 1,
+      "name": "Chef de cuisine"
+    },
+    {
+      "numberOfPosition": 2,
+      "name": "Sous-chef"
+    }
+  ],
+  "recipes": [
+    {
+      "title": "Crème Brûlée",
+      "steps": ["Chauffer la crème", "Ajouter du sucre", "Brûler le dessus"]
+    },
+    {
+      "title": "Tarte Tatin",
+      "steps": ["Préparer les pommes", "Faire caraméliser", "Cuire au four"]
+    }
+  ],
+  "sideTables": [
+    {
+      "numberTable": 1,
+      "numberOrder": 101,
+      "numberOfOrders": 3
+    },
+    {
+      "numberTable": 2,
+      "numberOrder": 102,
+      "numberOfOrders": 2
+    }
+  ],
+  "tables": [
+    {
+      "numberTable": 1,
+      "numberOrder": 201,
+      "dishes": [
+        { "name": "Poulet Rôti", "quantity": 2 },
+        { "name": "Pizza Margherita", "quantity": 1 }
+      ]
+    },
+    {
+      "numberTable": 2,
+      "numberOrder": 202,
+      "dishes": [
+        { "name": "Poulet Rôti", "quantity": 1 },
+        { "name": "Tarte Tatin", "quantity": 1 }
+      ]
+    }
+  ]
+}
