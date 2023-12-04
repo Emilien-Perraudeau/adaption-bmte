@@ -8,6 +8,17 @@ import { DishComponent } from './shared/components/dish/dish.component';
 import { RecipeComponent } from './shared/components/recipe/recipe.component';
 import { NormalModeComponent } from './pages/mural/normal-mode/normal-mode.component';
 import {HttpClientModule} from "@angular/common/http";
+import { SettingsComponent } from './shared/components/settings/settings.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatMenuModule} from "@angular/material/menu";
+import {MatIconModule} from "@angular/material/icon";
+import {MatCheckboxModule} from "@angular/material/checkbox";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatSelectModule} from "@angular/material/select";
+import {FormsModule} from "@angular/forms";
+import {MatButtonModule} from "@angular/material/button";
+import { MatMenuItem } from "@angular/material/menu";
+import {MatButtonToggleModule} from "@angular/material/button-toggle";
 
 @NgModule({
   declarations: [
@@ -16,11 +27,21 @@ import {HttpClientModule} from "@angular/common/http";
     TableComponent,
     DishComponent,
     RecipeComponent,
-    NormalModeComponent
+    NormalModeComponent,
+    SettingsComponent
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatMenuModule,
+    MatIconModule,
+    MatCheckboxModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    FormsModule,
+    MatButtonModule,
+    MatButtonToggleModule
   ],
   providers: [],
   bootstrap: [AppComponent]
