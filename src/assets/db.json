@@ -2,14 +2,22 @@
   "dishes": [
     {
       "name": "Poulet Rôti",
+      "category": "Grill",
       "image": "images/poulet_roti.jpg",
       "quantity": 10,
       "customerSpecification": ["Sans peau", "Extra sauce"]
     },
     {
       "name": "Pizza Margherita",
+      "category": "Pizzas",
       "image": "src/assets/images/pizza_margherita.jpg",
       "quantity": 5
+    },
+    {
+      "name": "Tarte Tatin",
+      "category": "Desserts",
+      "image": "src/assets/images/tarte_tatin.jpg",
+      "quantity": 4
     }
   ],
   "positions": [

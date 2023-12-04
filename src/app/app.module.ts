@@ -8,6 +8,7 @@ import { DishComponent } from './shared/components/dish/dish.component';
 import { RecipeComponent } from './shared/components/recipe/recipe.component';
 import { NormalModeComponent } from './pages/mural/normal-mode/normal-mode.component';
 import {HttpClientModule} from "@angular/common/http";
+import { RushModeComponent } from './pages/mural/rush-mode/rush-mode.component';
 import { SettingsComponent } from './shared/components/settings/settings.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatMenuModule} from "@angular/material/menu";
@@ -27,6 +28,7 @@ import {MatButtonToggleModule} from "@angular/material/button-toggle";
     TableComponent,
     DishComponent,
     RecipeComponent,
+    RushModeComponent
     NormalModeComponent,
     SettingsComponent
   ],
