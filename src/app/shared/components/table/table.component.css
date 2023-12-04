@@ -29,5 +29,13 @@
   .table-container {
     width: 100%; /* Tables take up full width on smaller screens */
     max-width: none; /* Remove max-width constraint */
+    background-color: red;
+  }
+
+  /* Styles for tablet mode */
+  .tablet-mode .dishes-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
   }
 }

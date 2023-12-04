@@ -29,3 +29,19 @@
 .text-container div {
   margin-top: 5px;
 }
+
+/* Responsive styles for smaller screens */
+@media screen and (max-width: 768px) {
+  .dish-container {
+    flex-direction: column;
+  }
+
+  .image-container,
+  .text-container {
+    flex: 1;
+  }
+
+  .text-container {
+    padding-top: 0; /* Optional: Remove top padding in text-container */
+  }
+}

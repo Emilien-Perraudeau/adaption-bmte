@@ -38,7 +38,10 @@
       "numberOrder": 201,
       "dishes": [
         { "name": "Poulet Rôti", "quantity": 2 },
-        { "name": "Pizza Margherita", "quantity": 1 }
+        { "name": "Pizza Margherita", "quantity": 1 },
+        { "name": "Porc sauté", "quantity": 1 },
+        { "name": "Pate carbonara", "quantity": 1 },
+        { "name": "Rizoto", "quantity": 1 }
       ]
     },
     {
