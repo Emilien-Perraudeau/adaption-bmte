@@ -10,5 +10,6 @@ export class TableComponent {
   @Input() numberTable!: number;
   @Input() numberOrder!: number;
   @Input() dishes!: DishComponent[];
+  @Input() date!: Date;
 
 }

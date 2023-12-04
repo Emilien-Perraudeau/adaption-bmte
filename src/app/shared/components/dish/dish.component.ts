@@ -10,5 +10,5 @@ export class DishComponent {
   @Input() image!: string;
   @Input() quantity!: number;
   @Input() customerSpecification?: string[];
-
+  @Input() category!: string;
 }
