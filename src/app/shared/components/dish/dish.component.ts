@@ -16,6 +16,7 @@ export class DishComponent implements OnInit {
   @Input() recipe!: RecipeComponent;
   @Input() isExpanded!: boolean;
   @Input() state!: DishState;
+  isSelected: boolean = false;
 
   getColor(): string {
     console.log(this.state)
@@ -35,4 +36,11 @@ export class DishComponent implements OnInit {
     console.log(this)
   }
 
+  checkboxChanged() {
+    if (this.isSelected) {
+      // Logique à exécuter lorsque le plat est sélectionné
+    } else {
+      // Logique à exécuter lorsque le plat n'est plus sélectionné
+    }
+  }
 }

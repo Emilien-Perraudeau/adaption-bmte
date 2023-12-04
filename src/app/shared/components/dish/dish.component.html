@@ -1,12 +1,11 @@
 <div class="dish-container">
   <div class="color-square" [ngStyle]="{ 'background-color': getColor() }"></div>
   <div class="image-container">
-    <img [src]="image" class="image" alt="Image du plat">
-  </div>
+    <img [src]="image" class="image" alt="Image du plat"></div>
   <div class="text-container">
-    <p>{{ quantity }}x {{ name }}</p>
+    <input type="checkbox" id="selectDish{{ name }}" [(ngModel)]="isSelected" (change)="checkboxChanged()">
+    <p>{{ this.quantity }}x {{ name }}</p>
     <div *ngIf="customerSpecification && customerSpecification.length > 0">
-      <p>{{ customerSpecification.join(', ') }}</p>
-    </div>
+      <p>{{ customerSpecification.join(', ') }}</p></div>
   </div>
 </div>
