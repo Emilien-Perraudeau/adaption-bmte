@@ -1,31 +1,42 @@
-.side-table-container {
-  background-color: grey;
-  position: absolute;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  width: max-content; /* S'adapte à la largeur du contenu */
-  padding: 10px; /* Ajustez selon vos besoins */
-}
-
-.side-table-container h1 {
-  white-space: nowrap; /* Empêche le texte de passer à la ligne */
-  color: white; /* Couleur du texte, ajustez selon vos besoins */
-  margin: 0;
-}
-
+/* Default styles for normal mode */
 .big-container {
   display: flex;
-  width: 100%;
-  justify-content: space-between; /* Sépare les conteneurs principaux */
+  justify-content: space-between;
 }
 
 .tables-container {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  justify-content: flex-start; /* Alignement à gauche */
-  flex-grow: 1; /* Permet au conteneur de grandir si nécessaire */
-  /* Assurez-vous qu'il n'y a pas de padding ou margin inattendu ici */
+  justify-content: flex-start;
+  flex-grow: 1;
 }
 
+.side-table-container {
+  background-color: grey;
+  width: max-content;
+  padding: 10px;
+}
+
+.side-table-container h1 {
+  white-space: nowrap;
+  color: white;
+  margin: 0;
+}
+
+/* Responsive styles for smaller screens */
+@media screen and (max-width: 768px) {
+  .big-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .tables-container {
+    width: 100%;
+  }
+
+  .side-table-container {
+    width: 100%;
+    margin-top: 10px; /* Add some spacing between tables and side tables */
+  }
+}
