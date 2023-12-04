@@ -6,7 +6,7 @@ import {Component, Input, OnInit} from '@angular/core';
   styleUrls: ['./recipe.component.css']
 })
 export class RecipeComponent {
-@Input() title!: string;
-@Input() steps?: string[];
+  @Input() title!: string;
+  @Input() steps?: string[];
 
 }

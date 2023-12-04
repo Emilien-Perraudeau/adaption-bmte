@@ -1,21 +1,22 @@
 <div class="big-container">
   <div class="tables-container">
-    <div *ngFor="let table of tables">
-      <app-table
-        [numberTable]="table.numberTable"
-        [numberOrder]="table.numberOrder"
-        [dishes]="table.dishes"
+    <div *ngFor="let table of tables; let i = index">
+      <app-table *ngIf="i <= 3"
+                 [numberTable]="table.numberTable"
+                 [numberOrder]="table.numberOrder"
+                 [dishes]="table.dishes"
       ></app-table>
     </div>
   </div>
 
-  <div class="side-table-container" *ngIf="sideTable">
+  <div class="side-table-container">
     <h1>Prochaine commandes</h1>
-    <app-side-table
-      [numberTable]="sideTable.numberTable"
-      [numberOrder]="sideTable.numberOrder"
-      [numberOfOrders]="sideTable.numberOfOrders"
-    ></app-side-table>
+    <div *ngFor="let table of tables; let i = index">
+      <app-table *ngIf="i > 3"
+                 [numberTable]="table.numberTable"
+                 [numberOrder]="table.numberOrder"
+                 [dishes]="table.dishes"
+      ></app-table>
+    </div>
   </div>
-
 </div>

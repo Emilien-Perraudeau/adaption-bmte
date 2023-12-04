@@ -32,18 +32,6 @@
       "steps": ["Préparer les pommes", "Faire caraméliser", "Cuire au four"]
     }
   ],
-  "sideTables": [
-    {
-      "numberTable": 1,
-      "numberOrder": 101,
-      "numberOfOrders": 3
-    },
-    {
-      "numberTable": 2,
-      "numberOrder": 102,
-      "numberOfOrders": 2
-    }
-  ],
   "tables": [
     {
       "numberTable": 1,
@@ -55,6 +43,38 @@
     },
     {
       "numberTable": 2,
+      "numberOrder": 202,
+      "dishes": [
+        { "name": "Poulet Rôti", "quantity": 1 },
+        { "name": "Tarte Tatin", "quantity": 1 }
+      ]
+    },
+    {
+      "numberTable": 3,
+      "numberOrder": 201,
+      "dishes": [
+        { "name": "Poulet Rôti", "quantity": 2 },
+        { "name": "Pizza Margherita", "quantity": 1 }
+      ]
+    },
+    {
+      "numberTable": 4,
+      "numberOrder": 202,
+      "dishes": [
+        { "name": "Poulet Rôti", "quantity": 1 },
+        { "name": "Tarte Tatin", "quantity": 1 }
+      ]
+    },
+    {
+      "numberTable": 5,
+      "numberOrder": 202,
+      "dishes": [
+        { "name": "Poulet Rôti", "quantity": 1 },
+        { "name": "Tarte Tatin", "quantity": 1 }
+      ]
+    },
+    {
+      "numberTable": 6,
       "numberOrder": 202,
       "dishes": [
         { "name": "Poulet Rôti", "quantity": 1 },
