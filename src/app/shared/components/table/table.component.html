@@ -1,12 +1,17 @@
-<!-- table.component.html -->
-<div class="table-container" (click)="handleTableClick()">
+<div class="table-container">
   <div class="table-info">
     <h2>Table {{ this.numberTable }}</h2>
     <p>#{{ this.numberOrder }}</p>
   </div>
 
-  <div class="dishes-list">
-    <app-dish *ngFor="let dish of getDisplayedDishes()"
+  <!-- Affiche le nombre de plats si simpleView est vrai -->
+  <div *ngIf="simpleView" class="dishes-count">
+    Nombre de plats: {{ dishes.length }}
+  </div>
+
+  <!-- Affiche la liste des plats si simpleView est faux -->
+  <div *ngIf="!simpleView" class="dishes-list">
+    <app-dish *ngFor="let dish of dishes"
               [name]="dish.name"
               [image]="dish.image"
               [quantity]="dish.quantity"

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { TableService } from "../../../services/table.service";
 import { TableComponent } from "../../../shared/components/table/table.component";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-normal-mode',
@@ -14,7 +15,8 @@ export class NormalModeComponent implements OnInit {
 
   constructor(
     private tableService: TableService,
-    private breakpointObserver: BreakpointObserver
+    private breakpointObserver: BreakpointObserver,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -27,5 +29,9 @@ export class NormalModeComponent implements OnInit {
       .subscribe(result => {
         this.isTabletMode = result.matches;
       });
+  }
+
+  onValidate() {
+    this.router.navigate(['/rush-mode']);
   }
 }

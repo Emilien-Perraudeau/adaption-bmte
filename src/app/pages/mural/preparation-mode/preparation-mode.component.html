@@ -1,0 +1,8 @@
+<div class="preparation-mode">
+  <div *ngFor="let dish of selectedDishes" class="dish-item" (click)="toggleRecipe(dish)">
+    <h3>{{ dish.name }}</h3>
+    <div class="recipe" *ngIf="dish.isExpanded">
+      <!-- Ici, affichez les détails de la recette de dish -->
+    </div>
+  </div>
+</div>

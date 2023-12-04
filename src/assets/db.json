@@ -3,7 +3,7 @@
     {
       "name": "Poulet Rôti",
       "category": "Grill",
-      "image": "images/poulet_roti.jpg",
+      "image": "assets/images/poulet_roti.jpg",
       "quantity": 10,
       "customerSpecification": ["Sans peau", "Extra sauce"]
     },

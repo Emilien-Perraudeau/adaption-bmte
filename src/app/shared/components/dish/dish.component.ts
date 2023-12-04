@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {RecipeComponent} from "../recipe/recipe.component"
 
 @Component({
   selector: 'app-dish',
@@ -11,4 +12,6 @@ export class DishComponent {
   @Input() quantity!: number;
   @Input() category!: string;
   @Input() customerSpecification?: string[];
+  @Input() recipe!: RecipeComponent;
+  @Input() isExpanded!: boolean;
 }

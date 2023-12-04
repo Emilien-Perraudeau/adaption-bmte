@@ -1,0 +1,12 @@
+.preparation-mode .dish-item {
+  cursor: pointer;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.preparation-mode .dish-item .recipe {
+  padding: 10px;
+  background-color: #f8f8f8;
+  border-top: 1px solid #eee;
+}

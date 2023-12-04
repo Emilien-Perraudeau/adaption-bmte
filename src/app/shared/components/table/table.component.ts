@@ -12,6 +12,7 @@ export class TableComponent implements OnInit {
   @Input() numberOrder!: number;
   @Input() dishes!: DishComponent[];
   @Input() date!: Date;
+  @Input() simpleView: boolean = false;
 
   @Output() tableClick = new EventEmitter<void>();
 

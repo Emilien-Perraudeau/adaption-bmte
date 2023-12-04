@@ -20,6 +20,8 @@ import {FormsModule} from "@angular/forms";
 import {MatButtonModule} from "@angular/material/button";
 import { MatMenuItem } from "@angular/material/menu";
 import {MatButtonToggleModule} from "@angular/material/button-toggle";
+import { PreparationModeComponent } from './pages/mural/preparation-mode/preparation-mode.component';
+import {AppRoutingModule} from "./app-routing-module";
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import {MatButtonToggleModule} from "@angular/material/button-toggle";
     RecipeComponent,
     RushModeComponent,
     NormalModeComponent,
-    SettingsComponent
+    SettingsComponent,
+    NormalModeComponent,
+    PreparationModeComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +47,8 @@ import {MatButtonToggleModule} from "@angular/material/button-toggle";
     MatSelectModule,
     FormsModule,
     MatButtonModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
