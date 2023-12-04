@@ -5,19 +5,22 @@
       "category": "Grill",
       "image": "assets/images/poulet_roti.jpg",
       "quantity": 10,
-      "customerSpecification": ["Sans peau", "Extra sauce"]
+      "customerSpecification": ["Sans peau", "Extra sauce"],
+      "state": "DONE"
     },
     {
       "name": "Pizza Margherita",
       "category": "Pizzas",
-      "image": "src/assets/images/pizza_margherita.jpg",
-      "quantity": 5
+      "image": "assets/images/pizza_margherita.jpg",
+      "quantity": 5,
+      "state": "IN_PROGRESS"
     },
     {
       "name": "Tarte Tatin",
       "category": "Desserts",
-      "image": "src/assets/images/tarte_tatin.jpg",
-      "quantity": 4
+      "image": "assets/images/tarte_tatin.jpg",
+      "quantity": 4,
+      "state": "NOT_ASSIGNED"
     }
   ],
   "positions": [
@@ -45,51 +48,126 @@
       "numberTable": 1,
       "numberOrder": 201,
       "dishes": [
-        { "name": "Poulet Rôti", "quantity": 2 },
-        { "name": "Pizza Margherita", "quantity": 1 },
-        { "name": "Porc sauté", "quantity": 1 },
-        { "name": "Pate carbonara", "quantity": 1 },
-        { "name": "Rizoto", "quantity": 1 }
+        {
+      "name": "Poulet Rôti",
+      "category": "Grill",
+      "image": "assets/images/poulet_roti.jpg",
+      "quantity": 10,
+      "customerSpecification": ["Sans peau", "Extra sauce"],
+      "state": "DONE"
+    },
+        {
+      "name": "Pizza Margherita",
+      "category": "Pizzas",
+      "image": "assets/images/pizza_margherita.jpg",
+      "quantity": 5,
+      "state": "IN_PROGRESS"
+    }
       ]
     },
     {
       "numberTable": 2,
       "numberOrder": 202,
       "dishes": [
-        { "name": "Poulet Rôti", "quantity": 1 },
-        { "name": "Tarte Tatin", "quantity": 1 }
+        {
+          "name": "Poulet Rôti",
+          "category": "Grill",
+          "image": "assets/images/poulet_roti.jpg",
+          "quantity": 1,
+          "customerSpecification": ["Sans peau", "Extra sauce"],
+          "state": "DONE"
+        },
+        {
+      "name": "Tarte Tatin",
+      "category": "Desserts",
+      "image": "assets/images/tarte_tatin.jpg",
+      "quantity": 4,
+      "state": "NOT_ASSIGNED"
+    }
       ]
     },
     {
       "numberTable": 3,
       "numberOrder": 201,
       "dishes": [
-        { "name": "Poulet Rôti", "quantity": 2 },
-        { "name": "Pizza Margherita", "quantity": 1 }
+        {
+      "name": "Poulet Rôti",
+      "category": "Grill",
+      "image": "assets/images/poulet_roti.jpg",
+      "quantity": 10,
+      "customerSpecification": ["Sans peau", "Extra sauce"],
+      "state": "DONE"
+    },
+        {
+      "name": "Pizza Margherita",
+      "category": "Pizzas",
+      "image": "assets/images/pizza_margherita.jpg",
+      "quantity": 5,
+      "state": "IN_PROGRESS"
+    }
       ]
     },
     {
       "numberTable": 4,
       "numberOrder": 202,
       "dishes": [
-        { "name": "Poulet Rôti", "quantity": 1 },
-        { "name": "Tarte Tatin", "quantity": 1 }
+        {
+          "name": "Poulet Rôti",
+          "category": "Grill",
+          "image": "assets/images/poulet_roti.jpg",
+          "quantity": 1,
+          "customerSpecification": ["Sans peau", "Extra sauce"],
+          "state": "DONE"
+        },
+        {
+      "name": "Tarte Tatin",
+      "category": "Desserts",
+      "image": "assets/images/tarte_tatin.jpg",
+      "quantity": 4,
+      "state": "NOT_ASSIGNED"
+    }
       ]
     },
     {
       "numberTable": 5,
       "numberOrder": 202,
       "dishes": [
-        { "name": "Poulet Rôti", "quantity": 1 },
-        { "name": "Tarte Tatin", "quantity": 1 }
+        {
+          "name": "Poulet Rôti",
+          "category": "Grill",
+          "image": "assets/images/poulet_roti.jpg",
+          "quantity": 1,
+          "customerSpecification": ["Sans peau", "Extra sauce"],
+          "state": "DONE"
+        },
+        {
+      "name": "Tarte Tatin",
+      "category": "Desserts",
+      "image": "assets/images/tarte_tatin.jpg",
+      "quantity": 4,
+      "state": "NOT_ASSIGNED"
+    }
       ]
     },
     {
       "numberTable": 6,
       "numberOrder": 202,
       "dishes": [
-        { "name": "Poulet Rôti", "quantity": 1 },
-        { "name": "Tarte Tatin", "quantity": 1 }
+        {
+          "name": "Poulet Rôti",
+          "category": "Grill",
+          "image": "assets/images/poulet_roti.jpg",
+          "quantity": 1,
+          "customerSpecification": ["Sans peau", "Extra sauce"],
+          "state": "DONE"
+        },
+        {
+      "name": "Tarte Tatin",
+      "category": "Desserts",
+      "image": "assets/images/tarte_tatin.jpg",
+      "quantity": 4,
+      "state": "NOT_ASSIGNED"
+    }
       ]
     }
   ]
