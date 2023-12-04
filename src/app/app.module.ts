@@ -28,7 +28,7 @@ import {MatButtonToggleModule} from "@angular/material/button-toggle";
     TableComponent,
     DishComponent,
     RecipeComponent,
-    RushModeComponent
+    RushModeComponent,
     NormalModeComponent,
     SettingsComponent
   ],
