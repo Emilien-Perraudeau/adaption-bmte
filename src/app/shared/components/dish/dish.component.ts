@@ -14,4 +14,13 @@ export class DishComponent {
   @Input() customerSpecification?: string[];
   @Input() recipe!: RecipeComponent;
   @Input() isExpanded!: boolean;
+  isSelected: boolean = false;
+
+  checkboxChanged() {
+    if (this.isSelected) {
+      // Logique à exécuter lorsque le plat est sélectionné
+    } else {
+      // Logique à exécuter lorsque le plat n'est plus sélectionné
+    }
+  }
 }

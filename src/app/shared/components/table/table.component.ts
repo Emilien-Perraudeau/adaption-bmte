@@ -18,6 +18,7 @@ export class TableComponent implements OnInit {
 
   isTabletMode = false;
 
+
   constructor(private breakpointObserver: BreakpointObserver) {}
 
   ngOnInit() {
