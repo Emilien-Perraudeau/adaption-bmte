@@ -1,0 +1,15 @@
+.timeline {
+  display: flex;
+  margin-top: 20px;
+}
+
+.timeline-event {
+  height: 20px;
+  width: 100%;
+  margin-right: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 12px;
+}

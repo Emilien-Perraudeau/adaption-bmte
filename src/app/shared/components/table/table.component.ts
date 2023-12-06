@@ -15,7 +15,7 @@ export class TableComponent implements OnInit {
   @Input() time!: Date;
   @Input() simpleView: boolean = false;
   @Output() tableClick = new EventEmitter<void>();
-
+  color!: string;
   isTabletMode = false;
 
 
@@ -26,6 +26,8 @@ export class TableComponent implements OnInit {
       .subscribe(result => {
         this.isTabletMode = result.matches;
       });
+
+    this.color = this.generateColor(this.numberTable);
   }
 
   handleTableClick() {
@@ -38,5 +40,10 @@ export class TableComponent implements OnInit {
   getDisplayedDishes(): DishComponent[] {
     // Seulement les 4 premiers plats en mode tablette
     return this.isTabletMode ? this.dishes.slice(0, 4) : this.dishes;
+  }
+
+  private generateColor(tableId: number): string {
+    const hue = (tableId * 137.508) % 360;
+    return `hsl(${hue}, 70%, 70%)`;
   }
 }

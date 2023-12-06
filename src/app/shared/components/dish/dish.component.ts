@@ -19,6 +19,7 @@ export class DishComponent implements OnInit {
   @Input() recipeExpert!: string[];
   @Input() recipeNovice!: string[];
   @Input() isExpanded!: boolean;
+  @Input() color!:string;
 
   isTabletMode:boolean = false;
   isSelected: boolean = false;

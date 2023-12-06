@@ -1,0 +1,5 @@
+<div class="timeline">
+  <div *ngFor="let event of timeline" class="timeline-event" [style.background]="event.color">
+    {{ event.time | date:'HH:mm:ss' }}
+  </div>
+</div>
