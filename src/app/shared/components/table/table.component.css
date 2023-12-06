@@ -1,16 +1,15 @@
 /* Default styles for TableComponent */
 .table-container {
   border: 1px solid #ccc;
-  padding: 15px;
-  margin: 10px;
+  padding: 2%;
+  margin: 1%;
   border-radius: 8px;
-  width: 300px;
-  height: 100%;
+  width: 96%; /* Use a percentage for width */
 }
 
 .table-info {
   background-color: #f2f2f2;
-  padding: 10px;
+  padding: 1%;
   border-bottom: 1px solid #ccc;
   border-radius: 8px 8px 0 0;
 }
@@ -21,21 +20,19 @@
 }
 
 .dishes-list {
-  padding: 10px;
+  padding: 1%;
 }
 
 /* Responsive styles for smaller screens */
 @media screen and (max-width: 768px) {
   .table-container {
-    width: 100%; /* Tables take up full width on smaller screens */
-    max-width: none; /* Remove max-width constraint */
-    background-color: red;
+    width: 100%;
+    max-width: none;
   }
 
-  /* Styles for tablet mode */
-  .tablet-mode .dishes-list {
+  .dishes-list {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(48%, 1fr)); /* Adjust as needed */
+    gap: 2%;
   }
 }

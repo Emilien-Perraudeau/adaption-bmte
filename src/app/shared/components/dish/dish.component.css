@@ -1,21 +1,21 @@
+/* Default styles for DishComponent */
 .dish-container {
   display: flex;
   border: 1px solid #ccc;
-  margin: 10px;
+  margin: 1%;
   border-radius: 8px;
 }
 
 .color-square {
-  width: 20px;
-  height: 20px;
-  margin-right: 10px;
+  width: 5%; /* Adjust as needed */
+  height: 20px; /* Keep fixed height */
+  margin-right: 1%;
   display: inline-block;
 }
 
-
 .image-container {
   flex: 1;
-  padding: 10px;
+  padding: 1%;
 }
 
 .image {
@@ -26,7 +26,7 @@
 
 .text-container {
   flex: 2;
-  padding: 10px;
+  padding: 1%;
 }
 
 .text-container p {
@@ -35,7 +35,7 @@
 }
 
 .text-container div {
-  margin-top: 5px;
+  margin-top: 0.5%; /* Adjust as needed */
 }
 
 /* Responsive styles for smaller screens */
@@ -44,9 +44,14 @@
     flex-direction: column;
   }
 
+  .color-square {
+    margin-right: 0; /* Remove margin for color square in column layout */
+  }
+
   .image-container,
   .text-container {
     flex: 1;
+    padding: 1%; /* Adjust as needed */
   }
 
   .text-container {

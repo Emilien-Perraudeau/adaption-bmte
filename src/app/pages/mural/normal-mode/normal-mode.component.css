@@ -6,8 +6,6 @@
 
 .tables-container {
   display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
   justify-content: flex-start; /* Alignement à gauche au lieu de space-between */
   flex-grow: 1;
 }
