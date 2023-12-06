@@ -1,7 +1,9 @@
 <div class="table-container">
   <div class="table-info">
-    <h2>Table {{ this.numberTable }}</h2>
-    <p>#{{ this.numberOrder }}</p>
+    <h2> {{time.getHours()}}:{{time.getMinutes()}}:{{time.getSeconds()}} </h2>
+    <div class="sous-titre">
+    <p class="numberTable">Table {{ this.numberTable }}</p>
+    <p class="numberTable">#{{ this.numberOrder }}</p></div>
   </div>
 
   <!-- Affiche le nombre de plats si simpleView est vrai -->

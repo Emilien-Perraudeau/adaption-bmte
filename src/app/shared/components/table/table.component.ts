@@ -1,6 +1,7 @@
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { DishComponent } from '../dish/dish.component';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import {Time} from "@angular/common";
 
 @Component({
   selector: 'app-table',
@@ -11,7 +12,7 @@ export class TableComponent implements OnInit {
   @Input() numberTable!: number;
   @Input() numberOrder!: number;
   @Input() dishes!: DishComponent[];
-  @Input() date!: Date;
+  @Input() time!: Date;
   @Input() simpleView: boolean = false;
   @Output() tableClick = new EventEmitter<void>();
 
@@ -25,6 +26,7 @@ export class TableComponent implements OnInit {
       .subscribe(result => {
         this.isTabletMode = result.matches;
       });
+    this.time = new Date(this.time);
   }
 
   handleTableClick() {
