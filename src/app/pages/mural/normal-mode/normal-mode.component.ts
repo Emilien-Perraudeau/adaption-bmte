@@ -14,7 +14,6 @@ import {DishService} from "../../../services/dish.service";
 export class NormalModeComponent implements OnInit {
   tables: TableComponent[] = [];
   isTabletMode = false;
-
   constructor(
     private tableService: TableService,
     private dishService: DishService,

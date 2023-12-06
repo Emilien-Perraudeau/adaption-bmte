@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {DishState} from "../../enums/dish-state";
 import {SharedDataService} from "../../../services/shared-data.service";
+import {BreakpointObserver, Breakpoints} from "@angular/cdk/layout";
 
 @Component({
   selector: 'app-dish',
@@ -18,10 +19,20 @@ export class DishComponent implements OnInit {
   @Input() recipeExpert!: string[];
   @Input() recipeNovice!: string[];
   @Input() isExpanded!: boolean;
+
+  isTabletMode:boolean = false;
   isSelected: boolean = false;
 
-  constructor(private sharedDataService: SharedDataService) {}
+  constructor(private sharedDataService: SharedDataService, private breakpointObserver: BreakpointObserver) {}
 
+  ngOnInit(): void {
+    console.log(this)
+
+    this.breakpointObserver.observe([Breakpoints.Handset, Breakpoints.Tablet])
+      .subscribe(result => {
+        this.isTabletMode = result.matches;
+      });
+  }
 
   getColor(): string {
     switch (this.state) {
@@ -34,10 +45,6 @@ export class DishComponent implements OnInit {
       default:
         return 'white';
     }
-  }
-
-  ngOnInit(): void {
-    console.log(this)
   }
 
   checkboxChanged() {

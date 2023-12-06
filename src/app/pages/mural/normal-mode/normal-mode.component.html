@@ -4,7 +4,7 @@
 </div>
 
 <div class="big-container">
-  <app-settings></app-settings>
+  <app-settings *ngIf="isTabletMode"></app-settings>
   <div class="tables-container">
     <div *ngFor="let table of tables; let i = index">
       <app-table *ngIf="i <= 3"
@@ -14,10 +14,7 @@
                  [simpleView]="false"
       ></app-table>
     </div>
-
   </div>
-
-
 
   <div class="side-table-container">
     <h1>Prochaine commande</h1>
@@ -33,10 +30,6 @@
     <button (click)="onRushMode()">Rush Mode</button>
   </div>
 
-
-
 </div>
-
-
-<button (click)="ajouterNouvelleTable()">Ajouter une nouvelle table</button>
+  <button (click)="ajouterNouvelleTable()">Ajouter une nouvelle table</button>
 </div>
