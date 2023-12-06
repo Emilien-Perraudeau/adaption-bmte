@@ -26,7 +26,6 @@ export class TableComponent implements OnInit {
       .subscribe(result => {
         this.isTabletMode = result.matches;
       });
-    this.time = new Date(this.time);
   }
 
   handleTableClick() {

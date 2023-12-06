@@ -32,6 +32,12 @@
   float: right;
 }
 
+.dishes-count {
+  background-color: white;
+  padding: .5rem;
+  border-radius: 0 0 8px 8px;
+}
+
 /* Responsive styles for smaller screens */
 @media screen and (max-width: 768px) {
   .table-container {

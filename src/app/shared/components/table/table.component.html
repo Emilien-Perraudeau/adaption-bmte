@@ -1,6 +1,6 @@
 <div class="table-container">
   <div class="table-info">
-    <h2> {{time.getHours()}}:{{time.getMinutes()}}:{{time.getSeconds()}} </h2>
+    <h2> {{ time | date:'HH:mm:ss' }} </h2>
     <div class="sous-titre">
     <p class="numberTable">Table {{ this.numberTable }}</p>
     <p class="numberTable">#{{ this.numberOrder }}</p></div>
