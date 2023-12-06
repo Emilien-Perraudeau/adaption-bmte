@@ -24,7 +24,6 @@ export class DishComponent implements OnInit {
 
 
   getColor(): string {
-    console.log(this.state)
     switch (this.state) {
       case DishState.NotAssigned:
         return 'red';
