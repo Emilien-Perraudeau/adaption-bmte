@@ -1,72 +1,7 @@
 {
-  "dishes": [
-    {
-      "name": "Poulet Rôti",
-      "category": "Grill",
-      "image": "assets/images/poulet_roti.jpg",
-      "quantity": 10,
-      "customerSpecification": ["Sans peau", "Extra sauce"],
-      "state": "DONE"
-    },
-    {
-      "name": "Pizza Margherita",
-      "category": "Pizzas",
-      "image": "assets/images/pizza_margherita.jpg",
-      "quantity": 5,
-      "state": "IN_PROGRESS"
-    },
-    {
-      "name": "Tarte Tatin",
-      "category": "Desserts",
-      "image": "assets/images/tarte_tatin.jpg",
-      "quantity": 4,
-      "state": "NOT_ASSIGNED"
-    }
-  ],
-  "positions": [
-    {
-      "numberOfPosition": 1,
-      "name": "Chef de cuisine"
-    },
-    {
-      "numberOfPosition": 2,
-      "name": "Sous-chef"
-    }
-  ],
-  "recipes": [
-    {
-      "title": "Crème Brûlée",
-      "steps": ["Chauffer la crème", "Ajouter du sucre", "Brûler le dessus"]
-    },
-    {
-      "title": "Tarte Tatin",
-      "steps": ["Préparer les pommes", "Faire caraméliser", "Cuire au four"]
-    }
-  ],
   "tables": [
     {
       "numberTable": 1,
-      "numberOrder": 201,
-      "dishes": [
-        {
-      "name": "Poulet Rôti",
-      "category": "Grill",
-      "image": "assets/images/poulet_roti.jpg",
-      "quantity": 10,
-      "customerSpecification": ["Sans peau", "Extra sauce"],
-      "state": "DONE"
-    },
-        {
-      "name": "Pizza Margherita",
-      "category": "Pizzas",
-      "image": "assets/images/pizza_margherita.jpg",
-      "quantity": 5,
-      "state": "IN_PROGRESS"
-    }
-      ]
-    },
-    {
-      "numberTable": 2,
       "numberOrder": 202,
       "dishes": [
         {
@@ -74,37 +9,131 @@
           "category": "Grill",
           "image": "assets/images/poulet_roti.jpg",
           "quantity": 1,
-          "customerSpecification": ["Sans peau", "Extra sauce"],
-          "state": "DONE"
+          "ingredients": [
+            "ingredient1",
+            "ingredient2"
+          ],
+          "customerSpecification": [
+            "Sans peau",
+            "Extra sauce"
+          ],
+          "state": "DONE",
+          "recipeExpert": [
+            "Étape Expert 1 pour Poulet Rôti",
+            "Étape Expert 2 pour Poulet Rôti"
+          ],
+          "recipeNovice": [
+            "Étape Novice 1 pour Poulet Rôti",
+            "Étape Novice 2 pour Poulet Rôti"
+          ]
+        },  
+        {
+          "name": "Tarte Tatin",
+          "category": "Desserts",
+          "image": "assets/images/tarte_tatin.jpg",
+          "quantity": 4,
+          "state": "NOT_ASSIGNED",
+          "ingredients": [
+            "ingredient1",
+            "ingredient2"
+          ],
+          "recipeExpert": [
+            "Étape Expert 1 pour Tarte Tatin",
+            "Étape Expert 2 pour Tarte Tatin"
+          ],
+          "recipeNovice": [
+            "Étape Novice 1 pour Tarte Tatin",
+            "Étape Novice 2 pour Tarte Tatin"
+          ]
+        }
+      ]
+    },
+    {
+      "numberTable": 2,
+      "numberOrder": 201,
+      "dishes": [
+        {
+          "name": "Pizza Margherita",
+          "category": "Pizzas",
+          "image": "assets/images/pizza_margherita.jpg",
+          "quantity": 5,
+          "state": "IN_PROGRESS",
+          "ingredients": [
+            "ingredient1",
+            "ingredient2"
+          ],
+          "recipeExpert": [
+            "Étape Expert 1 pour Pizza Margherita",
+            "Étape Expert 2 pour Pizza Margherita"
+          ],
+          "recipeNovice": [
+            "Étape Novice 1 pour Pizza Margherita",
+            "Étape Novice 2 pour Pizza Margherita"
+          ]
         },
         {
-      "name": "Tarte Tatin",
-      "category": "Desserts",
-      "image": "assets/images/tarte_tatin.jpg",
-      "quantity": 4,
-      "state": "NOT_ASSIGNED"
-    }
+          "name": "Lasagne",
+          "category": "Pâtes",
+          "image": "assets/images/lasagne.jpg",
+          "quantity": 3,
+          "ingredients": [
+            "ingredient1",
+            "ingredient2"
+          ],
+          "state": "NOT_ASSIGNED",
+          "recipeExpert": [
+            "Étape Expert 1 pour Lasagne",
+            "Étape Expert 2 pour Lasagne"
+          ],
+          "recipeNovice": [
+            "Étape Novice 1 pour Lasagne",
+            "Étape Novice 2 pour Lasagne"
+          ]
+        }
       ]
     },
     {
       "numberTable": 3,
-      "numberOrder": 201,
+      "numberOrder": 202,
       "dishes": [
         {
-      "name": "Poulet Rôti",
-      "category": "Grill",
-      "image": "assets/images/poulet_roti.jpg",
-      "quantity": 10,
-      "customerSpecification": ["Sans peau", "Extra sauce"],
-      "state": "DONE"
-    },
+          "name": "Salade César",
+          "category": "Salades",
+          "image": "assets/images/salade_cesar.jpg",
+          "quantity": 2,
+          "state": "DONE",
+          "ingredients": [
+            "ingredient1",
+            "ingredient2"
+          ],
+          "recipeExpert": [
+            "Étape Expert 1 pour Salade César",
+            "Étape Expert 2 pour Salade César"
+          ],
+          "recipeNovice": [
+            "Étape Novice 1 pour Salade César",
+            "Étape Novice 2 pour Salade César"
+          ]
+        },
         {
-      "name": "Pizza Margherita",
-      "category": "Pizzas",
-      "image": "assets/images/pizza_margherita.jpg",
-      "quantity": 5,
-      "state": "IN_PROGRESS"
-    }
+          "name": "Crème Brûlée",
+          "category": "Desserts",
+          "image": "assets/images/creme_brulee.jpg",
+          "quantity": 3,
+          "state": "IN_PROGRESS",
+          "ingredients": [
+            "ingredient1",
+            "ingredient2"
+          ],
+          "recipeExpert": [
+            "Étape Expert 1 pour Crème Brûlée",
+            "Étape Expert 2 pour Crème Brûlée"
+          ],
+          "recipeNovice": [
+            "Étape Novice 1 pour Crème Brûlée",
+            "Étape Novice 2 pour Crème Brûlée"
+          ]
+        }
       ]
     },
     {
@@ -112,20 +141,43 @@
       "numberOrder": 202,
       "dishes": [
         {
-          "name": "Poulet Rôti",
-          "category": "Grill",
-          "image": "assets/images/poulet_roti.jpg",
-          "quantity": 1,
-          "customerSpecification": ["Sans peau", "Extra sauce"],
-          "state": "DONE"
+          "name": "Bœuf Bourguignon",
+          "category": "Plats Principaux",
+          "image": "assets/images/boeuf_bourguignon.jpg",
+          "quantity": 2,
+          "state": "DONE",
+          "ingredients": [
+            "ingredient1",
+            "ingredient2"
+          ],
+          "recipeExpert": [
+            "Étape Expert 1 pour Bœuf Bourguignon",
+            "Étape Expert 2 pour Bœuf Bourguignon"
+          ],
+          "recipeNovice": [
+            "Étape Novice 1 pour Bœuf Bourguignon",
+            "Étape Novice 2 pour Bœuf Bourguignon"
+          ]
         },
         {
-      "name": "Tarte Tatin",
-      "category": "Desserts",
-      "image": "assets/images/tarte_tatin.jpg",
-      "quantity": 4,
-      "state": "NOT_ASSIGNED"
-    }
+          "name": "Gâteau au Chocolat",
+          "category": "Desserts",
+          "image": "assets/images/gateau_chocolat.jpg",
+          "quantity": 4,
+          "state": "NOT_ASSIGNED",
+          "ingredients": [
+            "ingredient1",
+            "ingredient2"
+          ],
+          "recipeExpert": [
+            "Étape Expert 1 pour Gâteau au Chocolat",
+            "Étape Expert 2 pour Gâteau au Chocolat"
+          ],
+          "recipeNovice": [
+            "Étape Novice 1 pour Gâteau au Chocolat",
+            "Étape Novice 2 pour Gâteau au Chocolat"
+          ]
+        }
       ]
     },
     {
@@ -133,41 +185,43 @@
       "numberOrder": 202,
       "dishes": [
         {
-          "name": "Poulet Rôti",
-          "category": "Grill",
-          "image": "assets/images/poulet_roti.jpg",
+          "name": "Soupe à l'Oignon",
+          "category": "Soupes",
+          "image": "assets/images/soupe_oignon.jpg",
           "quantity": 1,
-          "customerSpecification": ["Sans peau", "Extra sauce"],
-          "state": "DONE"
+          "state": "DONE",
+          "ingredients": [
+            "ingredient1",
+            "ingredient2"
+          ],
+          "recipeExpert": [
+            "Étape Expert 1 pour Soupe à l'Oignon",
+            "Étape Expert 2 pour Soupe à l'Oignon"
+          ],
+          "recipeNovice": [
+            "Étape Novice 1 pour Soupe à l'Oignon",
+            "Étape Novice 2 pour Soupe à l'Oignon"
+          ]
         },
         {
-      "name": "Tarte Tatin",
-      "category": "Desserts",
-      "image": "assets/images/tarte_tatin.jpg",
-      "quantity": 4,
-      "state": "NOT_ASSIGNED"
-    }
-      ]
-    },
-    {
-      "numberTable": 6,
-      "numberOrder": 202,
-      "dishes": [
-        {
-          "name": "Poulet Rôti",
-          "category": "Grill",
-          "image": "assets/images/poulet_roti.jpg",
-          "quantity": 1,
-          "customerSpecification": ["Sans peau", "Extra sauce"],
-          "state": "DONE"
-        },
-        {
-      "name": "Tarte Tatin",
-      "category": "Desserts",
-      "image": "assets/images/tarte_tatin.jpg",
-      "quantity": 4,
-      "state": "NOT_ASSIGNED"
-    }
+          "name": "Quiche Lorraine",
+          "category": "Quiches",
+          "image": "assets/images/quiche_lorraine.jpg",
+          "quantity": 3,
+          "state": "IN_PROGRESS",
+          "ingredients": [
+            "ingredient1",
+            "ingredient2"
+          ],
+          "recipeExpert": [
+            "Étape Expert 1 pour Quiche Lorraine",
+            "Étape Expert 2 pour Quiche Lorraine"
+          ],
+          "recipeNovice": [
+            "Étape Novice 1 pour Quiche Lorraine",
+            "Étape Novice 2 pour Quiche Lorraine"
+          ]
+        }
       ]
     }
   ]

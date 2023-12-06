@@ -15,7 +15,11 @@
               [name]="dish.name"
               [image]="dish.image"
               [quantity]="dish.quantity"
-              [customerSpecification]="dish.customerSpecification"
+              [customerSpecification]="dish.customerSpecification ?? []"
+              [ingredients]="dish.ingredients"
+              [state]="dish.state"
+              [recipeExpert]="dish.recipeExpert"
+              [recipeNovice]="dish.recipeNovice"
     ></app-dish>
   </div>
 </div>

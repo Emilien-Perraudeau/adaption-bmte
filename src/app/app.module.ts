@@ -5,7 +5,6 @@ import { AppComponent } from './app.component';
 import { PositionComponent } from './shared/components/position/position.component';
 import { TableComponent } from './shared/components/table/table.component';
 import { DishComponent } from './shared/components/dish/dish.component';
-import { RecipeComponent } from './shared/components/recipe/recipe.component';
 import { NormalModeComponent } from './pages/mural/normal-mode/normal-mode.component';
 import {HttpClientModule} from "@angular/common/http";
 import { RushModeComponent } from './pages/mural/rush-mode/rush-mode.component';
@@ -21,6 +20,7 @@ import {MatButtonModule} from "@angular/material/button";
 import { MatMenuItem } from "@angular/material/menu";
 import {MatButtonToggleModule} from "@angular/material/button-toggle";
 import { PreparationModeComponent } from './pages/mural/preparation-mode/preparation-mode.component';
+import { MatExpansionModule } from '@angular/material/expansion';
 import {AppRoutingModule} from "./app-routing-module";
 
 @NgModule({
@@ -29,7 +29,6 @@ import {AppRoutingModule} from "./app-routing-module";
     PositionComponent,
     TableComponent,
     DishComponent,
-    RecipeComponent,
     RushModeComponent,
     NormalModeComponent,
     SettingsComponent,
@@ -48,6 +47,7 @@ import {AppRoutingModule} from "./app-routing-module";
     FormsModule,
     MatButtonModule,
     MatButtonToggleModule,
+    MatExpansionModule,
     AppRoutingModule
   ],
   providers: [],

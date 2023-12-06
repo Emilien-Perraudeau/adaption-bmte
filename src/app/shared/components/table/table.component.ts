@@ -13,7 +13,6 @@ export class TableComponent implements OnInit {
   @Input() dishes!: DishComponent[];
   @Input() date!: Date;
   @Input() simpleView: boolean = false;
-
   @Output() tableClick = new EventEmitter<void>();
 
   isTabletMode = false;
@@ -22,7 +21,6 @@ export class TableComponent implements OnInit {
   constructor(private breakpointObserver: BreakpointObserver) {}
 
   ngOnInit() {
-    // Détectez les changements de taille d'écran pour déterminer le mode tablette
     this.breakpointObserver.observe([Breakpoints.Handset, Breakpoints.Tablet])
       .subscribe(result => {
         this.isTabletMode = result.matches;

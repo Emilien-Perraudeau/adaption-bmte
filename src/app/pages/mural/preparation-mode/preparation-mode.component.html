@@ -1,8 +1,36 @@
+<!-- preparation-mode.component.html -->
+
 <div class="preparation-mode">
-  <div *ngFor="let dish of selectedDishes" class="dish-item" (click)="toggleRecipe(dish)">
-    <h3>{{ dish.name }}</h3>
-    <div class="recipe" *ngIf="dish.isExpanded">
-      <!-- Ici, affichez les détails de la recette de dish -->
-    </div>
-  </div>
+  <mat-accordion>
+    <mat-expansion-panel *ngFor="let dish of selectedDishes">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          {{ dish.name }}
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+
+      <!-- Affichage en fonction du mode expert ou novice -->
+      <div *ngIf="isExpertMode()">
+        <h3>Ingrédients</h3>
+        <ul>
+          <li *ngFor="let ingredient of dish.ingredients">{{ ingredient }}</li>
+        </ul>
+        <h3>Étapes</h3>
+        <ol>
+          <li *ngFor="let step of dish.recipeExpert">{{ step }}</li>
+        </ol>
+      </div>
+
+      <div *ngIf="!isExpertMode()">
+        <h3>Ingrédients</h3>
+        <ul>
+          <li *ngFor="let ingredient of dish.ingredients">{{ ingredient }}</li>
+        </ul>
+        <h3>Étapes</h3>
+        <ol>
+          <li *ngFor="let step of dish.recipeNovice">{{ step }}</li>
+        </ol>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
 </div>

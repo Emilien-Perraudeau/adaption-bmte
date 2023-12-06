@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {RecipeComponent} from "../recipe/recipe.component"
 import {DishState} from "../../enums/dish-state";
+import {SharedDataService} from "../../../services/shared-data.service";
 
 @Component({
   selector: 'app-dish',
@@ -13,10 +13,15 @@ export class DishComponent implements OnInit {
   @Input() quantity!: number;
   @Input() category!: string;
   @Input() customerSpecification?: string[];
-  @Input() recipe!: RecipeComponent;
-  @Input() isExpanded!: boolean;
   @Input() state!: DishState;
+  @Input() ingredients!: string[];
+  @Input() recipeExpert!: string[];
+  @Input() recipeNovice!: string[];
+  @Input() isExpanded!: boolean;
   isSelected: boolean = false;
+
+  constructor(private sharedDataService: SharedDataService) {}
+
 
   getColor(): string {
     console.log(this.state)
@@ -37,10 +42,14 @@ export class DishComponent implements OnInit {
   }
 
   checkboxChanged() {
-    if (this.isSelected) {
-      // Logique à exécuter lorsque le plat est sélectionné
-    } else {
-      // Logique à exécuter lorsque le plat n'est plus sélectionné
-    }
+    this.isSelected ? this.sharedDataService.selectDish(this) :
+      this.sharedDataService.deselectDish(this);
   }
+
+  getRecipeNovice(){
+    return this.recipeNovice;
+  }
+
+
+
 }

@@ -32,6 +32,10 @@ export class NormalModeComponent implements OnInit {
   }
 
   onValidate() {
-    this.router.navigate(['/rush-mode']);
+    this.router.navigate(['/preparation-mode']);
+  }
+
+  onRushMode(){
+    this.router.navigate(['/rush-mode'])
   }
 }

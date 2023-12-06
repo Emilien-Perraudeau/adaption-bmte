@@ -5,7 +5,7 @@
   <mat-menu #menu="matMenu">
     <!-- Mode Novice/Expert -->
     <div mat-menu-item>
-      <mat-checkbox [(ngModel)]="isExpertMode" (click) = "$event.stopPropagation()">Mode Expert</mat-checkbox>
+      <mat-checkbox [(ngModel)]="isExpertMode" (change)="onExpertModeChange()" (click) = "$event.stopPropagation()">Mode Expert</mat-checkbox>
     </div>
 <br>
     <p>Nombre de cuisiniers</p>
