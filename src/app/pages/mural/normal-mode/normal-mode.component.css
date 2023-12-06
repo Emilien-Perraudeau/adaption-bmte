@@ -19,7 +19,8 @@
 .side-table-container {
   background-color: grey;
   width: max-content;
-  padding: 1%;
+  padding: 0.5rem;
+  margin-left: 1rem;
 }
 
 .side-table-container h1 {
@@ -50,4 +51,14 @@
     margin-top: 10px;
     height: auto;
   }
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem;
+  background-color: #fff;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
+  border-radius: 0.625rem;
 }

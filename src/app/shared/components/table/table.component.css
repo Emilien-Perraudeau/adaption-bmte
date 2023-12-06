@@ -1,10 +1,9 @@
 /* Default styles for TableComponent */
 .table-container {
   border: 1px solid #ccc;
-  padding: 2%;
-  margin: 1%;
+  margin: 1rem;
   border-radius: 8px;
-  width: 96%; /* Use a percentage for width */
+  max-width: 25rem;
 }
 
 .table-info {
