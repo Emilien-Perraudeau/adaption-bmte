@@ -1,39 +1,36 @@
-.component-container {
+.main-container {
+  display: flex;
+  flex-direction: column;
   font-family: "Roboto", sans-serif;
   font-size: 1rem;
-  line-height: 1.5;
+  line-height: 1.5rem;
   color: #333;
-  height: 100vh;
-}
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1.25rem;
-  background-color: #fff;
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
   border-radius: 0.625rem;
+  height: 90svh;
 }
 
-.main-container {
-  margin: 1rem;
-  max-height: 40rem;
-  overflow: auto;
-  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
-  border-radius: 0.625rem;
+.main-container h2 {
+  margin: 0;
+  padding: 1rem;
+  text-align: right;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  color: #333;
 }
 
 
 .current-dishes-container {
+  border: 0;
+  height: 80%;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   align-items: center;
-  padding: 1.25rem;
 }
 
 .category-container {
-  margin: 1rem;
-  padding: 1.25rem;
+  margin: 0.1rem;
+  padding: 1rem;
   background-color: #f9f9f9;
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
   border-radius: 0.625rem;
@@ -49,33 +46,29 @@
 .dishes-in-category {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 1rem;
-}
-
-.dishes-in-category div {
-  border: 1px solid #ccc;
-  border-radius: 0.5rem;
-  padding: 0.625rem;
-  text-align: center;
-  background-color: #fff;
+  gap: 0.1em;
 }
 
 .upcoming-dishes-info {
-  padding: 0.625rem;
+  padding: 2rem;
   text-align: center;
   font-style: italic;
   color: #666;
 }
 
 .footer {
-  padding: 1rem;
+  border : 0;
+  box-sizing: border-box;
+  height: 15%;
+  display: flex;
   background-color: #f2f2f2;
-  border-top: 1px solid #ccc;
 }
 
-.upcoming-dishes-category {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
-  gap: 1rem;
-  margin-bottom: 1rem;
+.image {
+  width: auto;
+  height: auto;
+  max-height: 5em;
+  max-width: 5em;
+  border-radius: 4px;
 }
+
