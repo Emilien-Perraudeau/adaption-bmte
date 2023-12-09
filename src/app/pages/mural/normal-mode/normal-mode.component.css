@@ -33,7 +33,7 @@
   .tables-container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
+    gap: 2px;
   }
 
   .app-table {
@@ -47,5 +47,12 @@
     padding: 0.5rem;
     margin-left: 1rem;
     margin-top: 10px;
+  }
+
+  /* Ajoutez ces styles pour éviter les conflits */
+  .tables-container .app-table {
+    flex-grow: 1;
+    max-width: calc(50% - 10px);
+    flex-basis: calc(50% - 10px);
   }
 }
