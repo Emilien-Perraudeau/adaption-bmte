@@ -19,7 +19,7 @@
             "Sans peau",
             "Extra sauce"
           ],
-          "state": "DONE",
+          "state": "IN_PROGRESS",
           "recipeExpert": [
             "Étape Expert 1 pour Poulet Rôti",
             "Étape Expert 2 pour Poulet Rôti"
@@ -62,7 +62,7 @@
           "category": "Pizzas",
           "image": "assets/images/pizza_margherita.jpg",
           "quantity": 5,
-          "state": "IN_PROGRESS",
+          "state": "NOT_ASSIGNED",
           "ingredients": [
             "ingredient1",
             "ingredient2"
@@ -86,7 +86,7 @@
             "ingredient1",
             "ingredient2"
           ],
-          "state": "NOT_ASSIGNED",
+          "state": "IN_PROGRESS",
           "recipeExpert": [
             "Étape Expert 1 pour Lasagne",
             "Étape Expert 2 pour Lasagne"
@@ -109,7 +109,7 @@
           "category": "Salades",
           "image": "assets/images/salade_cesar.jpg",
           "quantity": 2,
-          "state": "DONE",
+          "state": "NOT_ASSIGNED",
           "ingredients": [
             "ingredient1",
             "ingredient2"
@@ -156,7 +156,7 @@
           "category": "Plats Principaux",
           "image": "assets/images/boeuf_bourguignon.jpg",
           "quantity": 2,
-          "state": "DONE",
+          "state": "NOT_ASSIGNED",
           "ingredients": [
             "ingredient1",
             "ingredient2"
@@ -203,7 +203,7 @@
           "category": "Soupes",
           "image": "assets/images/soupe_oignon.jpg",
           "quantity": 1,
-          "state": "DONE",
+          "state": "NOT_ASSIGNED",
           "ingredients": [
             "ingredient1",
             "ingredient2"
@@ -223,7 +223,7 @@
           "category": "Quiches",
           "image": "assets/images/quiche_lorraine.jpg",
           "quantity": 3,
-          "state": "IN_PROGRESS",
+          "state": "NOT_ASSIGNED",
           "ingredients": [
             "ingredient1",
             "ingredient2"
@@ -257,7 +257,7 @@
             "Sans peau",
             "Extra sauce"
           ],
-          "state": "DONE",
+          "state": "NOT_ASSIGNED",
           "recipeExpert": [
             "Étape Expert 1 pour Poulet Rôti",
             "Étape Expert 2 pour Poulet Rôti"
@@ -287,7 +287,7 @@
             "Sans peau",
             "Extra sauce"
           ],
-          "state": "DONE",
+          "state": "NOT_ASSIGNED",
           "recipeExpert": [
             "Étape Expert 1 pour Poulet Rôti",
             "Étape Expert 2 pour Poulet Rôti"
@@ -317,7 +317,7 @@
             "Sans peau",
             "Extra sauce"
           ],
-          "state": "DONE",
+          "state": "NOT_ASSIGNED",
           "recipeExpert": [
             "Étape Expert 1 pour Poulet Rôti",
             "Étape Expert 2 pour Poulet Rôti"

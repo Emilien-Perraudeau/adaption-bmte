@@ -138,4 +138,26 @@ export class NormalModeComponent implements OnInit {
   isAnyDishSelected(): boolean {
     return this.sharedDataService.getSelectedDishes().length > 0;
   }
+
+  resetDishesState() {
+    this.dishService.getTables().subscribe(tables => {
+      tables.forEach(table => {
+        let tableNeedsUpdate = false;
+
+        table.dishes.forEach(dish => {
+          if (dish.state !== DishState.NotAssigned) {
+            dish.state = DishState.NotAssigned;
+            tableNeedsUpdate = true;
+          }
+        });
+
+        if (tableNeedsUpdate) {
+          this.dishService.updateTable(table).subscribe(updatedTable => {
+            console.log('Table updated after reset:', updatedTable);
+          });
+        }
+      });
+    });
+  }
+
 }
