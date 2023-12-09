@@ -1,8 +1,12 @@
-import { Component, OnInit } from '@angular/core';
-import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { TableService } from "../../../services/table.service";
-import { TableComponent } from "../../../shared/components/table/table.component";
+import {Component, OnInit} from '@angular/core';
+import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
+import {TableService} from "../../../services/table.service";
+import {TableComponent} from "../../../shared/components/table/table.component";
 import {Router} from "@angular/router";
+import {SharedDataService} from "../../../services/shared-data.service";
+import {forkJoin, Observable} from "rxjs";
+import {DishState} from "../../../shared/enums/dish-state";
+import {DishComponent} from "../../../shared/components/dish/dish.component";
 import {HttpClient} from "@angular/common/http";
 import {DishService} from "../../../services/dish.service";
 
@@ -14,13 +18,16 @@ import {DishService} from "../../../services/dish.service";
 export class NormalModeComponent implements OnInit {
   tables: TableComponent[] = [];
   isTabletMode = false;
+
   constructor(
     private tableService: TableService,
     private dishService: DishService,
     private breakpointObserver: BreakpointObserver,
     private router: Router,
+    private sharedDataService: SharedDataService,
     private http: HttpClient
-  ) {}
+  ) {
+  }
 
   ngOnInit() {
     this.tableService.getTables().subscribe(receivedTables => {
@@ -46,11 +53,40 @@ export class NormalModeComponent implements OnInit {
   }
 
 
-  onValidate() {
-    this.router.navigate(['/preparation-mode']);
+  onPreparationMode() {
+    this.dishService.getTables().subscribe(tables => {
+      const selectedDishes = this.sharedDataService.getSelectedDishes();
+      const tablesToUpdate = tables.filter(table => {
+        let tableNeedsUpdate = false;
+        table.dishes.forEach(dish => {
+          const isSelected = selectedDishes.some(selectedDish => {
+            return selectedDish.id === dish.id;
+          });
+          if (isSelected && dish.state === DishState.NotAssigned) {
+            dish.state = DishState.InProgress;
+            tableNeedsUpdate = true;
+          }
+        });
+        return tableNeedsUpdate;
+      });
+
+
+      console.log('Tables to Update:', tablesToUpdate.length);
+      if (tablesToUpdate.length > 0) {
+
+        const updateRequests = tablesToUpdate.map(table => this.dishService.updateTable(table));
+        forkJoin(updateRequests).subscribe(results => {
+          console.log('All tables updated:', results);
+          this.router.navigate(['/preparation-mode']);
+        });
+      } else {
+        this.router.navigate(['/preparation-mode']);
+      }
+    });
   }
 
-  onRushMode(){
+
+  onRushMode() {
     this.router.navigate(['/rush-mode'])
   }
 
@@ -99,4 +135,7 @@ export class NormalModeComponent implements OnInit {
   }
 
 
+  isAnyDishSelected(): boolean {
+    return this.sharedDataService.getSelectedDishes().length > 0;
+  }
 }

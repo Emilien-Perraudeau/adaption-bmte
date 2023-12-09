@@ -26,7 +26,11 @@
                  [simpleView]="true"
       ></app-table>
     </div>
-    <button (click)="onValidate()">Valider</button>
+    <button mat-raised-button color="primary"
+            [disabled]="!isAnyDishSelected()"
+            (click)="onPreparationMode()">
+      Valider
+    </button>
     <button (click)="onRushMode()">Rush Mode</button>
   </div>
 

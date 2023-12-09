@@ -9,6 +9,7 @@ import {BreakpointObserver, Breakpoints} from "@angular/cdk/layout";
   styleUrls: ['./dish.component.css']
 })
 export class DishComponent implements OnInit {
+  @Input() id!: number;
   @Input() name!: string;
   @Input() image!: string;
   @Input() quantity!: number;
@@ -27,8 +28,6 @@ export class DishComponent implements OnInit {
   constructor(private sharedDataService: SharedDataService, private breakpointObserver: BreakpointObserver) {}
 
   ngOnInit(): void {
-    console.log(this)
-
     this.breakpointObserver.observe([Breakpoints.Handset, Breakpoints.Tablet])
       .subscribe(result => {
         this.isTabletMode = result.matches;
@@ -49,9 +48,17 @@ export class DishComponent implements OnInit {
   }
 
   checkboxChanged() {
-    this.isSelected ? this.sharedDataService.selectDish(this) :
+    this.isSelected = !this.isSelected;
+
+    if (this.isSelected) {
+      this.sharedDataService.selectDish(this);
+    } else {
       this.sharedDataService.deselectDish(this);
+    }
+
+    console.log(`Plat ${this.name} sélectionné: ${this.isSelected}`);
   }
+
 
   getRecipeNovice(){
     return this.recipeNovice;

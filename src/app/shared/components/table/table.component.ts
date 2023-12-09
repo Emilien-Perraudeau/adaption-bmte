@@ -9,6 +9,7 @@ import {Time} from "@angular/common";
   styleUrls: ['./table.component.css']
 })
 export class TableComponent implements OnInit {
+  @Input() id!: number;
   @Input() numberTable!: number;
   @Input() numberOrder!: number;
   @Input() dishes!: DishComponent[];

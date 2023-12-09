@@ -1,10 +1,12 @@
 {
   "tables": [
     {
+      "id": 1,
       "numberTable": 1,
       "numberOrder": 202,
       "dishes": [
         {
+          "id": 1,
           "name": "Poulet Rôti",
           "category": "Grill",
           "image": "assets/images/poulet_roti.jpg",
@@ -28,11 +30,12 @@
           ]
         },
         {
+          "id": 2,
           "name": "Tarte Tatin",
           "category": "Desserts",
           "image": "assets/images/tarte_tatin.jpg",
           "quantity": 4,
-          "state": "NOT_ASSIGNED",
+          "state": "IN_PROGRESS",
           "ingredients": [
             "ingredient1",
             "ingredient2"
@@ -49,10 +52,12 @@
       ]
     },
     {
+      "id": 2,
       "numberTable": 2,
       "numberOrder": 201,
       "dishes": [
         {
+          "id": 3,
           "name": "Pizza Margherita",
           "category": "Pizzas",
           "image": "assets/images/pizza_margherita.jpg",
@@ -72,6 +77,7 @@
           ]
         },
         {
+          "id": 4,
           "name": "Lasagne",
           "category": "Pâtes",
           "image": "assets/images/lasagne.jpg",
@@ -93,10 +99,12 @@
       ]
     },
     {
+      "id": 3,
       "numberTable": 3,
       "numberOrder": 202,
       "dishes": [
         {
+          "id": 5,
           "name": "Salade César",
           "category": "Salades",
           "image": "assets/images/salade_cesar.jpg",
@@ -116,6 +124,7 @@
           ]
         },
         {
+          "id": 6,
           "name": "Crème Brûlée",
           "category": "Desserts",
           "image": "assets/images/creme_brulee.jpg",
@@ -137,10 +146,12 @@
       ]
     },
     {
+      "id": 4,
       "numberTable": 4,
       "numberOrder": 202,
       "dishes": [
         {
+          "id": 7,
           "name": "Bœuf Bourguignon",
           "category": "Plats Principaux",
           "image": "assets/images/boeuf_bourguignon.jpg",
@@ -160,6 +171,7 @@
           ]
         },
         {
+          "id": 8,
           "name": "Gâteau au Chocolat",
           "category": "Desserts",
           "image": "assets/images/gateau_chocolat.jpg",
@@ -181,10 +193,12 @@
       ]
     },
     {
+      "id": 5,
       "numberTable": 5,
       "numberOrder": 202,
       "dishes": [
         {
+          "id": 9,
           "name": "Soupe à l'Oignon",
           "category": "Soupes",
           "image": "assets/images/soupe_oignon.jpg",
@@ -204,6 +218,7 @@
           ]
         },
         {
+          "id": 10,
           "name": "Quiche Lorraine",
           "category": "Quiches",
           "image": "assets/images/quiche_lorraine.jpg",
@@ -225,7 +240,7 @@
       ]
     },
     {
-      "id": 0.5769890180825291,
+      "id": 6,
       "numberTable": 1,
       "numberOrder": 202,
       "dishes": [
@@ -255,7 +270,37 @@
       ]
     },
     {
-      "id": 0.8470762482936176,
+      "id": 7,
+      "numberTable": 1,
+      "numberOrder": 202,
+      "dishes": [
+        {
+          "name": "Poulet Rôti",
+          "category": "Grill",
+          "image": "assets/images/poulet_roti.jpg",
+          "quantity": 1,
+          "ingredients": [
+            "ingredient1",
+            "ingredient2"
+          ],
+          "customerSpecification": [
+            "Sans peau",
+            "Extra sauce"
+          ],
+          "state": "DONE",
+          "recipeExpert": [
+            "Étape Expert 1 pour Poulet Rôti",
+            "Étape Expert 2 pour Poulet Rôti"
+          ],
+          "recipeNovice": [
+            "Étape Novice 1 pour Poulet Rôti",
+            "Étape Novice 2 pour Poulet Rôti"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 8,
       "numberTable": 1,
       "numberOrder": 202,
       "dishes": [
