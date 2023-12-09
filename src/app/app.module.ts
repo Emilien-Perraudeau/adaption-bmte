@@ -22,6 +22,7 @@ import {MatButtonToggleModule} from "@angular/material/button-toggle";
 import { PreparationModeComponent } from './pages/mural/preparation-mode/preparation-mode.component';
 import { MatExpansionModule } from '@angular/material/expansion';
 import {AppRoutingModule} from "./app-routing-module";
+import {HeaderComponent} from "./shared/components/header/header.component";
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import {AppRoutingModule} from "./app-routing-module";
     NormalModeComponent,
     SettingsComponent,
     NormalModeComponent,
-    PreparationModeComponent
+    PreparationModeComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

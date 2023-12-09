@@ -1,32 +1,29 @@
-<div class="component-container">
-  <div class="header">
-    <h1>Un petit Cre'vette ?</h1>
-    <h2>{{upcomingDishes.size}}</h2>
-  </div>
-
-  <div class="main-container">
-    <div class="current-dishes-container" *ngIf="groupedDishes.size > 0; else isNormal">
-      <div class="category-container" *ngFor="let category of groupedDishes.keys()">
-        <h2>{{ category }}</h2>
-        <div class="dishes-in-category">
-          <div *ngFor="let dish of groupedDishes.get(category)">
-            <app-dish
-              [name]= "dish.name"
-              [image]="dish.image"
-              [quantity]="dish.quantity"
-              [category]="dish.category"
-              [customerSpecification]="dish.customerSpecification"
-            ></app-dish>
-          </div>
+<app-header></app-header>
+<div class="main-container">
+  <h2>{{maxCategoriesToShow}}</h2>
+  <div class="current-dishes-container" *ngIf="groupedDishes.size > 0; else isNormal">
+    <div class="category-container" *ngFor="let category of visibleCategories">
+      <h2>{{ category }}</h2>
+      <div class="dishes-in-category">
+        <div *ngFor="let dish of groupedDishesForView[category]">
+          <app-dish
+            [name]="dish.name"
+            [image]="dish.image"
+            [quantity]="dish.quantity"
+            [category]="dish.category"
+            [customerSpecification]="dish.customerSpecification"
+            [isExpanded]="true"
+            [color]="getColorByTableNumber(getTableNumberForDish(dish))"
+          ></app-dish>
         </div>
       </div>
     </div>
   </div>
 
   <div class="footer">
-    <div *ngFor="let category of upcomingDishesByCategory.keys()">
+    <div *ngFor="let category of hiddenCategories">
       <h3>{{ category }}</h3>
-      <div *ngFor="let dishChunk of upcomingDishesByCategory.get(category)">
+      <div *ngFor="let dishChunk of upcomingDishesForView[category]">
         <div class="upcoming-dishes-category">
           <div *ngFor="let dish of dishChunk">
             <app-dish
@@ -34,15 +31,16 @@
               [image]="dish.image"
               [quantity]="dish.quantity"
               [category]="dish.category"
-              [customerSpecification]="dish.customerSpecification"
+              [state]="DishState.NotAssigned"
+              [isExpanded]="false"
             ></app-dish>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 
+</div>
 
 <ng-template #isNormal>
   <app-normal-mode></app-normal-mode>
