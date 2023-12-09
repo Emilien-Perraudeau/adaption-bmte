@@ -62,7 +62,7 @@
           "category": "Pizzas",
           "image": "assets/images/pizza_margherita.jpg",
           "quantity": 5,
-          "state": "NOT_ASSIGNED",
+          "state": "IN_PROGRESS",
           "ingredients": [
             "ingredient1",
             "ingredient2"
@@ -109,7 +109,7 @@
           "category": "Salades",
           "image": "assets/images/salade_cesar.jpg",
           "quantity": 2,
-          "state": "NOT_ASSIGNED",
+          "state": "IN_PROGRESS",
           "ingredients": [
             "ingredient1",
             "ingredient2"
