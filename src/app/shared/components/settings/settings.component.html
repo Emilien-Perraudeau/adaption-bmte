@@ -11,12 +11,14 @@
     <p>Nombre de cuisiniers</p>
     <!-- Button toggle for selecting the number of cooks -->
     <div mat-menu-item>
-      <mat-button-toggle-group [(ngModel)]="selectedNumberOfCooks">
-        <mat-button-toggle value="1" (click) = "$event.stopPropagation()">1</mat-button-toggle>
-        <mat-button-toggle value="2" (click) = "$event.stopPropagation()">2</mat-button-toggle>
-        <mat-button-toggle value="3" (click) = "$event.stopPropagation()">3</mat-button-toggle>
-        <mat-button-toggle value="4" (click) = "$event.stopPropagation()">4</mat-button-toggle>
-      </mat-button-toggle-group>
+      <div mat-menu-item>
+        <mat-button-toggle-group [(ngModel)]="selectedNumberOfCooks">
+          <mat-button-toggle value="1" (click)="selectNumberOfCooks(1)">1</mat-button-toggle>
+          <mat-button-toggle value="2" (click)="selectNumberOfCooks(2)">2</mat-button-toggle>
+          <mat-button-toggle value="3" (click)="selectNumberOfCooks(3)">3</mat-button-toggle>
+          <mat-button-toggle value="4" (click)="selectNumberOfCooks(4)">4</mat-button-toggle>
+        </mat-button-toggle-group>
+      </div>
     </div>
   </mat-menu>
 </div>

@@ -5,8 +5,10 @@ import { DishComponent} from "../shared/components/dish/dish.component";
   providedIn: 'root'
 })
 export class SharedDataService {
+
   private selectedDishes = new Set<DishComponent>();
   private mode: 'expert' | 'novice' = 'novice';
+  private _numberOfCooks: 1 | 2 | 3 | 4 = 4;
 
   selectDish(dish: DishComponent): void {
     this.selectedDishes.add(dish);
@@ -26,5 +28,13 @@ export class SharedDataService {
 
   getMode(): 'expert' | 'novice' {
     return this.mode;
+  }
+
+  get numberOfCooks(): 1 | 2 | 3 | 4 {
+    return this._numberOfCooks;
+  }
+
+  set numberOfCooks(value: 1 | 2 | 3 | 4) {
+    this._numberOfCooks = value;
   }
 }

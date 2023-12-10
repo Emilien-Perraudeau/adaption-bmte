@@ -182,4 +182,8 @@ export class NormalModeComponent implements OnInit {
     const hue = (tableId * 137.508) % 360;
     return `hsl(${hue}, 70%, 70%)`;
   }
+
+  numberOfCooks(): number {
+    return this.sharedDataService.numberOfCooks;
+  }
 }

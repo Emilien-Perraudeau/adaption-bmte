@@ -9,7 +9,15 @@
     <div class="timeline-container"><app-timeline [timeline]="timeline"></app-timeline></div>
   <div class="tables-container">
     <div *ngFor="let table of tables; let i = index">
-      <app-table *ngIf="i <= 3"
+      <app-table *ngIf="i <= 3 && !isTabletMode"
+                 [id]="table.id"
+                 [numberTable]="table.numberTable"
+                 [numberOrder]="table.numberOrder"
+                 [dishes]="table.dishes"
+                 [simpleView]="false"
+                 [time]="table.time"
+      ></app-table>
+      <app-table *ngIf="i < this.numberOfCooks() && isTabletMode"
                  [id]="table.id"
                  [numberTable]="table.numberTable"
                  [numberOrder]="table.numberOrder"
@@ -42,6 +50,14 @@
       <button (click)="resetDishesState()">Réinitialiser les Plats</button>
       <button (click)="ajouterNouvelleTable()">Ajouter une nouvelle table</button>
     </div>
+  </div>
+
+  <div *ngIf="isTabletMode" class="side-table-container">
+    <button mat-raised-button color="primary"
+            [disabled]="!isAnyDishSelected()"
+            (click)="onPreparationMode()">
+      Valider
+    </button>
   </div>
 
 </div>
