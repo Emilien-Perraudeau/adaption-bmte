@@ -6,7 +6,7 @@
     <input *ngIf="isTabletMode" type="checkbox"
            [checked]="isSelected"
            [disabled]="state !== 'NOT_ASSIGNED'"
-           (change)="checkboxChanged()">
+           (change)="checkboxChanged(); $event.stopPropagation();">
     <p>{{ this.quantity }}x {{ name }}</p>
     <div *ngIf="customerSpecification && customerSpecification.length > 0">
       <p>{{ customerSpecification.join(', ') }}</p></div>

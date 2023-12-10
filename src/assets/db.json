@@ -242,7 +242,7 @@
           "category": "Plats Principaux",
           "image": "assets/images/boeuf_bourguignon.jpg",
           "quantity": 2,
-          "state": "NOT_ASSIGNED",
+          "state": "IN_PROGRESS",
           "ingredients": [
             "ingredient1",
             "ingredient2"
@@ -417,39 +417,6 @@
             "Extra sauce"
           ],
           "state": "NOT_ASSIGNED",
-          "recipeExpert": [
-            "Étape Expert 1 pour Poulet Rôti",
-            "Étape Expert 2 pour Poulet Rôti"
-          ],
-          "recipeNovice": [
-            "Étape Novice 1 pour Poulet Rôti",
-            "Étape Novice 2 pour Poulet Rôti"
-          ]
-        }
-      ]
-    },
-    {
-      "id": 0.4572758484567613,
-      "time": "2023-12-06T16:00:00.000Z",
-      "numberTable": 1,
-      "numberOrder": 202,
-      "dishes": [
-        {
-          "id": 0.8179154820158695,
-          "tableId": 0.4572758484567613,
-          "name": "Poulet Rôti",
-          "category": "Grill",
-          "image": "assets/images/poulet_roti.jpg",
-          "quantity": 1,
-          "ingredients": [
-            "ingredient1",
-            "ingredient2"
-          ],
-          "customerSpecification": [
-            "Sans peau",
-            "Extra sauce"
-          ],
-          "state": "DONE",
           "recipeExpert": [
             "Étape Expert 1 pour Poulet Rôti",
             "Étape Expert 2 pour Poulet Rôti"

@@ -54,7 +54,7 @@ export class NormalModeComponent implements OnInit {
 
   checkIfRushMode() {
     const sommeTotale: number = this.tables.reduce((somme, table) => somme + this.getSommeDishComponentByTable(table), 0);
-    return sommeTotale > 10;
+    return sommeTotale > 10 && this.sharedDataService.numberOfCooks > 1;
   }
 
   getSommeDishComponentByTable(table: TableComponent): number {
