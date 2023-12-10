@@ -34,6 +34,7 @@
   background-color: #f9f9f9;
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
   border-radius: 0.625rem;
+  height: 85%;
 }
 
 .category-container h2 {

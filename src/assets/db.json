@@ -290,7 +290,7 @@
           "tableId": 5,
           "name": "Soupe à l'Oignon",
           "category": "Soupes",
-          "image": "assets/images/soupe_oignon.jpg",
+          "image": "assets/images/soupeoignon.jpg",
           "quantity": 1,
           "state": "NOT_ASSIGNED",
           "ingredients": [
@@ -311,7 +311,7 @@
           "tableId": 5,
           "name": "Quiche Lorraine",
           "category": "Quiches",
-          "image": "assets/images/quiche_lorraine.jpg",
+          "image": "assets/images/quiche.jpg",
           "quantity": 3,
           "state": "NOT_ASSIGNED",
           "ingredients": [
