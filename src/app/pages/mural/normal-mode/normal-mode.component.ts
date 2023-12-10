@@ -5,6 +5,7 @@ import { TableComponent } from "../../../shared/components/table/table.component
 import {Router} from "@angular/router";
 import {HttpClient} from "@angular/common/http";
 import {DishService} from "../../../services/dish.service";
+import {TimelineComponent} from "../../../shared/components/timeline/timeline.component";
 
 @Component({
   selector: 'app-normal-mode',
@@ -14,6 +15,8 @@ import {DishService} from "../../../services/dish.service";
 export class NormalModeComponent implements OnInit {
   tables: TableComponent[] = [];
   isTabletMode = false;
+  timeline!: TimelineComponent;
+
   constructor(
     private tableService: TableService,
     private dishService: DishService,
@@ -34,6 +37,11 @@ export class NormalModeComponent implements OnInit {
       });
 
     if (this.checkIfRushMode()) this.router.navigate(['/rush-mode'])
+
+    this.tables.forEach(table => {
+      this.timeline.timeline.push({ time: table.time, color: table.color });
+      console.log("timeline " + this.timeline.timeline)
+    });
   }
 
   checkIfRushMode() {
@@ -58,6 +66,7 @@ export class NormalModeComponent implements OnInit {
     // Générer une nouvelle table
     const nouvelleTable = {
       id: Math.random(),
+      time: new Date().toISOString(),
       numberTable: 1,
       numberOrder: 202,
       dishes: [
@@ -93,7 +102,12 @@ export class NormalModeComponent implements OnInit {
       this.tableService.updateTablesAfterAddition().subscribe((tables: TableComponent[]) => {
         this.tables = tables;
       });
+
+      this.tables.forEach(table => {
+        this.timeline.timeline.push({ time: table.time, color: table.color });
+      });
     });
+
 
     if (this.checkIfRushMode()) this.router.navigate(['/rush-mode']);
   }

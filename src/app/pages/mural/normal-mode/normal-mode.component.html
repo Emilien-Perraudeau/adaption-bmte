@@ -1,7 +1,5 @@
 <div class="component-container">
-<div class="header">
-  <h1>Un petit Cre'vette ?</h1>
-</div>
+  <app-header></app-header>
 
 <div class="big-container">
   <app-settings *ngIf="isTabletMode"></app-settings>
@@ -12,6 +10,7 @@
                  [numberOrder]="table.numberOrder"
                  [dishes]="table.dishes"
                  [simpleView]="false"
+                 [time]="table.time"
       ></app-table>
     </div>
   </div>
@@ -24,12 +23,15 @@
                  [numberOrder]="table.numberOrder"
                  [dishes]="table.dishes"
                  [simpleView]="true"
+                 [time]="table.time"
       ></app-table>
     </div>
     <button (click)="onValidate()">Valider</button>
-    <button (click)="onRushMode()">Rush Mode</button>
   </div>
 
 </div>
   <button (click)="ajouterNouvelleTable()">Ajouter une nouvelle table</button>
+  <app-timeline></app-timeline>
 </div>
+
+

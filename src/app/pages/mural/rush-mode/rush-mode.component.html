@@ -1,8 +1,7 @@
 <div class="component-container">
-  <div class="header">
-    <h1>Un petit Cre'vette ?</h1>
-    <h2>{{upcomingDishes.size}}</h2>
-  </div>
+  <app-header></app-header>
+
+  <h2>{{upcomingDishes.size}}</h2>
 
   <div class="main-container">
     <div class="current-dishes-container" *ngIf="groupedDishes.size > 0; else isNormal">
