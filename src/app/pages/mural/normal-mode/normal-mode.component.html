@@ -1,4 +1,5 @@
 <div class="component-container">
+<<<<<<< HEAD
   <app-header></app-header>
 
 <div class="big-container">
@@ -12,9 +13,28 @@
                  [simpleView]="false"
                  [time]="table.time"
       ></app-table>
-    </div>
+=======
+  <div class="header">
+    <h1>Un petit Cre'vette ?</h1>
   </div>
 
+  <div class="big-container">
+    <app-settings *ngIf="isTabletMode"></app-settings>
+
+    <!-- Tables container -->
+    <div class="tables-container">
+      <div *ngFor="let table of tables; let i = index">
+        <app-table *ngIf="i <= 3"
+                   [numberTable]="table.numberTable"
+                   [numberOrder]="table.numberOrder"
+                   [dishes]="table.dishes"
+                   [simpleView]="false"
+        ></app-table>
+      </div>
+>>>>>>> 2c6297f897da076bb61724c0824fc46050df7b3c
+    </div>
+
+<<<<<<< HEAD
   <div class="side-table-container">
     <h1>Prochaine commande</h1>
     <div *ngFor="let table of tables; let i = index">
@@ -27,9 +47,28 @@
       ></app-table>
     </div>
     <button (click)="onValidate()">Valider</button>
+=======
+    <!-- Side table container -->
+    <div class="side-table-container">
+      <h1>Prochaine commande</h1>
+      <div *ngFor="let table of tables; let i = index">
+        <app-table *ngIf="i > 3"
+                   [numberTable]="table.numberTable"
+                   [numberOrder]="table.numberOrder"
+                   [dishes]="table.dishes"
+                   [simpleView]="true"
+        ></app-table>
+      </div>
+      <button mat-raised-button color="primary"
+              [disabled]="!isAnyDishSelected()"
+              (click)="onPreparationMode()">
+        Valider
+      </button>
+      <button (click)="onRushMode()">Rush Mode</button>
+      <button (click)="resetDishesState()">Réinitialiser les Plats</button>
+    </div>
+>>>>>>> 2c6297f897da076bb61724c0824fc46050df7b3c
   </div>
-
-</div>
   <button (click)="ajouterNouvelleTable()">Ajouter une nouvelle table</button>
   <app-timeline></app-timeline>
 </div>

@@ -1,9 +1,12 @@
 <div class="dish-container" [ngStyle]="{ 'border-color': this.color }">
   <div class="color-square" [ngStyle]="{ 'background-color': getColor() }"></div>
   <div class="image-container">
-    <img [src]="image" class="image" alt="Image du plat"></div>
+    <img [src]="image" *ngIf="isExpanded" class="image" alt="Image du plat"></div>
   <div class="text-container">
-    <input *ngIf="isTabletMode" type="checkbox" id="selectDish{{ name }}" [(ngModel)]="isSelected" (change)="checkboxChanged()">
+    <input *ngIf="isTabletMode" type="checkbox"
+           [checked]="isSelected"
+           [disabled]="state !== 'NOT_ASSIGNED'"
+           (change)="checkboxChanged()">
     <p>{{ this.quantity }}x {{ name }}</p>
     <div *ngIf="customerSpecification && customerSpecification.length > 0">
       <p>{{ customerSpecification.join(', ') }}</p></div>

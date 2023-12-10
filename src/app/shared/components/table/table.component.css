@@ -39,15 +39,14 @@
 }
 
 /* Responsive styles for smaller screens */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1024px) {
   .table-container {
     width: 100%;
     max-width: none;
   }
-
   .dishes-list {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(48%, 1fr)); /* Adjust as needed */
-    gap: 2%;
+    grid-template-columns: repeat(auto-fit, minmax(48%, 1fr)); /* Utilisez auto-fit pour s'ajuster automatiquement à la largeur disponible */
+    gap: 10px; /* Espace entre les colonnes et les lignes */
   }
 }

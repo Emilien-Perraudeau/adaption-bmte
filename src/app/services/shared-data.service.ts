@@ -10,7 +10,6 @@ export class SharedDataService {
 
   selectDish(dish: DishComponent): void {
     this.selectedDishes.add(dish);
-    console.log(dish)
   }
 
   deselectDish(dish: DishComponent): void {

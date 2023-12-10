@@ -1,20 +1,37 @@
-.preparation-mode .selected-dish {
+.preparation-mode {
+  padding: 20px;
+}
+
+.preparation-title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.selected-dish {
   margin-bottom: 10px;
   border: 1px solid #ccc;
-  border-radius: 5px; /* Arrondir les coins */
+  border-radius: 5px;
 }
 
-.selected-dish .dish-title {
-  padding: 10px;
+.selected-dish .mat-expansion-panel-header {
   background-color: #f8f8f8;
-  cursor: pointer;
-  border-bottom: 1px solid #ccc; /* Ligne de séparation */
+  border-bottom: 1px solid #ccc;
 }
 
-.selected-dish .dish-title h3 {
-  margin: 0; /* Retirer la marge par défaut du h3 */
-}
-
-.selected-dish .recipe-details {
+.recipe-details {
   padding: 10px;
+}
+
+.recipe-details h3 {
+  margin-top: 0;
+}
+
+@media (max-width: 768px) {
+  .preparation-mode {
+    padding: 10px;
+  }
+
+  .selected-dish .recipe-details {
+    padding: 5px;
+  }
 }

@@ -1,7 +1,6 @@
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { DishComponent } from '../dish/dish.component';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import {Time} from "@angular/common";
 
 @Component({
   selector: 'app-table',
@@ -9,6 +8,7 @@ import {Time} from "@angular/common";
   styleUrls: ['./table.component.css']
 })
 export class TableComponent implements OnInit {
+  @Input() id!: number;
   @Input() numberTable!: number;
   @Input() numberOrder!: number;
   @Input() dishes!: DishComponent[];
@@ -17,7 +17,7 @@ export class TableComponent implements OnInit {
   @Output() tableClick = new EventEmitter<void>();
   color!: string;
   isTabletMode = false;
-
+  isDetailedMode = false; // Ajout de la propriété pour suivre le mode détaillé
 
   constructor(private breakpointObserver: BreakpointObserver) {}
 
@@ -33,13 +33,14 @@ export class TableComponent implements OnInit {
   handleTableClick() {
     if (this.isTabletMode) {
       console.log('Table clicked in tablet mode');
+      this.isDetailedMode = !this.isDetailedMode; // Bascule entre le mode détaillé et normal
       this.tableClick.emit();
     }
   }
 
   getDisplayedDishes(): DishComponent[] {
-    // Seulement les 4 premiers plats en mode tablette
-    return this.isTabletMode ? this.dishes.slice(0, 4) : this.dishes;
+    // Retourne tous les plats si la table est en mode détaillé
+    return this.isTabletMode && this.isDetailedMode ? this.dishes : this.dishes.slice(0, 4);
   }
 
   private generateColor(tableId: number): string {

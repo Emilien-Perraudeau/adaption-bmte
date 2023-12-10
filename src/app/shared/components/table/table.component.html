@@ -1,9 +1,10 @@
-<div class="table-container">
+<div class="table-container" [class.detailed-mode]="isDetailedMode" (click)="handleTableClick()">
   <div class="table-info">
-    <h2> {{ time | date:'HH:mm:ss' }} </h2>
+    <h2>{{ time | date:'HH:mm:ss' }}</h2>
     <div class="sous-titre">
-    <p class="numberTable">Table {{ this.numberTable }}</p>
-    <p class="numberTable">#{{ this.numberOrder }}</p></div>
+      <p class="numberTable">Table {{ numberTable }}</p>
+      <p class="numberTable">#{{ numberOrder }}</p>
+    </div>
   </div>
 
   <!-- Affiche le nombre de plats si simpleView est vrai -->
@@ -13,7 +14,8 @@
 
   <!-- Affiche la liste des plats si simpleView est faux -->
   <div *ngIf="!simpleView" class="dishes-list">
-    <app-dish *ngFor="let dish of dishes"
+    <app-dish *ngFor="let dish of getDisplayedDishes()"
+              [id]="dish.id"
               [name]="dish.name"
               [image]="dish.image"
               [quantity]="dish.quantity"
