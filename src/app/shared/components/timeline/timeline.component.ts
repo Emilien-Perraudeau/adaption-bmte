@@ -9,6 +9,9 @@ import {Component, Input, SimpleChanges} from '@angular/core';
 export class TimelineComponent {
   @Input() timeline: { time: Date, color: string }[] = [];
 
+  ngOnInit() {
+    this.timeline.sort((a, b) => a.time.getTime() - b.time.getTime());
+  }
   ngOnChanges(changes: SimpleChanges) {
     if (changes['timeline']) {
       this.timeline.sort((a, b) => a.time.getTime() - b.time.getTime());

@@ -27,7 +27,7 @@ export class TableComponent implements OnInit {
         this.isTabletMode = result.matches;
       });
 
-    this.color = this.generateColor(this.numberTable);
+    this.color = this.generateColor(this.id);
   }
 
   handleTableClick() {
@@ -43,7 +43,7 @@ export class TableComponent implements OnInit {
     return this.isTabletMode && this.isDetailedMode ? this.dishes : this.dishes.slice(0, 4);
   }
 
-  private generateColor(tableId: number): string {
+  generateColor(tableId: number): string {
     const hue = (tableId * 137.508) % 360;
     return `hsl(${hue}, 70%, 70%)`;
   }

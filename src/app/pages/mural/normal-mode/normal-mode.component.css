@@ -2,6 +2,11 @@
 .big-container {
   display: flex;
   height: 100vh;
+  justify-content: space-between;
+}
+
+.left-container {
+  width: 85%;
 }
 
 .tables-container {
@@ -28,12 +33,18 @@
   .big-container {
     flex-direction: column;
     align-items: stretch;
+    justify-content: flex-start;
+  }
+
+  .left-container{
+    width: 100%;
   }
 
   .tables-container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 2px;
+    width: 95%;
   }
 
   .app-table {

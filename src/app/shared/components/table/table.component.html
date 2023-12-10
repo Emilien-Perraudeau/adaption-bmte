@@ -1,4 +1,4 @@
-<div class="table-container" [class.detailed-mode]="isDetailedMode" (click)="handleTableClick()">
+<div class="table-container" [ngStyle]="{ 'border-color': generateColor(this.id) }" [class.detailed-mode]="isDetailedMode" (click)="handleTableClick()">
   <div class="table-info">
     <h2>{{ time | date:'HH:mm:ss' }}</h2>
     <div class="sous-titre">

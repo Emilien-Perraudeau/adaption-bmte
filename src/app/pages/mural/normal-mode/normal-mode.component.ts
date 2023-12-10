@@ -19,7 +19,7 @@ import {TimelineComponent} from "../../../shared/components/timeline/timeline.co
 export class NormalModeComponent implements OnInit {
   tables: TableComponent[] = [];
   isTabletMode = false;
-  timeline!: TimelineComponent;
+  timeline: { time: Date, color: string }[] = [];
 
   constructor(
     private tableService: TableService,
@@ -33,7 +33,13 @@ export class NormalModeComponent implements OnInit {
 
   ngOnInit() {
     this.tableService.getTables().subscribe(receivedTables => {
+      receivedTables.sort((a, b) => new Date(a.time).getTime() - new Date(b.time).getTime());
       this.tables = receivedTables;
+      console.log(this.tables)
+      this.tables.forEach(table => {
+        this.timeline.push({ time: new Date(table.time), color: this.generateColor(table.id) });
+        console.log("timeline "+ table.color)
+      });
     });
 
     // Detect changes in screen size to determine tablet mode
@@ -44,10 +50,6 @@ export class NormalModeComponent implements OnInit {
 
     if (this.checkIfRushMode()) this.router.navigate(['/rush-mode'])
 
-    this.tables.forEach(table => {
-      this.timeline.timeline.push({ time: table.time, color: table.color });
-      console.log("timeline " + this.timeline.timeline)
-    });
   }
 
   checkIfRushMode() {
@@ -102,7 +104,7 @@ export class NormalModeComponent implements OnInit {
     // Générer une nouvelle table
     const nouvelleTable = {
       id: id,
-      time: new Date().toISOString(),
+      time: "2023-12-06T16:00:00.000Z",
       numberTable: 1,
       numberOrder: 202,
       dishes: [
@@ -142,7 +144,7 @@ export class NormalModeComponent implements OnInit {
       });
 
       this.tables.forEach(table => {
-        this.timeline.timeline.push({ time: table.time, color: table.color });
+        this.timeline.push({ time: new Date(table.time), color: table.color });
       });
     });
 
@@ -176,4 +178,8 @@ export class NormalModeComponent implements OnInit {
     });
   }
 
+  generateColor(tableId: number): string {
+    const hue = (tableId * 137.508) % 360;
+    return `hsl(${hue}, 70%, 70%)`;
+  }
 }

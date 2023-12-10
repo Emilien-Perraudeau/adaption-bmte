@@ -23,12 +23,21 @@ export class RushModeComponent implements OnInit {
   groupedDishes = new Map<string, DishComponent[]>();
   upcomingDishes = new Map<string, number>();
   upcomingDishesByCategory = new Map<string, DishComponent[]>();
+  timeline: { time: Date, color: string }[] = [];
 
   constructor(private tableService: TableService) {}
 
   ngOnInit(): void {
     this.tableService.getTables().subscribe(receivedTables => {
+      receivedTables.sort((a, b) => new Date(a.time).getTime() - new Date(b.time).getTime());
+
       this.tables = receivedTables;
+
+      this.tables.forEach(table => {
+        this.timeline.push({ time: new Date(table.time), color: this.generateColor(table.id) });
+        console.log("timeline "+ table.color)
+      });
+
       this.populateDishesWithTables();
       this.updateViewData();
     });
@@ -124,5 +133,10 @@ export class RushModeComponent implements OnInit {
       }
     }
     return -1;
+  }
+
+  generateColor(tableId: number): string {
+    const hue = (tableId * 137.508) % 360;
+    return `hsl(${hue}, 70%, 70%)`;
   }
 }

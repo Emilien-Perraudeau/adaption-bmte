@@ -21,7 +21,7 @@
             "Sans peau",
             "Extra sauce"
           ],
-          "state": "IN_PROGRESS",
+          "state": "NOT_ASSIGNED",
           "recipeExpert": [
             "Étape Expert 1 pour Poulet Rôti",
             "Étape Expert 2 pour Poulet Rôti"
@@ -46,7 +46,7 @@
             "Sans peau",
             "Extra sauce"
           ],
-          "state": "IN_PROGRESS",
+          "state": "NOT_ASSIGNED",
           "recipeExpert": [
             "Étape Expert 1 pour Poulet Rôti",
             "Étape Expert 2 pour Poulet Rôti"
@@ -71,7 +71,7 @@
             "Sans peau",
             "Extra sauce"
           ],
-          "state": "IN_PROGRESS",
+          "state": "NOT_ASSIGNED",
           "recipeExpert": [
             "Étape Expert 1 pour Poulet Rôti",
             "Étape Expert 2 pour Poulet Rôti"
@@ -96,7 +96,7 @@
             "Sans peau",
             "Extra sauce"
           ],
-          "state": "IN_PROGRESS",
+          "state": "NOT_ASSIGNED",
           "recipeExpert": [
             "Étape Expert 1 pour Poulet Rôti",
             "Étape Expert 2 pour Poulet Rôti"
@@ -113,7 +113,7 @@
           "category": "Desserts",
           "image": "assets/images/tarte_tatin.jpg",
           "quantity": 4,
-          "state": "IN_PROGRESS",
+          "state": "NOT_ASSIGNED",
           "ingredients": [
             "ingredient1",
             "ingredient2"
@@ -133,7 +133,7 @@
       "id": 2,
       "numberTable": 2,
       "numberOrder": 201,
-      "time": "2023-12-06T15:30:00.000Z",
+      "time": "2023-12-06T15:32:00.000Z",
       "dishes": [
         {
           "id": 3,
@@ -142,7 +142,7 @@
           "category": "Pizzas",
           "image": "assets/images/pizza_margherita.jpg",
           "quantity": 5,
-          "state": "IN_PROGRESS",
+          "state": "NOT_ASSIGNED",
           "ingredients": [
             "ingredient1",
             "ingredient2"
@@ -167,7 +167,7 @@
             "ingredient1",
             "ingredient2"
           ],
-          "state": "IN_PROGRESS",
+          "state": "NOT_ASSIGNED",
           "recipeExpert": [
             "Étape Expert 1 pour Lasagne",
             "Étape Expert 2 pour Lasagne"
@@ -183,7 +183,7 @@
       "id": 3,
       "numberTable": 3,
       "numberOrder": 202,
-      "time": "2023-12-06T15:30:00.000Z",
+      "time": "2023-12-06T15:40:00.000Z",
       "dishes": [
         {
           "id": 5,
@@ -192,7 +192,7 @@
           "category": "Salades",
           "image": "assets/images/salade_cesar.jpg",
           "quantity": 2,
-          "state": "IN_PROGRESS",
+          "state": "NOT_ASSIGNED",
           "ingredients": [
             "ingredient1",
             "ingredient2"
@@ -213,7 +213,7 @@
           "category": "Desserts",
           "image": "assets/images/creme_brulee.jpg",
           "quantity": 3,
-          "state": "IN_PROGRESS",
+          "state": "NOT_ASSIGNED",
           "ingredients": [
             "ingredient1",
             "ingredient2"
@@ -233,7 +233,7 @@
       "id": 4,
       "numberTable": 4,
       "numberOrder": 202,
-      "time": "2023-12-06T15:30:00.000Z",
+      "time": "2023-12-06T15:20:00.000Z",
       "dishes": [
         {
           "id": 7,
@@ -366,7 +366,7 @@
       "id": 7,
       "numberTable": 1,
       "numberOrder": 202,
-      "time": "2023-12-06T15:30:00.000Z",
+      "time": "2023-12-06T15:31:00.000Z",
       "dishes": [
         {
           "id": 12,
@@ -399,7 +399,7 @@
       "id": 8,
       "numberTable": 1,
       "numberOrder": 202,
-      "time": "2023-12-06T15:30:00.000Z",
+      "time": "2023-12-06T15:28:00.000Z",
       "dishes": [
         {
           "id": 13,
@@ -417,6 +417,39 @@
             "Extra sauce"
           ],
           "state": "NOT_ASSIGNED",
+          "recipeExpert": [
+            "Étape Expert 1 pour Poulet Rôti",
+            "Étape Expert 2 pour Poulet Rôti"
+          ],
+          "recipeNovice": [
+            "Étape Novice 1 pour Poulet Rôti",
+            "Étape Novice 2 pour Poulet Rôti"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 0.4572758484567613,
+      "time": "2023-12-06T16:00:00.000Z",
+      "numberTable": 1,
+      "numberOrder": 202,
+      "dishes": [
+        {
+          "id": 0.8179154820158695,
+          "tableId": 0.4572758484567613,
+          "name": "Poulet Rôti",
+          "category": "Grill",
+          "image": "assets/images/poulet_roti.jpg",
+          "quantity": 1,
+          "ingredients": [
+            "ingredient1",
+            "ingredient2"
+          ],
+          "customerSpecification": [
+            "Sans peau",
+            "Extra sauce"
+          ],
+          "state": "DONE",
           "recipeExpert": [
             "Étape Expert 1 pour Poulet Rôti",
             "Étape Expert 2 pour Poulet Rôti"

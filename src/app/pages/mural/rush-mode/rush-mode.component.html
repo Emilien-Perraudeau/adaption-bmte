@@ -1,4 +1,6 @@
 <app-header></app-header>
+<div class="timeline-container"><app-timeline [timeline]="timeline"></app-timeline></div>
+
 <div class="main-container">
   <h2>{{maxCategoriesToShow}}</h2>
   <div class="current-dishes-container" *ngIf="groupedDishes.size > 0; else isNormal">

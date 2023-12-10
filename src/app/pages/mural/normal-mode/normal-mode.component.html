@@ -2,10 +2,15 @@
   <app-header></app-header>
 
 <div class="big-container">
+
+
   <app-settings *ngIf="isTabletMode"></app-settings>
+  <div class="left-container">
+    <div class="timeline-container"><app-timeline [timeline]="timeline"></app-timeline></div>
   <div class="tables-container">
     <div *ngFor="let table of tables; let i = index">
       <app-table *ngIf="i <= 3"
+                 [id]="table.id"
                  [numberTable]="table.numberTable"
                  [numberOrder]="table.numberOrder"
                  [dishes]="table.dishes"
@@ -14,11 +19,13 @@
       ></app-table>
     </div>
     </div>
+  </div>
     <!-- Side table container -->
-    <div class="side-table-container">
+    <div *ngIf="!isTabletMode" class="side-table-container">
       <h1>Prochaine commande</h1>
       <div *ngFor="let table of tables; let i = index">
         <app-table *ngIf="i > 3"
+                   [id]="table.id"
                    [numberTable]="table.numberTable"
                    [numberOrder]="table.numberOrder"
                    [dishes]="table.dishes"
@@ -33,10 +40,10 @@
       </button>
       <button (click)="onRushMode()">Rush Mode</button>
       <button (click)="resetDishesState()">Réinitialiser les Plats</button>
+      <button (click)="ajouterNouvelleTable()">Ajouter une nouvelle table</button>
     </div>
   </div>
-  <button (click)="ajouterNouvelleTable()">Ajouter une nouvelle table</button>
-  <app-timeline></app-timeline>
+
 </div>
 
 
