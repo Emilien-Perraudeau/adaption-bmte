@@ -4,6 +4,7 @@
   margin: 1rem;
   border-radius: 8px;
   max-width: 25rem;
+  height: 100%;
 }
 
 .table-info {
