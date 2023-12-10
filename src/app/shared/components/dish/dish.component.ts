@@ -10,6 +10,7 @@ import {BreakpointObserver, Breakpoints} from "@angular/cdk/layout";
 })
 export class DishComponent implements OnInit {
   @Input() id!: number;
+  @Input() tableId!: number;
   @Input() name!: string;
   @Input() image!: string;
   @Input() quantity!: number;
@@ -61,5 +62,10 @@ export class DishComponent implements OnInit {
     }
 
     console.log(`Plat ${this.name} sélectionné: ${this.isSelected}`);
+  }
+
+  generateColor(tableId: number): string {
+    const hue = (tableId * 137.508) % 360;
+    return `hsl(${hue}, 70%, 70%)`;
   }
 }

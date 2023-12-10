@@ -98,14 +98,17 @@ export class NormalModeComponent implements OnInit {
   }
 
   ajouterNouvelleTable() {
+    const id = Math.random();
     // Générer une nouvelle table
     const nouvelleTable = {
-      id: Math.random(),
+      id: id,
       time: new Date().toISOString(),
       numberTable: 1,
       numberOrder: 202,
       dishes: [
         {
+          "id": Math.random(),
+          "tableId": id,
           name: "Poulet Rôti",
           category: "Grill",
           image: "assets/images/poulet_roti.jpg",

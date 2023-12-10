@@ -13,7 +13,8 @@
             [category]="dish.category"
             [customerSpecification]="dish.customerSpecification"
             [isExpanded]="true"
-            [color]="getColorByTableNumber(getTableNumberForDish(dish))"
+            [color]="dish.color"
+            [tableId]="dish.tableId"
           ></app-dish>
         </div>
       </div>

@@ -117,11 +117,6 @@ export class RushModeComponent implements OnInit {
     return this.groupedDishesCategories.slice(this.maxCategoriesToShow);
   }
 
-  getColorByTableNumber(tableNumber: number): string {
-    const colors = ['red', 'green', 'blue', 'orange', 'purple', 'cyan'];
-    return colors[tableNumber];
-  }
-
   getTableNumberForDish(dish: DishComponent): number  {
     for (let [tableNumber, tableDish] of this.dishesPerTable) {
       if (tableDish === dish) {

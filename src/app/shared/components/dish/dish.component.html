@@ -1,4 +1,4 @@
-<div class="dish-container" [ngStyle]="{ 'border-color': this.color }">
+<div class="dish-container" [ngStyle]="{ 'border-color': generateColor(this.tableId) }">
   <div class="color-square" [ngStyle]="{ 'background-color': getColor() }"></div>
   <div class="image-container">
     <img [src]="image" *ngIf="isExpanded" class="image" alt="Image du plat"></div>

@@ -16,6 +16,7 @@
   <div *ngIf="!simpleView" class="dishes-list">
     <app-dish *ngFor="let dish of getDisplayedDishes()"
               [id]="dish.id"
+              [tableId]="dish.tableId"
               [name]="dish.name"
               [image]="dish.image"
               [quantity]="dish.quantity"
@@ -25,6 +26,7 @@
               [recipeExpert]="dish.recipeExpert"
               [recipeNovice]="dish.recipeNovice"
               [color]="color"
+              [isExpanded]="true"
     ></app-dish>
   </div>
 </div>
