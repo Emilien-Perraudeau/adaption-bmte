@@ -259,7 +259,7 @@ export class NormalModeComponent implements OnInit {
 
   getTotalRemainingDishesCount(): number {
     let totalRemainingDishes = 0;
-    for (let i = 3; i < this.tables.length; i++) {
+    for (let i = 7; i < this.tables.length; i++) {
       const table = this.tables[i];
       if (table.dishes) {
         totalRemainingDishes += table.dishes.length;
