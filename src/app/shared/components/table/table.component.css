@@ -5,6 +5,7 @@
   height: 100%;
   border-radius: 8px;
   flex-direction: column; /* Ajout de la propriété flex-direction */
+  border-width: 7px;
 
 }
 
