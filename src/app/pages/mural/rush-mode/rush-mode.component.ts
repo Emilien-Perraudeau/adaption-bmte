@@ -3,6 +3,8 @@ import { TableService } from "../../../services/table.service";
 import { DishComponent } from "../../../shared/components/dish/dish.component";
 import { TableComponent } from "../../../shared/components/table/table.component";
 import {DishState} from "../../../shared/enums/dish-state";
+import {SharedDataService} from "../../../services/shared-data.service";
+import {BreakpointObserver, Breakpoints} from "@angular/cdk/layout";
 
 @Component({
   selector: 'app-rush-mode',
@@ -10,8 +12,10 @@ import {DishState} from "../../../shared/enums/dish-state";
   styleUrls: ['./rush-mode.component.css']
 })
 export class RushModeComponent implements OnInit {
+  isTabletMode = false;
+  position_category = "Pizzas";
   DishState = DishState;
-  maxCategoriesToShow = 4;
+  availableCooks = 0;
   groupedDishesCategories: string[] = [];
   upcomingDishesCategories: string[] = [];
   groupedDishesForView: { [category: string]: DishComponent[] } = {};
@@ -25,9 +29,11 @@ export class RushModeComponent implements OnInit {
   upcomingDishesByCategory = new Map<string, DishComponent[]>();
   timeline: { time: Date, color: string }[] = [];
 
-  constructor(private tableService: TableService) {}
+  constructor(private tableService: TableService, private sharedDataService: SharedDataService, private breakpointObserver: BreakpointObserver) {}
 
   ngOnInit(): void {
+    this.availableCooks = this.sharedDataService.numberOfCooks;
+    console.log("maxCategoriesToShow "+ this.availableCooks)
     this.tableService.getTables().subscribe(receivedTables => {
       receivedTables.sort((a, b) => new Date(a.time).getTime() - new Date(b.time).getTime());
 
@@ -40,6 +46,11 @@ export class RushModeComponent implements OnInit {
 
       this.populateDishesWithTables();
       this.updateViewData();
+
+      this.breakpointObserver.observe([Breakpoints.Handset, Breakpoints.Tablet])
+        .subscribe(result => {
+          this.isTabletMode = result.matches;
+        });
     });
   }
 
@@ -86,7 +97,7 @@ export class RushModeComponent implements OnInit {
 
   calculateUpcomingDishes() {
     this.groupedDishes.forEach((dishes, category) => {
-      if (dishes.length > 4 || this.groupedDishes.size >= this.maxCategoriesToShow) {
+      if (dishes.length > 4 || this.groupedDishes.size >= this.availableCooks) {
         this.upcomingDishes.set(category,  dishes.length > 4  ? dishes.length - 4 : dishes.length);
         this.groupedDishes.set(category, dishes.slice(0, 4));
       } else {
@@ -98,7 +109,7 @@ export class RushModeComponent implements OnInit {
 
   prepareUpcomingDishes() {
     this.groupedDishes.forEach((dishes, category) => {
-      if (dishes.length > 4 || this.groupedDishesCategories.length > this.maxCategoriesToShow) {
+      if (dishes.length > 4 || this.groupedDishesCategories.length > this.availableCooks) {
         const remainingDishes = dishes.slice(4);
         this.upcomingDishesForView[category] = this.chunkArray(remainingDishes, 4);
       } else {
@@ -119,11 +130,11 @@ export class RushModeComponent implements OnInit {
   }
 
   get visibleCategories(): string[] {
-    return this.groupedDishesCategories.slice(0, this.maxCategoriesToShow);
+    return this.groupedDishesCategories.slice(0, this.availableCooks);
   }
 
   get hiddenCategories(): string[] {
-    return this.groupedDishesCategories.slice(this.maxCategoriesToShow);
+    return this.groupedDishesCategories.slice(this.availableCooks);
   }
 
   getTableNumberForDish(dish: DishComponent): number  {
