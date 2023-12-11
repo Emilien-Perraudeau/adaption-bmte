@@ -32,7 +32,9 @@
 
 .text-container p {
   margin: 0;
+  flex-wrap: wrap;
   font-weight: bold;
+  font-size: 1.2em;
 }
 
 .text-container div {
