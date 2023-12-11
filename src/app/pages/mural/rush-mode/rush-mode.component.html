@@ -1,23 +1,52 @@
 <app-header></app-header>
-<div class="timeline-container"><app-timeline [timeline]="timeline"></app-timeline></div>
 
 <div class="main-container">
-  <h2>{{maxCategoriesToShow}}</h2>
-  <div class="current-dishes-container" *ngIf="groupedDishes.size > 0; else isNormal">
-    <div class="category-container" *ngFor="let category of visibleCategories">
-      <h2>{{ category }}</h2>
-      <div class="dishes-in-category">
-        <div *ngFor="let dish of groupedDishesForView[category]">
-          <app-dish
-            [name]="dish.name"
-            [image]="dish.image"
-            [quantity]="dish.quantity"
-            [category]="dish.category"
-            [customerSpecification]="dish.customerSpecification"
-            [isExpanded]="true"
-            [color]="dish.color"
-            [tableId]="dish.tableId"
-          ></app-dish>
+  <div *ngIf="!isTabletMode">
+    <app-settings></app-settings>
+    <div class="timeline-container"><app-timeline [timeline]="timeline"></app-timeline></div>
+    <h2><b>Cuisiniers disponibles : </b>{{availableCooks}}</h2>
+    <div class="current-dishes-container" *ngIf="groupedDishes.size > 0; else isNormal">
+      <div class="category-container" *ngFor="let category of visibleCategories">
+        <h2>{{ category }}</h2>
+        <div class="dishes-in-category">
+          <div *ngFor="let dish of groupedDishesForView[category]">
+            <app-dish
+              [name]="dish.name"
+              [image]="dish.image"
+              [quantity]="dish.quantity"
+              [category]="dish.category"
+              [customerSpecification]="dish.customerSpecification"
+              [isExpanded]="true"
+              [color]="dish.color"
+              [tableId]="dish.tableId"
+            ></app-dish>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div *ngIf="isTabletMode">
+    <app-settings></app-settings>
+    <div class="timeline-container"><app-timeline [timeline]="timeline"></app-timeline></div>
+    <h2><b>Cuisiniers disponibles : </b>{{availableCooks}}</h2>
+    <div class="current-dishes-container" *ngIf="groupedDishes.size > 0; else isNormal">
+      <div class="category-container">
+        <h2>{{ this.position_category }}</h2>
+        <div class="dishes-in-category">
+          <div *ngFor="let dish of groupedDishesForView[this.position_category]">
+            <app-dish
+              [name]="dish.name"
+              [image]="dish.image"
+              [quantity]="dish.quantity"
+              [category]="dish.category"
+              [customerSpecification]="dish.customerSpecification"
+              [isExpanded]="true"
+              [color]="dish.color"
+              [tableId]="dish.tableId"
+            ></app-dish>
+          </div>
         </div>
       </div>
     </div>
