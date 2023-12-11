@@ -40,7 +40,16 @@ export class TableComponent implements OnInit {
 
   getDisplayedDishes(): DishComponent[] {
     // Retourne tous les plats si la table est en mode détaillé
-    return this.isTabletMode && this.isDetailedMode ? this.dishes : this.dishes.slice(0, 4);
+    //return this.isTabletMode && this.isDetailedMode ? this.dishes : this.dishes.slice(0, 4);
+    if(this.isTabletMode){
+      if(this.isDetailedMode){
+        return this.dishes;
+      }
+      else{
+        return this.dishes.slice(0, 4);
+      }
+    }
+    return this.dishes;
   }
 
   generateColor(tableId: number): string {
