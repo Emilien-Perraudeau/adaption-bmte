@@ -46,6 +46,7 @@
     grid-template-columns: repeat(2, 1fr);
     gap: 2px;
     width: 95%;
+    height: 70vh;
   }
 
   .app-table {
@@ -55,10 +56,9 @@
 
   .side-table-container {
     background-color: grey;
-    width: max-content;
+    width: 100%;
     padding: 0.5rem;
-    margin-left: 1rem;
-    margin-top: 10px;
+    margin-left: 0rem;
   }
 
   /* Ajoutez ces styles pour éviter les conflits */
