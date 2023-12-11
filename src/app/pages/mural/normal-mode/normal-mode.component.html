@@ -28,6 +28,7 @@
     </div>
     </div>
   </div>
+
     <!-- Side table container -->
     <div *ngIf="!isTabletMode" class="side-table-container">
       <h1>Prochaine commande</h1>
@@ -51,8 +52,9 @@
       <button (click)="ajouterNouvelleTable()">Ajouter une nouvelle table</button>
     </div>
   </div>
-
   <div *ngIf="isTabletMode" class="side-table-container">
+    <p>Total des tables: {{ tables.length }}</p>
+    <p>Total des plats à venir: {{ getTotalDishesCount() }}</p>
     <button mat-raised-button color="primary"
             [disabled]="!isAnyDishSelected()"
             (click)="onPreparationMode()">

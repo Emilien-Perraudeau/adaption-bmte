@@ -53,8 +53,9 @@ export class NormalModeComponent implements OnInit {
   }
 
   checkIfRushMode() {
+    const numberOfDishToBeInRushMode = 3*this.sharedDataService.numberOfCooks;
     const sommeTotale: number = this.tables.reduce((somme, table) => somme + this.getSommeDishComponentByTable(table), 0);
-    return sommeTotale > 10 && this.sharedDataService.numberOfCooks > 1;
+    return sommeTotale > numberOfDishToBeInRushMode && this.sharedDataService.numberOfCooks > 1;
   }
 
   getSommeDishComponentByTable(table: TableComponent): number {
@@ -103,38 +104,97 @@ export class NormalModeComponent implements OnInit {
     const id = Math.random();
     // Générer une nouvelle table
     const nouvelleTable = {
-      id: id,
-      time: "2023-12-06T16:00:00.000Z",
-      numberTable: 1,
-      numberOrder: 202,
-      dishes: [
-        {
-          "id": Math.random(),
-          "tableId": id,
-          name: "Poulet Rôti",
-          category: "Grill",
-          image: "assets/images/poulet_roti.jpg",
-          quantity: 1,
-          ingredients: [
-            "ingredient1",
-            "ingredient2"
-          ],
-          customerSpecification: [
-            "Sans peau",
-            "Extra sauce"
-          ],
-          state: "DONE",
-          recipeExpert: [
-            "Étape Expert 1 pour Poulet Rôti",
-            "Étape Expert 2 pour Poulet Rôti"
-          ],
-          recipeNovice: [
-            "Étape Novice 1 pour Poulet Rôti",
-            "Étape Novice 2 pour Poulet Rôti"
-          ]
-        },
-      ]
-    };
+        "id": id,
+        "numberTable": Math.floor(Math.random() * 20) + 1,
+        "numberOrder": 202,
+        "time": "2023-12-06T16:00:00.000Z",
+        "dishes": [
+          {
+            "id": 1,
+            "tableId": id,
+            "name": "Pizza Margherita",
+            "category": "Pizzas",
+            "image": "assets/images/pizza_margherita.jpg",
+            "quantity": 5,
+            "state": "NOT_ASSIGNED",
+            "ingredients": [
+              "ingredient1",
+              "ingredient2"
+            ],
+            "recipeExpert": [
+              "Étape Expert 1 pour Pizza Margherita",
+              "Étape Expert 2 pour Pizza Margherita"
+            ],
+            "recipeNovice": [
+              "Étape Novice 1 pour Pizza Margherita",
+              "Étape Novice 2 pour Pizza Margherita"
+            ]
+          },
+          {
+            "id": 2,
+            "tableId": id,
+            "name": "Pâtes Carbonara",
+            "category": "Pâtes",
+            "image": "assets/images/pates_carbonara.jpg",
+            "quantity": 2,
+            "state": "NOT_ASSIGNED",
+            "ingredients": [
+              "ingredient1",
+              "ingredient2"
+            ],
+            "recipeExpert": [
+              "Étape Expert 1 pour Pâtes Carbonara",
+              "Étape Expert 2 pour Pâtes Carbonara"
+            ],
+            "recipeNovice": [
+              "Étape Novice 1 pour Pâtes Carbonara",
+              "Étape Novice 2 pour Pâtes Carbonara"
+            ]
+          },
+          {
+            "id": 3,
+            "tableId": id,
+            "name": "Tiramisu",
+            "category": "Desserts",
+            "image": "assets/images/tiramisu.jpg",
+            "quantity": 3,
+            "state": "NOT_ASSIGNED",
+            "ingredients": [
+              "ingredient1",
+              "ingredient2"
+            ],
+            "recipeExpert": [
+              "Étape Expert 1 pour Tiramisu",
+              "Étape Expert 2 pour Tiramisu"
+            ],
+            "recipeNovice": [
+              "Étape Novice 1 pour Tiramisu",
+              "Étape Novice 2 pour Tiramisu"
+            ]
+          },
+          {
+            "id": 4,
+            "tableId": id,
+            "name": "Bruschetta",
+            "category": "Entrées",
+            "image": "assets/images/bruschetta.jpg",
+            "quantity": 2,
+            "state": "NOT_ASSIGNED",
+            "ingredients": [
+              "ingredient1",
+              "ingredient2"
+            ],
+            "recipeExpert": [
+              "Étape Expert 1 pour Bruschetta",
+              "Étape Expert 2 pour Bruschetta"
+            ],
+            "recipeNovice": [
+              "Étape Novice 1 pour Bruschetta",
+              "Étape Novice 2 pour Bruschetta"
+            ]
+          }
+        ]
+      };
 
     this.tableService.addTable(nouvelleTable).subscribe(response => {
       console.log('Nouvelle table ajoutée avec succès :', response);
@@ -185,5 +245,15 @@ export class NormalModeComponent implements OnInit {
 
   numberOfCooks(): number {
     return this.sharedDataService.numberOfCooks;
+  }
+
+  getTotalDishesCount(): number {
+    let totalDishes = 0;
+    for (const table of this.tables) {
+      if (table.dishes) {
+        totalDishes += table.dishes.length;
+      }
+    }
+    return totalDishes;
   }
 }
