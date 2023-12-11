@@ -1,14 +1,18 @@
-<div class="dish-container" [ngStyle]="{ 'border-color': generateColor(this.tableId) }">
+<div class="dish-container"
+     (click)="toggleSelection()"
+     [ngClass]="{
+       'selected': isSelected && isTabletMode,
+       'non-selectable': isTabletMode && state !== 'NOT_ASSIGNED'
+     }"
+     [ngStyle]="{ 'border-color': generateColor(this.tableId) }">
   <div class="color-square" [ngStyle]="{ 'background-color': getColor() }"></div>
   <div class="image-container">
-    <img [src]="image" *ngIf="isExpanded" class="image" alt="Image du plat"></div>
+    <img [src]="image" *ngIf="isExpanded" class="image" alt="Image du plat">
+  </div>
   <div class="text-container">
-    <input *ngIf="isTabletMode" type="checkbox"
-           [checked]="isSelected"
-           [disabled]="state !== 'NOT_ASSIGNED'"
-           (change)="checkboxChanged(); $event.stopPropagation();">
     <p>{{ this.quantity }}x {{ name }}</p>
     <div *ngIf="customerSpecification && customerSpecification.length > 0">
-      <p>{{ customerSpecification.join(', ') }}</p></div>
+      <p>{{ customerSpecification.join(', ') }}</p>
+    </div>
   </div>
 </div>

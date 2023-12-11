@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {DishState} from "../../enums/dish-state";
 import {SharedDataService} from "../../../services/shared-data.service";
 import {BreakpointObserver, Breakpoints} from "@angular/cdk/layout";
+import {IngredientComponent} from "../ingredient/ingredient.component";
 
 @Component({
   selector: 'app-dish',
@@ -17,9 +18,8 @@ export class DishComponent implements OnInit {
   @Input() category!: string;
   @Input() customerSpecification?: string[];
   @Input() state!: DishState;
-  @Input() ingredients!: string[];
-  @Input() recipeExpert!: string[];
-  @Input() recipeNovice!: string[];
+  @Input() ingredients!: IngredientComponent[];
+  @Input() recipe!: string[];
   @Input() isExpanded!: boolean;
   @Input() color!:string;
 
@@ -48,21 +48,22 @@ export class DishComponent implements OnInit {
     }
   }
 
-  getRecipeNovice(){
-    return this.recipeNovice;
-  }
-
   checkboxChanged() {
-    this.isSelected = !this.isSelected;
-
     if (this.isSelected) {
       this.sharedDataService.selectDish(this);
     } else {
       this.sharedDataService.deselectDish(this);
     }
-
     console.log(`Plat ${this.name} sélectionné: ${this.isSelected}`);
   }
+
+  toggleSelection() {
+    if (this.isTabletMode && this.state === DishState.NotAssigned) {
+      this.isSelected = !this.isSelected;
+      this.checkboxChanged();
+    }
+  }
+
 
   generateColor(tableId: number): string {
     const hue = (tableId * 137.508) % 360;

@@ -24,6 +24,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import {AppRoutingModule} from "./app-routing-module";
 import { HeaderComponent } from './shared/components/header/header.component';
 import { TimelineComponent } from './shared/components/timeline/timeline.component';
+import { IngredientComponent } from './shared/components/ingredient/ingredient.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { TimelineComponent } from './shared/components/timeline/timeline.compone
     NormalModeComponent,
     PreparationModeComponent,
     HeaderComponent,
-    TimelineComponent
+    TimelineComponent,
+    IngredientComponent
   ],
   imports: [
     BrowserModule,
