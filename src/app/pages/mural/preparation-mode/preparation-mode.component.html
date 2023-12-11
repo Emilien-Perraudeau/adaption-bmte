@@ -1,5 +1,6 @@
+<!-- preparation-mode.component.html -->
 <div class="preparation-mode">
-  <h1 class="preparation-title">Plats à Préparer</h1> <!-- Titre de la page -->
+  <h1 class="preparation-title">Plats à Préparer</h1>
 
   <mat-accordion>
     <mat-expansion-panel *ngFor="let dish of selectedDishes" class="selected-dish">
@@ -9,26 +10,13 @@
         </mat-panel-title>
       </mat-expansion-panel-header>
 
-      <div class="recipe-details" *ngIf="isExpertMode()">
-        <h3>Ingrédients</h3>
-        <ul>
-          <li *ngFor="let ingredient of dish.ingredients">{{ ingredient }}</li>
-        </ul>
-        <h3>Étapes</h3>
-        <ol>
-          <li *ngFor="let step of dish.recipeExpert">{{ step }}</li>
-        </ol>
-      </div>
 
       <div class="recipe-details" *ngIf="!isExpertMode()">
-        <h3>Ingrédients</h3>
-        <ul>
-          <li *ngFor="let ingredient of dish.ingredients">{{ ingredient }}</li>
-        </ul>
         <h3>Étapes</h3>
-        <ol>
-          <li *ngFor="let step of dish.recipeNovice">{{ step }}</li>
-        </ol>
+        <p *ngIf="currentStepIndex.get(dish.id) ?? 0 < (dish.recipe?.length ?? 0)"
+           (click)="nextStep(dish.id)">
+          {{ dish.recipe[currentStepIndex.get(dish.id) ?? 0] }}
+        </p>
       </div>
     </mat-expansion-panel>
   </mat-accordion>

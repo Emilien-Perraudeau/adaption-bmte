@@ -61,3 +61,14 @@
     padding-top: 0; /* Optional: Remove top padding in text-container */
   }
 }
+
+.dish-container.selected {
+  background-color: #a8e3d5;
+}
+
+.dish-container.non-selectable {
+  background-color: #f0f0f0; /* Gris pour les plats non sélectionnables */
+}
+
+
+

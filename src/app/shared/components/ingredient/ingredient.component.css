@@ -1,0 +1,10 @@
+/* ingredient.component.css */
+.ingredient-container {
+  display: flex;
+  align-items: center;
+}
+
+.ingredient-container img {
+  width: 50px; /* Ajustez la taille selon vos besoins */
+  margin-right: 10px;
+}

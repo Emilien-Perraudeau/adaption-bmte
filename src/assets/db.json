@@ -13,18 +13,40 @@
           "category": "Pizzas",
           "image": "assets/images/pizza_margherita.jpg",
           "quantity": 5,
-          "state": "NOT_ASSIGNED",
+          "state": "IN_PROGRESS",
           "ingredients": [
-            "ingredient1",
-            "ingredient2"
+            {
+              "name": "Fleur de sel",
+              "image": "assets/images/fleur_de_sel_de_guerande.jpg"
+            },
+            {
+              "name": "Levure Boulangère",
+              "image": "assets/images/levure.jpg"
+            },
+            {
+              "name": "Huile d'olive",
+              "image": "assets/images/huile_dolive.jpg"
+            },
+            {
+              "name": "Farine",
+              "image": "assets/images/farine.jpg"
+            },
+            {
+              "name": "Eau minérale",
+              "image": "assets/images/eau_minérale.jpg"
+            },
+            {
+              "name": "Poive et sel",
+              "image": "assets/images/poivre_et_sel.jpg"
+            },
+            {
+              "name": "Feuille de laurier",
+              "image": "assets/images/feuille_de_laurier.jpg"
+            }
           ],
-          "recipeExpert": [
-            "Étape Expert 1 pour Pizza Margherita",
-            "Étape Expert 2 pour Pizza Margherita"
-          ],
-          "recipeNovice": [
-            "Étape Novice 1 pour Pizza Margherita",
-            "Étape Novice 2 pour Pizza Margherita"
+          "recipe": [
+            "Étape Expert 1 pour Tiramisu",
+            "Étape Expert 2 pour Tiramisu"
           ]
         },
         {
@@ -34,18 +56,14 @@
           "category": "Pâtes",
           "image": "assets/images/pates_carbonara.jpg",
           "quantity": 2,
-          "state": "NOT_ASSIGNED",
+          "state": "IN_PROGRESS",
           "ingredients": [
             "ingredient1",
             "ingredient2"
           ],
-          "recipeExpert": [
-            "Étape Expert 1 pour Pâtes Carbonara",
-            "Étape Expert 2 pour Pâtes Carbonara"
-          ],
-          "recipeNovice": [
-            "Étape Novice 1 pour Pâtes Carbonara",
-            "Étape Novice 2 pour Pâtes Carbonara"
+          "recipe": [
+            "Étape Expert 1 pour Tiramisu",
+            "Étape Expert 2 pour Tiramisu"
           ]
         },
         {
@@ -60,13 +78,9 @@
             "ingredient1",
             "ingredient2"
           ],
-          "recipeExpert": [
+          "recipe": [
             "Étape Expert 1 pour Tiramisu",
             "Étape Expert 2 pour Tiramisu"
-          ],
-          "recipeNovice": [
-            "Étape Novice 1 pour Tiramisu",
-            "Étape Novice 2 pour Tiramisu"
           ]
         },
         {
@@ -81,13 +95,9 @@
             "ingredient1",
             "ingredient2"
           ],
-          "recipeExpert": [
-            "Étape Expert 1 pour Bruschetta",
-            "Étape Expert 2 pour Bruschetta"
-          ],
-          "recipeNovice": [
-            "Étape Novice 1 pour Bruschetta",
-            "Étape Novice 2 pour Bruschetta"
+          "recipe": [
+            "Étape Expert 1 pour Tiramisu",
+            "Étape Expert 2 pour Tiramisu"
           ]
         }
       ]
@@ -110,13 +120,9 @@
             "ingredient1",
             "ingredient2"
           ],
-          "recipeExpert": [
-            "Étape Expert 1 pour Pizza Quattro Formaggi",
-            "Étape Expert 2 pour Pizza Quattro Formaggi"
-          ],
-          "recipeNovice": [
-            "Étape Novice 1 pour Pizza Quattro Formaggi",
-            "Étape Novice 2 pour Pizza Quattro Formaggi"
+          "recipe": [
+            "Étape Expert 1 pour Tiramisu",
+            "Étape Expert 2 pour Tiramisu"
           ]
         },
         {
@@ -131,13 +137,9 @@
             "ingredient1",
             "ingredient2"
           ],
-          "recipeExpert": [
-            "Étape Expert 1 pour Pâtes Puttanesca",
-            "Étape Expert 2 pour Pâtes Puttanesca"
-          ],
-          "recipeNovice": [
-            "Étape Novice 1 pour Pâtes Puttanesca",
-            "Étape Novice 2 pour Pâtes Puttanesca"
+          "recipe": [
+            "Étape Expert 1 pour Tiramisu",
+            "Étape Expert 2 pour Tiramisu"
           ]
         }
       ]
@@ -160,13 +162,9 @@
             "ingredient1",
             "ingredient2"
           ],
-          "recipeExpert": [
-            "Étape Expert 1 pour Caprese Salad",
-            "Étape Expert 2 pour Caprese Salad"
-          ],
-          "recipeNovice": [
-            "Étape Novice 1 pour Pâtes Puttanesca",
-            "Étape Novice 2 pour Pâtes Puttanesca"
+          "recipe": [
+            "Étape Expert 1 pour Tiramisu",
+            "Étape Expert 2 pour Tiramisu"
           ]
         }
       ]
@@ -184,18 +182,14 @@
           "category": "Pizzas",
           "image": "assets/images/pizza_margherita.jpg",
           "quantity": 5,
-          "state": "NOT_ASSIGNED",
+          "state": "IN_PROGRESS",
           "ingredients": [
             "ingredient1",
             "ingredient2"
           ],
-          "recipeExpert": [
-            "Étape Expert 1 pour Pizza Margherita",
-            "Étape Expert 2 pour Pizza Margherita"
-          ],
-          "recipeNovice": [
-            "Étape Novice 1 pour Pizza Margherita",
-            "Étape Novice 2 pour Pizza Margherita"
+          "recipe": [
+            "Étape Expert 1 pour Tiramisu",
+            "Étape Expert 2 pour Tiramisu"
           ]
         },
         {
@@ -210,13 +204,9 @@
             "ingredient1",
             "ingredient2"
           ],
-          "recipeExpert": [
-            "Étape Expert 1 pour Pâtes Carbonara",
-            "Étape Expert 2 pour Pâtes Carbonara"
-          ],
-          "recipeNovice": [
-            "Étape Novice 1 pour Pâtes Carbonara",
-            "Étape Novice 2 pour Pâtes Carbonara"
+          "recipe": [
+            "Étape Expert 1 pour Tiramisu",
+            "Étape Expert 2 pour Tiramisu"
           ]
         },
         {
@@ -231,13 +221,9 @@
             "ingredient1",
             "ingredient2"
           ],
-          "recipeExpert": [
+          "recipe": [
             "Étape Expert 1 pour Tiramisu",
             "Étape Expert 2 pour Tiramisu"
-          ],
-          "recipeNovice": [
-            "Étape Novice 1 pour Tiramisu",
-            "Étape Novice 2 pour Tiramisu"
           ]
         },
         {
@@ -252,13 +238,9 @@
             "ingredient1",
             "ingredient2"
           ],
-          "recipeExpert": [
-            "Étape Expert 1 pour Bruschetta",
-            "Étape Expert 2 pour Bruschetta"
-          ],
-          "recipeNovice": [
-            "Étape Novice 1 pour Bruschetta",
-            "Étape Novice 2 pour Bruschetta"
+          "recipe": [
+            "Étape Expert 1 pour Tiramisu",
+            "Étape Expert 2 pour Tiramisu"
           ]
         }
       ]
@@ -281,13 +263,9 @@
             "ingredient1",
             "ingredient2"
           ],
-          "recipeExpert": [
-            "Étape Expert 1 pour Caprese Salad",
-            "Étape Expert 2 pour Caprese Salad"
-          ],
-          "recipeNovice": [
-            "Étape Novice 1 pour Pâtes Puttanesca",
-            "Étape Novice 2 pour Pâtes Puttanesca"
+          "recipe": [
+            "Étape Expert 1 pour Tiramisu",
+            "Étape Expert 2 pour Tiramisu"
           ]
         }
       ]
