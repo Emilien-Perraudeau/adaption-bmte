@@ -3,9 +3,10 @@
   border: 3px solid;
   margin: 1rem;
   height: 100%;
-  border-radius: 8px;
+  border-radius: 2px;
   flex-direction: column; /* Ajout de la propriété flex-direction */
   border-width: 7px;
+
 
 }
 
@@ -13,7 +14,7 @@
   background-color: #f2f2f2;
   height: 4rem;
   border-bottom: 1px solid #ccc;
-  border-radius: 8px 8px 0 0;
+  border-radius: 2px 2px 0 0;
 }
 
 .dishes-list {
@@ -33,7 +34,7 @@
 .dishes-count {
   background-color: white;
   padding: .5rem;
-  border-radius: 0 0 8px 8px;
+  border-radius: 0 0 2px 2px;
 }
 
 /* Responsive styles for smaller screens */
