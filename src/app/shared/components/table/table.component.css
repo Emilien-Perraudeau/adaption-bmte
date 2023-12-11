@@ -2,21 +2,17 @@
 .table-container {
   border: 3px solid;
   margin: 1rem;
-  border-radius: 8px;
-  max-width: 25rem;
   height: 100%;
+  border-radius: 8px;
+  flex-direction: column; /* Ajout de la propriété flex-direction */
+
 }
 
 .table-info {
   background-color: #f2f2f2;
-  padding: 1%;
+  margin-top: 0px;
   border-bottom: 1px solid #ccc;
   border-radius: 8px 8px 0 0;
-}
-
-.table-info h2 {
-  margin: 0;
-  color: #333;
 }
 
 .dishes-list {

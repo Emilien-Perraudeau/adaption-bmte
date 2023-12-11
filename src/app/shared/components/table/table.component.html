@@ -1,4 +1,5 @@
 <div class="table-container" [ngStyle]="{ 'border-color': generateColor(this.id) }" [class.detailed-mode]="isDetailedMode" (click)="handleTableClick()">
+  <!-- Affiche les informations de la table en haut -->
   <div class="table-info">
     <h2>{{ time | date:'HH:mm:ss' }}</h2>
     <div class="sous-titre">
@@ -7,12 +8,12 @@
     </div>
   </div>
 
-  <!-- Affiche le nombre de plats si simpleView est vrai -->
+  <!-- Affiche la liste des plats en dessous -->
   <div *ngIf="simpleView" class="dishes-count">
     Nombre de plats: {{ dishes.length }}
   </div>
 
-  <!-- Affiche la liste des plats si simpleView est faux -->
+  <!-- Affiche la liste des plats en dessous -->
   <div *ngIf="!simpleView" class="dishes-list">
     <app-dish *ngFor="let dish of getDisplayedDishes()"
               [id]="dish.id"

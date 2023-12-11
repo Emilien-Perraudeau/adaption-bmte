@@ -2,8 +2,14 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.25rem;
+  padding: 0.625rem; /* Ajustement du padding pour diminuer la hauteur */
   background-color: #fff;
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
   border-radius: 0.625rem;
+}
+
+/* Ajustement de la taille de police pour diminuer la hauteur du texte si nécessaire */
+.header h1, .header h2 {
+  margin: 0;
+  font-size: 1.5rem; /* Ajustement de la taille de police */
 }
