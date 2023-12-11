@@ -1,7 +1,7 @@
 /* Styles par défaut pour le mode normal */
 .big-container {
   display: flex;
-  height: 100vh;
+  height: 100%;
   justify-content: space-between;
 }
 
@@ -11,9 +11,7 @@
 
 .tables-container {
   display: flex;
-  justify-content: flex-start;
-  flex-grow: 1;
-  height: 85vh;
+  justify-content: space-between;
 }
 
 .app-table {
