@@ -36,7 +36,7 @@
 }
 
 /* Responsive styles for smaller screens */
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1080px) {
   .table-container {
     width: 100%;
     max-width: none;

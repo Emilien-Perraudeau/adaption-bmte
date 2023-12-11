@@ -45,6 +45,7 @@
   }
 
   .tables-container {
+    padding: 0;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 2px;
@@ -62,6 +63,9 @@
     width: 100%;
     padding: 0.5rem;
     margin-left: 0rem;
+
+    bottom: 0;
+    position: absolute;
   }
 
   /* Ajoutez ces styles pour éviter les conflits */
