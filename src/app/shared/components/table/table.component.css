@@ -48,4 +48,12 @@
     grid-template-columns: repeat(auto-fit, minmax(48%, 1fr)); /* Utilisez auto-fit pour s'ajuster automatiquement à la largeur disponible */
     gap: 10px; /* Espace entre les colonnes et les lignes */
   }
+
+  .table-container.selected {
+    background-color: #a8e3d5;
+  }
+
+  .table-container.non-selectable {
+    background-color: #f0f0f0; /* Gris pour les plats non sélectionnables */
+  }
 }

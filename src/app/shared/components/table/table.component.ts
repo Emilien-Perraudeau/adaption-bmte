@@ -1,6 +1,8 @@
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { DishComponent } from '../dish/dish.component';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import {DishState} from "../../enums/dish-state";
+import {SharedDataService} from "../../../services/shared-data.service";
 
 @Component({
   selector: 'app-table',
@@ -18,8 +20,9 @@ export class TableComponent implements OnInit {
   color!: string;
   isTabletMode = false;
   isDetailedMode = false; // Ajout de la propriété pour suivre le mode détaillé
+  isSelected: boolean = false;
 
-  constructor(private breakpointObserver: BreakpointObserver) {}
+  constructor(private breakpointObserver: BreakpointObserver, private _sharedDataService: SharedDataService) {}
 
   ngOnInit() {
     this.breakpointObserver.observe([Breakpoints.Handset, Breakpoints.Tablet])
@@ -55,5 +58,34 @@ export class TableComponent implements OnInit {
   generateColor(tableId: number): string {
     const hue = (tableId * 137.508) % 360;
     return `hsl(${hue}, 70%, 70%)`;
+  }
+
+  readonly DishState = DishState;
+
+  get sharedDataService(): SharedDataService {
+    return this._sharedDataService;
+  }
+
+  getStateFromDishes() {
+    return this.dishes[0].state;
+  }
+  toggleSelection() {
+    console.log("toogle selection")
+    if (this.isTabletMode && this.getStateFromDishes() === DishState.NotAssigned && this._sharedDataService.numberOfCooks == 1) {
+      this.isSelected = !this.isSelected;
+      this.checkboxChanged();
+    }
+  }
+
+  checkboxChanged() {
+    if (this.isSelected) {
+      this.dishes.forEach(dish => {
+        this._sharedDataService.selectDish(dish);
+      });
+    } else {
+      this.dishes.forEach(dish => {
+      this._sharedDataService.deselectDish(dish);
+      });
+    }
   }
 }

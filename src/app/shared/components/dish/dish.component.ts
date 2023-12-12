@@ -10,6 +10,7 @@ import {IngredientComponent} from "../ingredient/ingredient.component";
   styleUrls: ['./dish.component.css']
 })
 export class DishComponent implements OnInit {
+
   @Input() id!: number;
   @Input() tableId!: number;
   @Input() name!: string;
@@ -26,7 +27,7 @@ export class DishComponent implements OnInit {
   isTabletMode:boolean = false;
   isSelected: boolean = false;
 
-  constructor(private sharedDataService: SharedDataService, private breakpointObserver: BreakpointObserver) {}
+  constructor(private _sharedDataService: SharedDataService, private breakpointObserver: BreakpointObserver) {}
 
   ngOnInit(): void {
     this.breakpointObserver.observe([Breakpoints.Handset, Breakpoints.Tablet])
@@ -50,15 +51,15 @@ export class DishComponent implements OnInit {
 
   checkboxChanged() {
     if (this.isSelected) {
-      this.sharedDataService.selectDish(this);
+      this._sharedDataService.selectDish(this);
     } else {
-      this.sharedDataService.deselectDish(this);
+      this._sharedDataService.deselectDish(this);
     }
     console.log(`Plat ${this.name} sélectionné: ${this.isSelected}`);
   }
 
   toggleSelection() {
-    if (this.isTabletMode && this.state === DishState.NotAssigned) {
+    if (this.isTabletMode && this.state === DishState.NotAssigned && this._sharedDataService.numberOfCooks > 1) {
       this.isSelected = !this.isSelected;
       this.checkboxChanged();
     }
@@ -68,5 +69,11 @@ export class DishComponent implements OnInit {
   generateColor(tableId: number): string {
     const hue = (tableId * 137.508) % 360;
     return `hsl(${hue}, 70%, 70%)`;
+  }
+
+  readonly DishState = DishState;
+
+  get sharedDataService(): SharedDataService {
+    return this._sharedDataService;
   }
 }
