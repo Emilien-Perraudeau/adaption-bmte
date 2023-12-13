@@ -57,3 +57,18 @@
     margin-bottom: 2%;
   }
 }
+
+.validate-icon {
+  width: 20px;
+  height: 20px;
+  border: 5px solid #ccc; /* Bordure plus épaisse */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin-right: 30px; /* Ajoutez un peu d'espace à gauche si nécessaire */
+}
+
+.strikethrough {
+  text-decoration: line-through;
+}

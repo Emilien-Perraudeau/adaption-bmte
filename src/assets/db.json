@@ -115,7 +115,7 @@
           "category": "Pizzas",
           "image": "assets/images/pizza_quattro_formaggi.jpg",
           "quantity": 3,
-          "state": "NOT_ASSIGNED",
+          "state": "IN_PROGRESS",
           "ingredients": [
             "ingredient1",
             "ingredient2"
@@ -132,7 +132,7 @@
           "category": "Pâtes",
           "image": "assets/images/pates_puttanesca.jpg",
           "quantity": 4,
-          "state": "NOT_ASSIGNED",
+          "state": "DONE",
           "ingredients": [
             "ingredient1",
             "ingredient2"
@@ -157,7 +157,7 @@
           "category": "Entrées",
           "image": "assets/images/caprese_salad.jpg",
           "quantity": 2,
-          "state": "NOT_ASSIGNED",
+          "state": "IN_PROGRESS",
           "ingredients": [
             "ingredient1",
             "ingredient2"
@@ -182,7 +182,7 @@
           "category": "Pizzas",
           "image": "assets/images/pizza_margherita.jpg",
           "quantity": 5,
-          "state": "NOT_ASSIGNED",
+          "state": "DONE",
           "ingredients": [
             "ingredient1",
             "ingredient2"
@@ -199,7 +199,7 @@
           "category": "Pâtes",
           "image": "assets/images/pates_carbonara.jpg",
           "quantity": 2,
-          "state": "NOT_ASSIGNED",
+          "state": "DONE",
           "ingredients": [
             "ingredient1",
             "ingredient2"
