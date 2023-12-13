@@ -1,3 +1,4 @@
+/* preparation-mode.component.css */
 .preparation-mode {
   padding: 20px;
 }
@@ -7,31 +8,52 @@
   margin-bottom: 20px;
 }
 
-.selected-dish {
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
 .selected-dish .mat-expansion-panel-header {
   background-color: #f8f8f8;
   border-bottom: 1px solid #ccc;
 }
 
-.recipe-details {
-  padding: 10px;
+/* Style pour la div contenant l'étape */
+.step-container {
+  border: 1px solid #ccc;
+  padding: 2%;
+  margin-bottom: 1%;
+  border-radius: 5px;
+  background-color: #f8f8f8;
+  cursor: pointer;
+  width: 96%;
+  box-sizing: border-box;
+  position: relative;
 }
 
-.recipe-details h3 {
-  margin-top: 0;
+.step-container.hasNextStep::after {
+  content: '➤';
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  font-size: 20px;
+  color: #666;
+  display: none;
 }
 
+.step-container.hasNextStep::after {
+  display: block;
+}
+
+/* Style pour le bouton "Retour" */
+.step-back-button {
+  margin-top: 1%;
+  display: block; /* S'assurer que le bouton est toujours visible */
+}
+
+/* Styles pour les médias queries */
 @media (max-width: 768px) {
   .preparation-mode {
     padding: 10px;
   }
 
-  .selected-dish .recipe-details {
+  .step-container {
     padding: 5px;
+    margin-bottom: 2%;
   }
 }

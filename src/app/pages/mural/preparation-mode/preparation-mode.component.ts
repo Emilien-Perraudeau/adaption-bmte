@@ -10,7 +10,8 @@ import { DishComponent } from "../../../shared/components/dish/dish.component";
 })
 export class PreparationModeComponent implements OnInit {
   selectedDishes: DishComponent[] = [];
-  currentStepIndex: Map<number, number> = new Map(); // Clé: id du plat, Valeur: index de l'étape actuelle
+  currentStepIndex = new Map<number, number>();
+  currentRecipeInView: number | null = null;
 
   constructor(private sharedDataService: SharedDataService) {}
 
@@ -20,19 +21,72 @@ export class PreparationModeComponent implements OnInit {
   }
 
   nextStep(dishId: number) {
-    const dish = this.selectedDishes.find(dish => dish.id === dishId);
-    if (dish) {
-      const currentIndex = this.currentStepIndex.get(dishId) || 0;
-      if (currentIndex < dish.recipe.length - 1) {
-        this.currentStepIndex.set(dishId, currentIndex + 1);
-      }
-    } else {
-      console.error('Dish not found for id:', dishId);
+    const currentIndex = this.currentStepIndex.get(dishId) || 0;
+    const dish = this.selectedDishes.find(d => d.id === dishId);
+
+    if (dish && currentIndex < dish.recipe.length - 1) {
+      this.currentStepIndex.set(dishId, currentIndex + 1);
     }
   }
 
+  getCurrentStep(dishId: number): string {
+    const currentIndex = this.currentStepIndex.get(dishId) || 0;
+    const dish = this.selectedDishes.find(d => d.id === dishId);
+    return dish?.recipe[currentIndex] ?? "Étape inconnue";
+  }
+
+  shouldShowStep(dishId: number): boolean {
+    const currentIndex = this.currentStepIndex.get(dishId) || 0;
+    const dish = this.selectedDishes.find(d => d.id === dishId);
+    return dish ? currentIndex < (dish.recipe?.length ?? 0) : false;
+  }
+
+  closePopup() {
+    this.currentRecipeInView = null;
+  }
+
+  selectRecipe(dishId: number): void {
+    this.currentRecipeInView = dishId;
+    // Initialisez ou réinitialisez l'indice de l'étape actuelle pour ce plat
+    this.currentStepIndex.set(dishId, 0);
+  }
+
+
+  get currentDishName(): string {
+    if (this.currentRecipeInView != null) {
+      const currentDish = this.selectedDishes.find(dish => dish.id === this.currentRecipeInView);
+      return currentDish ? currentDish.name : 'Nom inconnu';
+    }
+    return 'Aucun plat sélectionné';
+  }
 
   isExpertMode(): boolean {
     return this.sharedDataService.getMode() === 'expert';
+  }
+
+  previousStep(dishId: number, event: MouseEvent) {
+    event.stopPropagation();
+    const currentIndex = this.currentStepIndex.get(dishId) || 0;
+    if (currentIndex > 0) {
+      this.currentStepIndex.set(dishId, currentIndex - 1);
+    }
+  }
+
+  hasPreviousStep(dishId: number): boolean {
+    const currentIndex = this.currentStepIndex.get(dishId) || 0;
+    return currentIndex > 0;
+  }
+
+  openStepsPopup(dishId: number) {
+    this.currentRecipeInView = dishId;
+    this.currentStepIndex.set(dishId, 1);
+  }
+
+  hasNextStep(dishId: number): boolean {
+    const currentIndex = this.currentStepIndex.get(dishId)!;
+    const dish = this.selectedDishes.find(d => d.id === dishId);
+
+    // Retourne false si currentIndex ou dish est undefined
+    return dish ? currentIndex < dish.recipe.length - 1 : false;
   }
 }
