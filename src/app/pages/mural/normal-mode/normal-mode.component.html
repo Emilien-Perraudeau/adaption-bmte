@@ -31,7 +31,7 @@
 
     <!-- Side table container -->
     <div *ngIf="!isTabletMode" class="side-table-container">
-      <h1>Prochaine commande</h1>
+      <h1>Prochaine(s) commande(s)</h1>
       <div *ngFor="let table of tables; let i = index">
         <app-table *ngIf="i > 3 && i<7"
                    [id]="table.id"
@@ -43,8 +43,8 @@
         ></app-table>
       </div>
       <div class="remaining-info" *ngIf="tables.length > 3">
-        <h2><strong>{{ tables.length - 7 }}</strong> tables restantes</h2>
-        <h2><strong>{{ getTotalRemainingDishesCount() }}</strong> plats restants</h2>
+        <h2><strong>{{ tables.length - 7 }}</strong> table(s) restante(s)</h2>
+        <h2><strong>{{ getTotalRemainingDishesCount() }}</strong> plat(s) restant(s)</h2>
       </div>
       <button mat-raised-button color="primary"
               [disabled]="!isAnyDishSelected()"

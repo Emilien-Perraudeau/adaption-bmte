@@ -1,10 +1,13 @@
+<div class="component-container">
+  <div class="header-container">
 <app-header></app-header>
+  </div>
 
 <div class="main-container">
   <div *ngIf="!isTabletMode">
-    <app-settings></app-settings>
+    <div class="truc-container"><div class="setting-container"><app-settings></app-settings></div>
+      <div class="cooks-container"><h2><b>Cuisiniers disponibles : </b>{{availableCooks}}</h2></div></div>
     <div class="timeline-container"><app-timeline [timeline]="timeline"></app-timeline></div>
-    <h2><b>Cuisiniers disponibles : </b>{{availableCooks}}</h2>
     <div class="current-dishes-container" *ngIf="groupedDishes.size > 0; else isNormal">
       <div class="category-container" *ngFor="let category of visibleCategories">
         <h2>{{ category }}</h2>
@@ -28,9 +31,9 @@
 
 
   <div *ngIf="isTabletMode">
-    <app-settings></app-settings>
+    <div class="truc-container"><div class="setting-container"><app-settings></app-settings></div>
+      <div class="cooks-container"><h2><b>Cuisiniers disponibles : </b>{{availableCooks}}</h2></div></div>
     <div class="timeline-container"><app-timeline [timeline]="timeline"></app-timeline></div>
-    <h2><b>Cuisiniers disponibles : </b>{{availableCooks}}</h2>
     <div class="current-dishes-container" *ngIf="groupedDishes.size > 0; else isNormal">
       <div class="category-container">
         <h2>{{ this.position_category }}</h2>
@@ -52,7 +55,7 @@
     </div>
   </div>
 
-  <div class="footer">
+  <div *ngIf="hiddenCategories.length>0" class="footer">
     <div *ngFor="let category of hiddenCategories">
       <h3>{{ category }}</h3>
       <div *ngFor="let dishChunk of upcomingDishesForView[category]">
@@ -77,3 +80,4 @@
 <ng-template #isNormal>
   <app-normal-mode></app-normal-mode>
 </ng-template>
+</div>

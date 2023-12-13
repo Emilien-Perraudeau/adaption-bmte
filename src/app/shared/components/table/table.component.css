@@ -1,12 +1,10 @@
 /* Default styles for TableComponent */
 .table-container {
-  border: 3px solid;
+  border: 7px solid;
   margin: 1rem;
   height: 100%;
   border-radius: 2px;
-  flex-direction: column; /* Ajout de la propriété flex-direction */
-  border-width: 7px;
-
+  flex-direction: column;
 
 }
 
