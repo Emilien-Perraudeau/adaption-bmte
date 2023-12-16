@@ -23,6 +23,7 @@ export class DishComponent implements OnInit {
   @Input() recipe!: string[];
   @Input() isExpanded!: boolean;
   @Input() color!:string;
+  isServerMode: boolean = false;
   @Input() shouldDisplayImage: boolean = true;
 
   isTabletMode:boolean = false;
@@ -35,6 +36,7 @@ export class DishComponent implements OnInit {
       .subscribe(result => {
         this.isTabletMode = result.matches;
       });
+    this.isServerMode = this._sharedDataService.getServeurMode();
   }
 
   getColor(): string {
@@ -51,6 +53,12 @@ export class DishComponent implements OnInit {
   }
 
   checkboxChanged() {
+    // Vérifier si on est en mode serveur
+    if (this._sharedDataService.getServeurMode()) {
+      console.log("Mode serveur actif. Impossible de sélectionner ou désélectionner des plats.");
+      return; // Sortir de la fonction si on est en mode serveur
+    }
+
     if (this.isSelected) {
       this._sharedDataService.selectDish(this);
     } else {

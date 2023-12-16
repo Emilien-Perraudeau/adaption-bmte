@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { DishComponent} from "../shared/components/dish/dish.component";
+import {TableComponent} from "../shared/components/table/table.component";
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +12,7 @@ export class SharedDataService {
   private isServeurMode: boolean = false
   private _numberOfCooks: 1 | 2 | 3 | 4 = 4;
   private previousMode: 'normal-mode' | 'rush-mode' = 'normal-mode';
+  private selectedTables = new Set<TableComponent>();
 
   selectDish(dish: DishComponent): void {
     this.selectedDishes.add(dish);
@@ -58,5 +60,23 @@ export class SharedDataService {
 
   clearSelectedDishes() {
     this.selectedDishes.clear();
+  }
+
+  addTables(table: TableComponent): void {
+    console.log()
+    this.selectedTables.add(table);
+  }
+
+  getTables(): Set<TableComponent> {
+    return this.selectedTables;
+  }
+
+  isAnyTableSelected(): boolean {
+    console.log(this.selectedTables.size)
+    return this.selectedTables.size > 0;
+  }
+
+  setTables(tables: Set<TableComponent>): void {
+    this.selectedTables = tables;
   }
 }

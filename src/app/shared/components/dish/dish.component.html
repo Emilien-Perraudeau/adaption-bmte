@@ -1,8 +1,9 @@
 <div class="dish-container"
      (click)="toggleSelection()"
      [ngClass]="{
-       'selected': isSelected && isTabletMode,
-       'non-selectable': isTabletMode && state !== this.DishState.NotAssigned && this.sharedDataService.numberOfCooks > 1
+       'selected': isSelected && isTabletMode && !isServerMode,
+       'non-selectable': isTabletMode && state !== this.DishState.NotAssigned && this.sharedDataService.numberOfCooks > 1,
+       'server-mode': isServerMode
      }"
      [ngStyle]="{ 'border-color': generateColor(this.tableId) }">
   <div class="color-square" [ngStyle]="{ 'background-color': getColor() }"></div>

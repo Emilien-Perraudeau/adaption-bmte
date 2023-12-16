@@ -22,4 +22,8 @@ export class TableService {
   updateTablesAfterAddition(): Observable<TableComponent[]> {
     return this.http.get<TableComponent[]>(this.baseUrl);
   }
+
+  deleteTable(tableId: number): Observable<any> {
+    return this.http.delete(`${this.baseUrl}/${tableId}`);
+  }
 }

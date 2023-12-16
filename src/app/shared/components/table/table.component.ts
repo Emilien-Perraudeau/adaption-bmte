@@ -5,7 +5,7 @@ import {DishState} from "../../enums/dish-state";
 import {SharedDataService} from "../../../services/shared-data.service";
 
 @Component({
-  selector: 'app-table',
+    selector: 'app-table',
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.css']
 })
@@ -77,22 +77,29 @@ export class TableComponent implements OnInit {
   }
 
   toggleSelection() {
-    console.log("toogle selection")
-    if (this.isTabletMode && this.getFirstStateFromDishes() === DishState.NotAssigned && this._sharedDataService.numberOfCooks == 1) {
+    if (this.isTabletMode && this.isAllStatesGreen() && this._sharedDataService.getServeurMode()) {
       this.isSelected = !this.isSelected;
-      this.checkboxChanged();
+      console.log(`Table ${this.numberTable} sélectionnée: ${this.isSelected}`);
+      this.updateSelectedTablesInSharedDataService();
+    } else {
+      console.log("Sélection de la table non autorisée.");
     }
   }
 
-  checkboxChanged() {
+  private updateSelectedTablesInSharedDataService() {
+    const tables = this._sharedDataService.getTables();
+
+    // Vérifie si la table actuelle est déjà sélectionnée
     if (this.isSelected) {
-      this.dishes.forEach(dish => {
-        this._sharedDataService.selectDish(dish);
-      });
+      // Ajoute la table actuelle au Set si elle est sélectionnée
+      tables.add(this);
     } else {
-      this.dishes.forEach(dish => {
-      this._sharedDataService.deselectDish(dish);
-      });
+      // Supprime la table actuelle du Set si elle n'est plus sélectionnée
+      tables.delete(this);
     }
+
+    // Met à jour le Set de tables sélectionnées dans SharedDataService
+    this._sharedDataService.setTables(tables);
   }
+
 }

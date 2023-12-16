@@ -1,10 +1,11 @@
 <div class="table-container"
      [ngClass]="{
-       'selected': isSelected && isTabletMode,
-       'non-selectable': isTabletMode && this.getFirstStateFromDishes() !== this.DishState.NotAssigned && this.sharedDataService.numberOfCooks > 1
+       'selected': isSelected,
+       'non-selectable': !isAllStatesGreen()
      }"
      [ngStyle]="{ 'border-color': generateColor(this.id) }"
-     [class.detailed-mode]="isDetailedMode" (click)="handleTableClick(); toggleSelection()">
+     [class.detailed-mode]="isDetailedMode"
+     (click)="handleTableClick(); toggleSelection()">
   <!-- Affiche les informations de la table en haut -->
   <div class="table-info">
     <h2>{{ time | date:'HH:mm:ss' }}</h2>

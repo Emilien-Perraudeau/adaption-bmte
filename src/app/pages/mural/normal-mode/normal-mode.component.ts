@@ -277,4 +277,29 @@ export class NormalModeComponent implements OnInit {
     return this._sharedDataService;
   }
 
+  onValidateMode() {
+    const tables = Array.from(this.sharedDataService.getTables());
+    const selectedTables = tables.filter(table => table.isSelected && table.isAllStatesGreen());
+
+    selectedTables.forEach(table => {
+      // Supprimez la table de la base de données ou effectuez d'autres actions nécessaires
+      this.tableService.deleteTable(table.id).subscribe(() => {
+        console.log(`Table ${table.numberTable} validée et supprimée`);
+        // Mettez à jour la liste des tables dans SharedDataService
+        this.updateTablesAfterDeletion(table.id);
+      });
+    });
+  }
+
+  private updateTablesAfterDeletion(tableId: number) {
+    let tables = Array.from(this.sharedDataService.getTables());
+    tables = tables.filter(table => table.id !== tableId);
+    this.sharedDataService.setTables(new Set(tables));
+  }
+
+  isAnyTableSelected(): boolean {
+    return this.sharedDataService.isAnyTableSelected();
+  }
+
+
 }
