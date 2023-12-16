@@ -20,7 +20,7 @@
             "Sans assiette",
             "Sans couverts"
           ],
-          "state": "NOT_ASSIGNED",
+          "state": "DONE",
           "ingredients": [
             {
               "name": "Fleur de sel",
@@ -63,7 +63,7 @@
           "category": "Pâtes",
           "image": "assets/images/pates_carbonara.jpg",
           "quantity": 2,
-          "state": "NOT_ASSIGNED",
+          "state": "IN_PROGRESS",
           "ingredients": [
             "ingredient1",
             "ingredient2"
@@ -80,7 +80,7 @@
           "category": "Desserts",
           "image": "assets/images/tiramisu.jpg",
           "quantity": 3,
-          "state": "NOT_ASSIGNED",
+          "state": "IN_PROGRESS",
           "ingredients": [
             "ingredient1",
             "ingredient2"
@@ -97,7 +97,7 @@
           "category": "Entrées",
           "image": "assets/images/bruschetta.jpg",
           "quantity": 2,
-          "state": "NOT_ASSIGNED",
+          "state": "IN_PROGRESS",
           "ingredients": [
             "ingredient1",
             "ingredient2"
@@ -117,7 +117,7 @@
           "customerSpecification": [
             "Supplément mozza"
           ],
-          "state": "NOT_ASSIGNED",
+          "state": "IN_PROGRESS",
           "ingredients": [
             "ingredient1",
             "ingredient2"
