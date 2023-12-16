@@ -63,10 +63,17 @@ export class PreparationModeComponent implements OnInit {
       const tablesToUpdate = tables.filter(table => {
         let tableNeedsUpdate = false;
         const dishToUpdate = table.dishes.find(dish => dish.id === dishId);
-        if (dishToUpdate && dishToUpdate.state !== DishState.Done) {
-          dishToUpdate.state = DishState.Done;
+
+        // Toggle entre DONE et IN_PROGRESS
+        if (dishToUpdate) {
+          if (dishToUpdate.state === DishState.Done) {
+            dishToUpdate.state = DishState.InProgress;
+          } else {
+            dishToUpdate.state = DishState.Done;
+          }
           tableNeedsUpdate = true;
         }
+
         return tableNeedsUpdate;
       });
 
@@ -78,12 +85,13 @@ export class PreparationModeComponent implements OnInit {
           // Mise à jour de l'état local du plat
           const localDish = this.selectedDishes.find(d => d.id === dishId);
           if (localDish) {
-            localDish.state = DishState.Done;
+            localDish.state = localDish.state === DishState.Done ? DishState.InProgress : DishState.Done;
           }
         });
       }
     });
   }
+
 
 
   allDishesDone(): boolean {
