@@ -59,13 +59,17 @@
     </div>
   </div>
   <div *ngIf="isTabletMode" class="side-table-container">
+    <div class="tables-restantes">
     <p>Total des tables: {{ tables.length }}</p>
     <p>Total des plats à venir: {{ getTotalDishesCount() }}</p>
+    </div>
+    <div class="boutoon-valider">
     <button mat-raised-button color="primary"
             [disabled]="!isAnyDishSelected()"
             (click)="onPreparationMode()">
       Valider
     </button>
+    </div>
   </div>
 
 </div>

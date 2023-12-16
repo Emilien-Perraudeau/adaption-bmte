@@ -38,8 +38,10 @@
 /* Responsive styles for smaller screens */
 @media screen and (max-width: 1080px) {
   .table-container {
-    width: 100%;
+    width: 94%;
+    height: 94%;
     max-width: none;
+    margin: 0rem;
   }
   .dishes-list {
     display: grid;
