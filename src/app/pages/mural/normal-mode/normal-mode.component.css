@@ -27,10 +27,17 @@
 }
 
 .tables-container {
-  padding: 1rem;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
-  height: 80%;
+  height: 95%;
+  padding: 1rem 1rem 1rem .2rem;
+}
+
+.left-container .for-each-table{
+  flex-grow: 1;
+  max-width: 23%;
+  flex-basis: 25%;
 }
 
 .app-table {
@@ -43,7 +50,6 @@
   background-color: grey;
   width: 20%;
   padding: 0.5rem;
-  margin-left: 1rem;
 }
 
 .remaining-info {

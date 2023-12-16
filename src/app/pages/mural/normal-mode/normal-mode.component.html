@@ -10,7 +10,7 @@
   <div class="left-container">
     <div class="timeline-container"><app-timeline [timeline]="timeline"></app-timeline></div>
   <div class="tables-container">
-    <div *ngFor="let table of tables; let i = index">
+    <div class="for-each-table" *ngFor="let table of tables; let i = index">
       <app-table *ngIf="(i <= 3 && !isTabletMode) || this.sharedDataService.getServeurMode() "
                  [id]="table.id"
                  [numberTable]="table.numberTable"
