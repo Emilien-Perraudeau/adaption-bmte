@@ -12,10 +12,15 @@
       </mat-expansion-panel-header>
 
       <!-- Affichage des ingrédients (aussi en mode expert) -->
+      <div *ngIf="dish.customerSpecification && dish.customerSpecification.length > 0">
+        <h3>Spécification</h3><p class="customer-specification">{{ dish.customerSpecification.join(', ') }}</p>
+      </div>
+
+      <!-- Affichage des ingrédients (aussi en mode expert) -->
       <div>
         <h3>Ingrédients</h3>
         <ul>
-          <li *ngFor="let ingredient of dish.ingredients">{{ ingredient }}</li>
+          <li *ngFor="let ingredient of dish.ingredients">{{ ingredient.name }}</li>
         </ul>
       </div>
 
@@ -41,11 +46,15 @@
         </div>
       </mat-expansion-panel-header>
 
+      <div *ngIf="dish.customerSpecification && dish.customerSpecification.length > 0">
+        <h3>Spécifications</h3><p class="customer-specification">{{ dish.customerSpecification.join(', ') }}</p>
+      </div>
+
       <!-- Affichage des ingrédients en mode novice -->
       <div>
         <h3>Ingrédients</h3>
         <ul>
-          <li *ngFor="let ingredient of dish.ingredients">{{ ingredient }}</li>
+          <li *ngFor="let ingredient of dish.ingredients">{{ ingredient.name }}</li>
         </ul>
       </div>
 

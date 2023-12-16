@@ -23,6 +23,7 @@ export class PreparationModeComponent implements OnInit {
   ngOnInit() {
     this.selectedDishes = this.sharedDataService.getSelectedDishes();
     this.selectedDishes.forEach(dish => this.currentStepIndex.set(dish.id, 0));
+    console.log(this.selectedDishes)
   }
 
   nextStep(dishId: number) {

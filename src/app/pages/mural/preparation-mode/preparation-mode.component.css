@@ -3,6 +3,10 @@
   padding: 20px;
 }
 
+.customer-specification {
+  color: red;
+}
+
 .preparation-title {
   text-align: center;
   margin-bottom: 20px;
