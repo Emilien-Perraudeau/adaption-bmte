@@ -8,6 +8,7 @@ export class SharedDataService {
 
   private selectedDishes = new Set<DishComponent>();
   private mode: 'expert' | 'novice' = 'novice';
+  private isServeurMode: boolean = false
   private _numberOfCooks: 1 | 2 | 3 | 4 = 4;
 
   selectDish(dish: DishComponent): void {
@@ -36,5 +37,13 @@ export class SharedDataService {
 
   set numberOfCooks(value: 1 | 2 | 3 | 4) {
     this._numberOfCooks = value;
+  }
+
+  getServeurMode(): boolean {
+    return this.isServeurMode;
+  }
+
+  setServeurMode(isServeurMode: boolean): void {
+    this.isServeurMode = isServeurMode;
   }
 }

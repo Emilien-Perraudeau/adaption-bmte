@@ -1,7 +1,7 @@
 <div class="table-container"
      [ngClass]="{
        'selected': isSelected && isTabletMode,
-       'non-selectable': isTabletMode && this.getStateFromDishes() !== this.DishState.NotAssigned && this.sharedDataService.numberOfCooks > 1
+       'non-selectable': isTabletMode && this.getFirstStateFromDishes() !== this.DishState.NotAssigned && this.sharedDataService.numberOfCooks > 1
      }"
      [ngStyle]="{ 'border-color': generateColor(this.id) }"
      [class.detailed-mode]="isDetailedMode" (click)="handleTableClick(); toggleSelection()">

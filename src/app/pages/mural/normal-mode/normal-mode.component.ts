@@ -17,6 +17,7 @@ import {TimelineComponent} from "../../../shared/components/timeline/timeline.co
   styleUrls: ['./normal-mode.component.css']
 })
 export class NormalModeComponent implements OnInit {
+
   tables: TableComponent[] = [];
   isTabletMode = false;
   timeline: { time: Date, color: string }[] = [];
@@ -26,7 +27,7 @@ export class NormalModeComponent implements OnInit {
     private dishService: DishService,
     private breakpointObserver: BreakpointObserver,
     private router: Router,
-    private sharedDataService: SharedDataService,
+    private _sharedDataService: SharedDataService,
     private http: HttpClient
   ) {
   }
@@ -53,9 +54,9 @@ export class NormalModeComponent implements OnInit {
   }
 
   checkIfRushMode() {
-    const numberOfDishToBeInRushMode = 3*this.sharedDataService.numberOfCooks;
+    const numberOfDishToBeInRushMode = 3*this._sharedDataService.numberOfCooks;
     const sommeTotale: number = this.tables.reduce((somme, table) => somme + this.getSommeDishComponentByTable(table), 0);
-    return sommeTotale > numberOfDishToBeInRushMode && this.sharedDataService.numberOfCooks > 1;
+    return sommeTotale > numberOfDishToBeInRushMode && this._sharedDataService.numberOfCooks > 1;
   }
 
   getSommeDishComponentByTable(table: TableComponent): number {
@@ -65,7 +66,7 @@ export class NormalModeComponent implements OnInit {
 
   onPreparationMode() {
     this.dishService.getTables().subscribe(tables => {
-      const selectedDishes = this.sharedDataService.getSelectedDishes();
+      const selectedDishes = this._sharedDataService.getSelectedDishes();
       const tablesToUpdate = tables.filter(table => {
         let tableNeedsUpdate = false;
         table.dishes.forEach(dish => {
@@ -214,7 +215,7 @@ export class NormalModeComponent implements OnInit {
 
 
   isAnyDishSelected(): boolean {
-    return this.sharedDataService.getSelectedDishes().length > 0;
+    return this._sharedDataService.getSelectedDishes().length > 0;
   }
 
   resetDishesState() {
@@ -244,7 +245,7 @@ export class NormalModeComponent implements OnInit {
   }
 
   numberOfCooks(): number {
-    return this.sharedDataService.numberOfCooks;
+    return this._sharedDataService.numberOfCooks;
   }
 
   getTotalDishesCount(): number {
@@ -266,6 +267,10 @@ export class NormalModeComponent implements OnInit {
       }
     }
     return totalRemainingDishes;
+  }
+
+  get sharedDataService(): SharedDataService {
+    return this._sharedDataService;
   }
 
 }

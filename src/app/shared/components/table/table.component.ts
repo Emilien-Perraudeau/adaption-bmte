@@ -66,12 +66,17 @@ export class TableComponent implements OnInit {
     return this._sharedDataService;
   }
 
-  getStateFromDishes() {
+  getFirstStateFromDishes() {
     return this.dishes[0].state;
   }
+
+  isAllStatesGreen(): boolean {
+    return this.dishes.every(dish => dish.state === DishState.Done);
+  }
+
   toggleSelection() {
     console.log("toogle selection")
-    if (this.isTabletMode && this.getStateFromDishes() === DishState.NotAssigned && this._sharedDataService.numberOfCooks == 1) {
+    if (this.isTabletMode && this.getFirstStateFromDishes() === DishState.NotAssigned && this._sharedDataService.numberOfCooks == 1) {
       this.isSelected = !this.isSelected;
       this.checkboxChanged();
     }

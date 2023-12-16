@@ -7,6 +7,9 @@
     <div mat-menu-item>
       <mat-checkbox [(ngModel)]="isExpertMode" (change)="onExpertModeChange()" (click) = "$event.stopPropagation()">Mode Expert</mat-checkbox>
     </div>
+    <div mat-menu-item>
+      <mat-checkbox [(ngModel)]="isServeurMode" (change)="onServeurModeChange()" (click) = "$event.stopPropagation()">Mode Serveur</mat-checkbox>
+    </div>
 <br>
     <p>Nombre de cuisiniers</p>
     <!-- Button toggle for selecting the number of cooks -->
