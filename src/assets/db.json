@@ -79,7 +79,7 @@
           "name": "Tiramisu",
           "category": "Desserts",
           "image": "assets/images/tiramisu.jpg",
-          "quantity": 3,
+          "quantity": 1,
           "state": "NOT_ASSIGNED",
           "ingredients": [
             "ingredient1",
@@ -96,7 +96,7 @@
           "name": "Bruschetta",
           "category": "Entrées",
           "image": "assets/images/bruschetta.jpg",
-          "quantity": 2,
+          "quantity": 1,
           "state": "NOT_ASSIGNED",
           "ingredients": [
             "ingredient1",
@@ -141,8 +141,8 @@
           "name": "Pizza Quattro Formaggi",
           "category": "Pizzas",
           "image": "assets/images/pizza_quattro_formaggi.jpg",
-          "quantity": 3,
-          "state": "NOT_ASSIGNED",
+          "quantity": 1,
+          "state": "DONE",
           "ingredients": [
             "ingredient1",
             "ingredient2"
@@ -158,8 +158,8 @@
           "name": "Pâtes Puttanesca",
           "category": "Pâtes",
           "image": "assets/images/pates_puttanesca.jpg",
-          "quantity": 4,
-          "state": "NOT_ASSIGNED",
+          "quantity": 2,
+          "state": "DONE",
           "ingredients": [
             "ingredient1",
             "ingredient2"
@@ -183,7 +183,7 @@
           "name": "Caprese Salad",
           "category": "Entrées",
           "image": "assets/images/caprese_salad.jpg",
-          "quantity": 2,
+          "quantity": 1,
           "state": "NOT_ASSIGNED",
           "ingredients": [
             "ingredient1",
@@ -208,7 +208,7 @@
           "name": "Pizza Margherita",
           "category": "Pizzas",
           "image": "assets/images/pizza_margherita.jpg",
-          "quantity": 5,
+          "quantity": 1,
           "state": "NOT_ASSIGNED",
           "ingredients": [
             "ingredient1",
@@ -259,8 +259,66 @@
           "name": "Bruschetta",
           "category": "Entrées",
           "image": "assets/images/bruschetta.jpg",
-          "quantity": 2,
+          "quantity": 1,
           "state": "NOT_ASSIGNED",
+          "ingredients": [
+            "ingredient1",
+            "ingredient2"
+          ],
+          "recipe": [
+            "Étape Expert 1 pour Tiramisu",
+            "Étape Expert 2 pour Tiramisu"
+          ]
+        },
+        {
+          "id": 12,
+          "tableId": 4,
+          "name": "Pâtes Puttanesca",
+          "category": "Pâtes",
+          "image": "assets/images/pates_puttanesca.jpg",
+          "quantity": 1,
+          "state": "DONE",
+          "ingredients": [
+            "ingredient1",
+            "ingredient2"
+          ],
+          "recipe": [
+            "Étape Expert 1 pour Tiramisu",
+            "Étape Expert 2 pour Tiramisu"
+          ]
+        },
+        {
+          "id": 13,
+          "tableId": 4,
+          "name": "Pâtes Puttanesca",
+          "category": "Pâtes",
+          "image": "assets/images/pates_puttanesca.jpg",
+          "quantity": 1,
+          "customerSpecification": [
+            "Supplément tomate"
+          ],
+          "state": "DONE",
+          "ingredients": [
+            "ingredient1",
+            "ingredient2"
+          ],
+          "recipe": [
+            "Étape Expert 1 pour Tiramisu",
+            "Étape Expert 2 pour Tiramisu"
+          ]
+        },
+        {
+          "id": 14,
+          "tableId": 4,
+          "name": "Pâtes Puttanesca",
+          "category": "Pâtes",
+          "image": "assets/images/pates_puttanesca.jpg",
+          "quantity": 1,
+          "state": "DONE",
+          "customerSpecification": [
+            "Sans olives",
+            "Sans fromage"
+          ],
           "ingredients": [
             "ingredient1",
             "ingredient2"
@@ -284,7 +342,7 @@
           "name": "Caprese Salad",
           "category": "Entrées",
           "image": "assets/images/caprese_salad.jpg",
-          "quantity": 2,
+          "quantity": 1,
           "state": "NOT_ASSIGNED",
           "ingredients": [
             "ingredient1",

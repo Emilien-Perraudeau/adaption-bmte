@@ -6,7 +6,8 @@
      }"
      [ngStyle]="{ 'border-color': generateColor(this.tableId) }">
   <div class="color-square" [ngStyle]="{ 'background-color': getColor() }"></div>
-  <div class="image-container">
+  <div class="image-and-text">
+  <div class="image-container" *ngIf="this.shouldDisplayImage">
     <img [src]="image" *ngIf="isExpanded" class="image" alt="Image du plat">
   </div>
   <div class="text-container">
@@ -14,5 +15,6 @@
     <div class="customer-specification" *ngIf="customerSpecification && customerSpecification.length > 0">
       <p>{{ customerSpecification.join(', ') }}</p>
     </div>
+  </div>
   </div>
 </div>

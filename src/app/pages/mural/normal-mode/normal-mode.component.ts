@@ -253,11 +253,14 @@ export class NormalModeComponent implements OnInit {
     let totalDishes = 0;
     for (const table of this.tables) {
       if (table.dishes) {
-        totalDishes += table.dishes.length;
+        for (const dish of table.dishes) {
+          totalDishes += dish.quantity;
+        }
       }
     }
     return totalDishes;
   }
+
 
   getTotalRemainingDishesCount(): number {
     let totalRemainingDishes = 0;

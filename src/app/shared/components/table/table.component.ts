@@ -21,6 +21,7 @@ export class TableComponent implements OnInit {
   isTabletMode = false;
   isDetailedMode = false; // Ajout de la propriété pour suivre le mode détaillé
   isSelected: boolean = false;
+  shouldDisplayImages: boolean = true;
 
   constructor(private breakpointObserver: BreakpointObserver, private _sharedDataService: SharedDataService) {}
 
@@ -31,6 +32,7 @@ export class TableComponent implements OnInit {
       });
 
     this.color = this.generateColor(this.id);
+    this.shouldDisplayImages = this.dishes.length <= 6;
   }
 
   handleTableClick() {

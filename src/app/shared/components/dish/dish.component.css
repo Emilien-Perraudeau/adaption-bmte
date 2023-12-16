@@ -20,7 +20,6 @@
 
 .image-container {
   flex: 1;
-  padding: 1%;
 }
 
 .image {
@@ -51,6 +50,12 @@
 
 .customer-specification {
   color: red;
+}
+
+.image-and-text {
+  width: 100%;
+  display: flex;
+  margin-left: 25px;
 }
 
 /* Responsive styles for smaller screens */
