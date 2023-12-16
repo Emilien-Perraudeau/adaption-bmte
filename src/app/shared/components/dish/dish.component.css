@@ -5,13 +5,17 @@
   margin: 1%;
   border-radius: 8px;
   border-width: 3px;
+  position: relative;
 }
 
 .color-square {
-  width: 5%; /* Adjust as needed */
+  width: 20px; /* Adjust as needed */
   height: 20px; /* Keep fixed height */
-  margin-right: 1%;
   display: inline-block;
+  z-index: 2;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .image-container {
@@ -39,6 +43,14 @@
 
 .text-container div {
   margin-top: 0.5%; /* Adjust as needed */
+}
+
+.customer-specification p {
+  font-size: 10px;
+}
+
+.customer-specification {
+  color: red;
 }
 
 /* Responsive styles for smaller screens */

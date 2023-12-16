@@ -26,6 +26,7 @@
                  [dishes]="table.dishes"
                  [simpleView]="false"
                  [time]="table.time"
+
       ></app-table>
     </div>
     </div>
@@ -45,13 +46,13 @@
         ></app-table>
       </div>
       <div class="remaining-info" *ngIf="tables.length > 3">
-        <h2><strong>{{ tables.length - 7 }}</strong> table(s) restante(s)</h2>
-        <h2><strong>{{ getTotalRemainingDishesCount() }}</strong> plat(s) restant(s)</h2>
+        <h2 *ngIf="tables.length > 7"><strong>{{ tables.length - 7 }}</strong> table(s) restante(s)</h2>
+        <h2 *ngIf="tables.length > 7"><strong>{{ getTotalRemainingDishesCount() }}</strong> plat(s) restant(s)</h2>
       </div>
-      <button mat-raised-button color="primary"
+      <button *ngIf="isTabletMode" class="boutoon-valider" mat-raised-button color="primary"
               [disabled]="!isAnyDishSelected()"
               (click)="onPreparationMode()">
-        Valider
+        Préparer
       </button>
       <button (click)="onRushMode()">Rush Mode</button>
       <button (click)="resetDishesState()">Réinitialiser les Plats</button>
@@ -67,7 +68,7 @@
     <button mat-raised-button color="primary"
             [disabled]="!isAnyDishSelected()"
             (click)="onPreparationMode()">
-      Valider
+      Préparer
     </button>
     </div>
   </div>

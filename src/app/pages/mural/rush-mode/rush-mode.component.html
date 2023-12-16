@@ -5,7 +5,7 @@
 
 <div class="main-container">
   <div *ngIf="!isTabletMode">
-    <div class="truc-container"><div class="setting-container"><app-settings></app-settings></div>
+    <div class="truc-container"><div *ngIf="isTabletMode" class="setting-container"><app-settings></app-settings></div>
       <div class="cooks-container"><h2><b>Cuisiniers disponibles : </b>{{availableCooks}}</h2></div></div>
     <div class="timeline-container"><app-timeline [timeline]="timeline"></app-timeline></div>
     <div class="current-dishes-container" *ngIf="groupedDishes.size > 0; else isNormal">

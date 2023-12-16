@@ -12,8 +12,15 @@
           "name": "Pizza Margherita",
           "category": "Pizzas",
           "image": "assets/images/pizza_margherita.jpg",
-          "quantity": 5,
-          "state": "IN_PROGRESS",
+          "quantity": 1,
+          "customerSpecification": [
+            "Sans olives",
+            "Sans fromage",
+            "Sans pates",
+            "Sans assiette",
+            "Sans couverts"
+          ],
+          "state": "NOT_ASSIGNED",
           "ingredients": [
             {
               "name": "Fleur de sel",
@@ -56,7 +63,7 @@
           "category": "Pâtes",
           "image": "assets/images/pates_carbonara.jpg",
           "quantity": 2,
-          "state": "IN_PROGRESS",
+          "state": "NOT_ASSIGNED",
           "ingredients": [
             "ingredient1",
             "ingredient2"
@@ -73,7 +80,7 @@
           "category": "Desserts",
           "image": "assets/images/tiramisu.jpg",
           "quantity": 3,
-          "state": "IN_PROGRESS",
+          "state": "NOT_ASSIGNED",
           "ingredients": [
             "ingredient1",
             "ingredient2"
@@ -90,7 +97,27 @@
           "category": "Entrées",
           "image": "assets/images/bruschetta.jpg",
           "quantity": 2,
-          "state": "IN_PROGRESS",
+          "state": "NOT_ASSIGNED",
+          "ingredients": [
+            "ingredient1",
+            "ingredient2"
+          ],
+          "recipe": [
+            "Étape Expert 1 pour Tiramisu",
+            "Étape Expert 2 pour Tiramisu"
+          ]
+        },
+        {
+          "id": 20,
+          "tableId": 1,
+          "name": "Bruschetta",
+          "category": "Entrées",
+          "image": "assets/images/bruschetta.jpg",
+          "quantity": 1,
+          "customerSpecification": [
+            "Supplément mozza"
+          ],
+          "state": "NOT_ASSIGNED",
           "ingredients": [
             "ingredient1",
             "ingredient2"
@@ -105,7 +132,7 @@
     {
       "id": 2,
       "numberTable": 2,
-      "numberOrder": 201,
+      "numberOrder": 203,
       "time": "2023-12-06T15:32:00.000Z",
       "dishes": [
         {
@@ -115,7 +142,7 @@
           "category": "Pizzas",
           "image": "assets/images/pizza_quattro_formaggi.jpg",
           "quantity": 3,
-          "state": "IN_PROGRESS",
+          "state": "NOT_ASSIGNED",
           "ingredients": [
             "ingredient1",
             "ingredient2"
@@ -132,7 +159,7 @@
           "category": "Pâtes",
           "image": "assets/images/pates_puttanesca.jpg",
           "quantity": 4,
-          "state": "DONE",
+          "state": "NOT_ASSIGNED",
           "ingredients": [
             "ingredient1",
             "ingredient2"
@@ -147,7 +174,7 @@
     {
       "id": 3,
       "numberTable": 3,
-      "numberOrder": 202,
+      "numberOrder": 204,
       "time": "2023-12-06T15:40:00.000Z",
       "dishes": [
         {
@@ -157,7 +184,7 @@
           "category": "Entrées",
           "image": "assets/images/caprese_salad.jpg",
           "quantity": 2,
-          "state": "IN_PROGRESS",
+          "state": "NOT_ASSIGNED",
           "ingredients": [
             "ingredient1",
             "ingredient2"
@@ -172,7 +199,7 @@
     {
       "id": 4,
       "numberTable": 4,
-      "numberOrder": 202,
+      "numberOrder": 205,
       "time": "2023-12-06T15:45:00.000Z",
       "dishes": [
         {
@@ -182,7 +209,7 @@
           "category": "Pizzas",
           "image": "assets/images/pizza_margherita.jpg",
           "quantity": 5,
-          "state": "DONE",
+          "state": "NOT_ASSIGNED",
           "ingredients": [
             "ingredient1",
             "ingredient2"
@@ -199,7 +226,7 @@
           "category": "Pâtes",
           "image": "assets/images/pates_carbonara.jpg",
           "quantity": 2,
-          "state": "DONE",
+          "state": "NOT_ASSIGNED",
           "ingredients": [
             "ingredient1",
             "ingredient2"
@@ -248,7 +275,7 @@
     {
       "id": 5,
       "numberTable": 5,
-      "numberOrder": 202,
+      "numberOrder": 206,
       "time": "2023-12-06T15:52:00.000Z",
       "dishes": [
         {
@@ -266,282 +293,6 @@
           "recipe": [
             "Étape Expert 1 pour Tiramisu",
             "Étape Expert 2 pour Tiramisu"
-          ]
-        }
-      ]
-    },
-    {
-      "id": 0.2499355955943574,
-      "numberTable": 15,
-      "numberOrder": 202,
-      "time": "2023-12-06T15:45:00.000Z",
-      "dishes": [
-        {
-          "id": 1,
-          "tableId": 0.2499355955943574,
-          "name": "Pizza Margherita",
-          "category": "Pizzas",
-          "image": "assets/images/pizza_margherita.jpg",
-          "quantity": 5,
-          "state": "IN_PROGRESS",
-          "ingredients": [
-            "ingredient1",
-            "ingredient2"
-          ],
-          "recipeExpert": [
-            "Étape Expert 1 pour Pizza Margherita",
-            "Étape Expert 2 pour Pizza Margherita"
-          ],
-          "recipeNovice": [
-            "Étape Novice 1 pour Pizza Margherita",
-            "Étape Novice 2 pour Pizza Margherita"
-          ]
-        },
-        {
-          "id": 2,
-          "tableId": 0.2499355955943574,
-          "name": "Pâtes Carbonara",
-          "category": "Pâtes",
-          "image": "assets/images/pates_carbonara.jpg",
-          "quantity": 2,
-          "state": "IN_PROGRESS",
-          "ingredients": [
-            "ingredient1",
-            "ingredient2"
-          ],
-          "recipeExpert": [
-            "Étape Expert 1 pour Pâtes Carbonara",
-            "Étape Expert 2 pour Pâtes Carbonara"
-          ],
-          "recipeNovice": [
-            "Étape Novice 1 pour Pâtes Carbonara",
-            "Étape Novice 2 pour Pâtes Carbonara"
-          ]
-        },
-        {
-          "id": 3,
-          "tableId": 0.2499355955943574,
-          "name": "Tiramisu",
-          "category": "Desserts",
-          "image": "assets/images/tiramisu.jpg",
-          "quantity": 3,
-          "state": "IN_PROGRESS",
-          "ingredients": [
-            "ingredient1",
-            "ingredient2"
-          ],
-          "recipeExpert": [
-            "Étape Expert 1 pour Tiramisu",
-            "Étape Expert 2 pour Tiramisu"
-          ],
-          "recipeNovice": [
-            "Étape Novice 1 pour Tiramisu",
-            "Étape Novice 2 pour Tiramisu"
-          ]
-        },
-        {
-          "id": 4,
-          "tableId": 0.2499355955943574,
-          "name": "Bruschetta",
-          "category": "Entrées",
-          "image": "assets/images/bruschetta.jpg",
-          "quantity": 2,
-          "state": "IN_PROGRESS",
-          "ingredients": [
-            "ingredient1",
-            "ingredient2"
-          ],
-          "recipeExpert": [
-            "Étape Expert 1 pour Bruschetta",
-            "Étape Expert 2 pour Bruschetta"
-          ],
-          "recipeNovice": [
-            "Étape Novice 1 pour Bruschetta",
-            "Étape Novice 2 pour Bruschetta"
-          ]
-        }
-      ]
-    },
-    {
-      "id": 0.8865056832348118,
-      "numberTable": 3,
-      "numberOrder": 202,
-      "time": "2023-12-06T16:00:00.000Z",
-      "dishes": [
-        {
-          "id": 1,
-          "tableId": 0.8865056832348118,
-          "name": "Pizza Margherita",
-          "category": "Pizzas",
-          "image": "assets/images/pizza_margherita.jpg",
-          "quantity": 5,
-          "state": "IN_PROGRESS",
-          "ingredients": [
-            "ingredient1",
-            "ingredient2"
-          ],
-          "recipeExpert": [
-            "Étape Expert 1 pour Pizza Margherita",
-            "Étape Expert 2 pour Pizza Margherita"
-          ],
-          "recipeNovice": [
-            "Étape Novice 1 pour Pizza Margherita",
-            "Étape Novice 2 pour Pizza Margherita"
-          ]
-        },
-        {
-          "id": 2,
-          "tableId": 0.8865056832348118,
-          "name": "Pâtes Carbonara",
-          "category": "Pâtes",
-          "image": "assets/images/pates_carbonara.jpg",
-          "quantity": 2,
-          "state": "IN_PROGRESS",
-          "ingredients": [
-            "ingredient1",
-            "ingredient2"
-          ],
-          "recipeExpert": [
-            "Étape Expert 1 pour Pâtes Carbonara",
-            "Étape Expert 2 pour Pâtes Carbonara"
-          ],
-          "recipeNovice": [
-            "Étape Novice 1 pour Pâtes Carbonara",
-            "Étape Novice 2 pour Pâtes Carbonara"
-          ]
-        },
-        {
-          "id": 3,
-          "tableId": 0.8865056832348118,
-          "name": "Tiramisu",
-          "category": "Desserts",
-          "image": "assets/images/tiramisu.jpg",
-          "quantity": 3,
-          "state": "IN_PROGRESS",
-          "ingredients": [
-            "ingredient1",
-            "ingredient2"
-          ],
-          "recipeExpert": [
-            "Étape Expert 1 pour Tiramisu",
-            "Étape Expert 2 pour Tiramisu"
-          ],
-          "recipeNovice": [
-            "Étape Novice 1 pour Tiramisu",
-            "Étape Novice 2 pour Tiramisu"
-          ]
-        },
-        {
-          "id": 4,
-          "tableId": 0.8865056832348118,
-          "name": "Bruschetta",
-          "category": "Entrées",
-          "image": "assets/images/bruschetta.jpg",
-          "quantity": 2,
-          "state": "IN_PROGRESS",
-          "ingredients": [
-            "ingredient1",
-            "ingredient2"
-          ],
-          "recipeExpert": [
-            "Étape Expert 1 pour Bruschetta",
-            "Étape Expert 2 pour Bruschetta"
-          ],
-          "recipeNovice": [
-            "Étape Novice 1 pour Bruschetta",
-            "Étape Novice 2 pour Bruschetta"
-          ]
-        }
-      ]
-    },
-    {
-      "id": 0.26343456085577455,
-      "numberTable": 3,
-      "numberOrder": 202,
-      "time": "2023-12-06T16:00:00.000Z",
-      "dishes": [
-        {
-          "id": 1,
-          "tableId": 0.26343456085577455,
-          "name": "Pizza Margherita",
-          "category": "Pizzas",
-          "image": "assets/images/pizza_margherita.jpg",
-          "quantity": 5,
-          "state": "IN_PROGRESS",
-          "ingredients": [
-            "ingredient1",
-            "ingredient2"
-          ],
-          "recipeExpert": [
-            "Étape Expert 1 pour Pizza Margherita",
-            "Étape Expert 2 pour Pizza Margherita"
-          ],
-          "recipeNovice": [
-            "Étape Novice 1 pour Pizza Margherita",
-            "Étape Novice 2 pour Pizza Margherita"
-          ]
-        },
-        {
-          "id": 2,
-          "tableId": 0.26343456085577455,
-          "name": "Pâtes Carbonara",
-          "category": "Pâtes",
-          "image": "assets/images/pates_carbonara.jpg",
-          "quantity": 2,
-          "state": "IN_PROGRESS",
-          "ingredients": [
-            "ingredient1",
-            "ingredient2"
-          ],
-          "recipeExpert": [
-            "Étape Expert 1 pour Pâtes Carbonara",
-            "Étape Expert 2 pour Pâtes Carbonara"
-          ],
-          "recipeNovice": [
-            "Étape Novice 1 pour Pâtes Carbonara",
-            "Étape Novice 2 pour Pâtes Carbonara"
-          ]
-        },
-        {
-          "id": 3,
-          "tableId": 0.26343456085577455,
-          "name": "Tiramisu",
-          "category": "Desserts",
-          "image": "assets/images/tiramisu.jpg",
-          "quantity": 3,
-          "state": "IN_PROGRESS",
-          "ingredients": [
-            "ingredient1",
-            "ingredient2"
-          ],
-          "recipeExpert": [
-            "Étape Expert 1 pour Tiramisu",
-            "Étape Expert 2 pour Tiramisu"
-          ],
-          "recipeNovice": [
-            "Étape Novice 1 pour Tiramisu",
-            "Étape Novice 2 pour Tiramisu"
-          ]
-        },
-        {
-          "id": 4,
-          "tableId": 0.26343456085577455,
-          "name": "Bruschetta",
-          "category": "Entrées",
-          "image": "assets/images/bruschetta.jpg",
-          "quantity": 2,
-          "state": "IN_PROGRESS",
-          "ingredients": [
-            "ingredient1",
-            "ingredient2"
-          ],
-          "recipeExpert": [
-            "Étape Expert 1 pour Bruschetta",
-            "Étape Expert 2 pour Bruschetta"
-          ],
-          "recipeNovice": [
-            "Étape Novice 1 pour Bruschetta",
-            "Étape Novice 2 pour Bruschetta"
           ]
         }
       ]
