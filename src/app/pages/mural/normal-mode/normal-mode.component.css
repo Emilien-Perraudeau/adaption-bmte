@@ -1,4 +1,21 @@
 /* Styles par défaut pour le mode normal */
+.component-container{
+  height: 100svh;
+  overflow: hidden;
+}
+
+.header-container {
+  height: 7%;
+}
+
+.truc-container {
+  height: 5%;
+}
+
+.timeline-container {
+  height: 5%;
+}
+
 .big-container {
   display: flex;
   height: 93vh;
@@ -43,7 +60,25 @@
 
 /* Styles responsifs pour les écrans plus petits */
 @media screen and (max-width: 1080px) {
+
+  component-container{
+    height: 100svh;
+  }
+
+  .header-container {
+    height: 5%;
+  }
+
+  .settings-container{
+    height: 5%;
+  }
+
+  .timeline-container{
+    height: 5%;
+  }
+
   .big-container {
+    height: 84%;
     flex-direction: column;
     align-items: stretch;
     justify-content: flex-start;
@@ -51,6 +86,7 @@
 
   .left-container{
     width: 100%;
+    height: 85%;
   }
 
   .tables-container {
@@ -59,7 +95,7 @@
     grid-template-columns: repeat(2, 1fr);
     gap: 2px;
     width: 95%;
-    height: 70vh;
+    height: 100%;
   }
 
   .app-table {
@@ -70,11 +106,9 @@
   .side-table-container {
     background-color: grey;
     width: 100%;
+    height: 10%;
     padding: 0.5rem;
     margin-left: 0rem;
-
-    bottom: 0;
-    position: absolute;
   }
 
   /* Ajoutez ces styles pour éviter les conflits */
