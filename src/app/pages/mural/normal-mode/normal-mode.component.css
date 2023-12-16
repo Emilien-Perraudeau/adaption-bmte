@@ -49,7 +49,7 @@
 .side-table-container {
   background-color: grey;
   width: 20%;
-  padding: 0.5rem;
+  padding: 1rem;
 }
 
 .remaining-info {
@@ -60,6 +60,9 @@
   color: white;
 }
 
+.side-table-container .for-each-table{
+  margin-top: 1rem;
+}
 
 
 /* Styles responsifs pour les écrans plus petits */
@@ -116,6 +119,7 @@
     height: 10%;
     padding: 0.5rem;
     margin-left: 0rem;
+    margin-top: 1rem;
   }
 
   /* Ajoutez ces styles pour éviter les conflits */
@@ -138,4 +142,9 @@
     float: right;
     padding: 1rem;
   }
+
+  .for-each-table{
+    max-width: none !important;
+  }
+
 }

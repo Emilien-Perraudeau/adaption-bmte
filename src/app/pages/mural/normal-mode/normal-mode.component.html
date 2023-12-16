@@ -34,7 +34,7 @@
     <!-- Side table container -->
     <div *ngIf="!isTabletMode" class="side-table-container">
       <h1>Prochaine(s) commande(s)</h1>
-      <div *ngFor="let table of tables; let i = index">
+      <div class="for-each-table" *ngFor="let table of tables; let i = index">
         <app-table *ngIf="i > 3 && i<7"
                    [id]="table.id"
                    [numberTable]="table.numberTable"
