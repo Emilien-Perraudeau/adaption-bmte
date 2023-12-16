@@ -31,11 +31,14 @@
 
   <!-- Affichage des recettes en mode novice -->
   <mat-accordion *ngIf="!isExpertMode()">
-    <mat-expansion-panel *ngFor="let dish of selectedDishes">
+    <mat-expansion-panel *ngFor="let dish of selectedDishes" [class.completed]="dish.state === 'DONE'">
       <mat-expansion-panel-header>
         <mat-panel-title>
-          {{ dish.name }}
+          <span [class.strikethrough]="dish.state === 'DONE'">{{ dish.name }}</span>
         </mat-panel-title>
+        <div class="validate-icon" [class.checked]="dish.state === 'DONE'" (click)="validateDish(dish.id, $event)">
+          <span *ngIf="dish.state === 'DONE'">✔</span>
+        </div>
       </mat-expansion-panel-header>
 
       <!-- Affichage des ingrédients en mode novice -->
@@ -60,4 +63,5 @@
 
     </mat-expansion-panel>
   </mat-accordion>
+  <button mat-raised-button color="primary" [disabled]="!allDishesDone()" (click)="returnOnMode()">Retour au Mode Normal</button>
 </div>

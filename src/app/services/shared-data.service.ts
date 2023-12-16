@@ -10,6 +10,7 @@ export class SharedDataService {
   private mode: 'expert' | 'novice' = 'novice';
   private isServeurMode: boolean = false
   private _numberOfCooks: 1 | 2 | 3 | 4 = 4;
+  private previousMode: 'normal-mode' | 'rush-mode' = 'normal-mode';
 
   selectDish(dish: DishComponent): void {
     this.selectedDishes.add(dish);
@@ -45,5 +46,17 @@ export class SharedDataService {
 
   setServeurMode(isServeurMode: boolean): void {
     this.isServeurMode = isServeurMode;
+  }
+
+  setPreviousMode(mode: 'normal-mode' | 'rush-mode') {
+    this.previousMode = mode;
+  }
+
+  getPreviousMode(): 'normal-mode' | 'rush-mode' {
+    return this.previousMode;
+  }
+
+  clearSelectedDishes() {
+    this.selectedDishes.clear();
   }
 }

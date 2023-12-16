@@ -65,6 +65,7 @@ export class NormalModeComponent implements OnInit {
 
 
   onPreparationMode() {
+    this.sharedDataService.setPreviousMode("normal-mode");
     this.dishService.getTables().subscribe(tables => {
       const selectedDishes = this._sharedDataService.getSelectedDishes();
       const tablesToUpdate = tables.filter(table => {

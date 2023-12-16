@@ -26,7 +26,6 @@ export class DishService {
   }
 
   updateTable(table: TableComponent): Observable<TableComponent> {
-    console.log("update bien appelé")
     return this.http.put<TableComponent>(`http://localhost:3000/tables/${table.id}`, table);
   }
 

@@ -2,6 +2,10 @@
 import { Component, OnInit } from '@angular/core';
 import { SharedDataService } from "../../../services/shared-data.service";
 import { DishComponent } from "../../../shared/components/dish/dish.component";
+import {DishService} from "../../../services/dish.service";
+import {DishState} from "../../../shared/enums/dish-state";
+import {Router} from "@angular/router";
+import {forkJoin} from "rxjs";
 
 @Component({
   selector: 'app-preparation-mode',
@@ -11,9 +15,10 @@ import { DishComponent } from "../../../shared/components/dish/dish.component";
 export class PreparationModeComponent implements OnInit {
   selectedDishes: DishComponent[] = [];
   currentStepIndex = new Map<number, number>();
-  currentRecipeInView: number | null = null;
 
-  constructor(private sharedDataService: SharedDataService) {}
+  constructor(private sharedDataService: SharedDataService,
+              private dishService: DishService,
+              private router: Router) {}
 
   ngOnInit() {
     this.selectedDishes = this.sharedDataService.getSelectedDishes();
@@ -35,31 +40,6 @@ export class PreparationModeComponent implements OnInit {
     return dish?.recipe[currentIndex] ?? "Étape inconnue";
   }
 
-  shouldShowStep(dishId: number): boolean {
-    const currentIndex = this.currentStepIndex.get(dishId) || 0;
-    const dish = this.selectedDishes.find(d => d.id === dishId);
-    return dish ? currentIndex < (dish.recipe?.length ?? 0) : false;
-  }
-
-  closePopup() {
-    this.currentRecipeInView = null;
-  }
-
-  selectRecipe(dishId: number): void {
-    this.currentRecipeInView = dishId;
-    // Initialisez ou réinitialisez l'indice de l'étape actuelle pour ce plat
-    this.currentStepIndex.set(dishId, 0);
-  }
-
-
-  get currentDishName(): string {
-    if (this.currentRecipeInView != null) {
-      const currentDish = this.selectedDishes.find(dish => dish.id === this.currentRecipeInView);
-      return currentDish ? currentDish.name : 'Nom inconnu';
-    }
-    return 'Aucun plat sélectionné';
-  }
-
   isExpertMode(): boolean {
     return this.sharedDataService.getMode() === 'expert';
   }
@@ -77,16 +57,49 @@ export class PreparationModeComponent implements OnInit {
     return currentIndex > 0;
   }
 
-  openStepsPopup(dishId: number) {
-    this.currentRecipeInView = dishId;
-    this.currentStepIndex.set(dishId, 1);
+  validateDish(dishId: number, $event: Event) {
+    $event.stopPropagation();
+    this.dishService.getTables().subscribe(tables => {
+      const tablesToUpdate = tables.filter(table => {
+        let tableNeedsUpdate = false;
+        const dishToUpdate = table.dishes.find(dish => dish.id === dishId);
+        if (dishToUpdate && dishToUpdate.state !== DishState.Done) {
+          dishToUpdate.state = DishState.Done;
+          tableNeedsUpdate = true;
+        }
+        return tableNeedsUpdate;
+      });
+
+      if (tablesToUpdate.length > 0) {
+        const updateRequests = tablesToUpdate.map(table => this.dishService.updateTable(table));
+        forkJoin(updateRequests).subscribe(results => {
+          console.log('Tables updated:', results);
+
+          // Mise à jour de l'état local du plat
+          const localDish = this.selectedDishes.find(d => d.id === dishId);
+          if (localDish) {
+            localDish.state = DishState.Done;
+          }
+        });
+      }
+    });
+  }
+
+
+  allDishesDone(): boolean {
+    return this.selectedDishes.every(dish => dish.state === DishState.Done);
+  }
+
+  returnOnMode() {
+    this.sharedDataService.clearSelectedDishes();
+    const previousMode = this.sharedDataService.getPreviousMode();
+    this.router.navigate([`/${previousMode}`]); // Redirige vers le mode précédent
   }
 
   hasNextStep(dishId: number): boolean {
     const currentIndex = this.currentStepIndex.get(dishId)!;
     const dish = this.selectedDishes.find(d => d.id === dishId);
-
-    // Retourne false si currentIndex ou dish est undefined
     return dish ? currentIndex < dish.recipe.length - 1 : false;
   }
+
 }
