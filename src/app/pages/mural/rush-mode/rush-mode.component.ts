@@ -45,7 +45,7 @@ export class RushModeComponent implements OnInit, OnDestroy {
       receivedTables.sort((a, b) => new Date(a.time).getTime() - new Date(b.time).getTime());
 
       this.tables = receivedTables;
-
+      this.timeline = [];
       this.tables.forEach(table => {
         this.timeline.push({ time: new Date(table.time), color: this.generateColor(table.id) });
         console.log("timeline "+ table.color)

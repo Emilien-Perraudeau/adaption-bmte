@@ -33,6 +33,7 @@ export class NormalModeComponent implements OnInit, OnDestroy {
     this.tableService.getTables().subscribe(tables => {
       tables.sort((a, b) => new Date(a.time).getTime() - new Date(b.time).getTime());
       this.tables = tables;
+      this.timeline = [];
       this.tables.forEach(table => {
         this.timeline.push({ time: new Date(table.time), color: this.generateColor(table.id) });
       });

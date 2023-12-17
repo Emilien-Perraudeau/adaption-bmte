@@ -13,16 +13,43 @@
           "category": "Pizzas",
           "image": "assets/images/pizza_margherita.jpg",
           "quantity": 1,
-          "customerSpecification": ["Sans olives", "Sans fromage", "Sans pates", "Sans assiette", "Sans couverts"],
-          "state": "IN_PROGRESS",
+          "customerSpecification": [
+            "Sans olives",
+            "Sans fromage",
+            "Sans pates",
+            "Sans assiette",
+            "Sans couverts"
+          ],
+          "state": "NOT_ASSIGNED",
           "ingredients": [
-            {"name": "Fleur de sel", "image": "assets/images/fleur_de_sel_de_guerande.jpg"},
-            {"name": "Levure Boulangère", "image": "assets/images/levure.jpg"},
-            {"name": "Huile d'olive", "image": "assets/images/huile_dolive.jpg"},
-            {"name": "Farine", "image": "assets/images/farine.jpg"},
-            {"name": "Eau minérale", "image": "assets/images/eau_minérale.jpg"},
-            {"name": "Poivre et sel", "image": "assets/images/poivre_et_sel.jpg"},
-            {"name": "Feuille de laurier", "image": "assets/images/feuille_de_laurier.jpg"}
+            {
+              "name": "Fleur de sel",
+              "image": "assets/images/fleur_de_sel_de_guerande.jpg"
+            },
+            {
+              "name": "Levure Boulangère",
+              "image": "assets/images/levure.jpg"
+            },
+            {
+              "name": "Huile d'olive",
+              "image": "assets/images/huile_dolive.jpg"
+            },
+            {
+              "name": "Farine",
+              "image": "assets/images/farine.jpg"
+            },
+            {
+              "name": "Eau minérale",
+              "image": "assets/images/eau_minérale.jpg"
+            },
+            {
+              "name": "Poivre et sel",
+              "image": "assets/images/poivre_et_sel.jpg"
+            },
+            {
+              "name": "Feuille de laurier",
+              "image": "assets/images/feuille_de_laurier.jpg"
+            }
           ],
           "recipe": [
             "Préparer la pâte avec farine, eau, levure, huile d'olive, sel et laisser reposer.",
@@ -37,14 +64,26 @@
           "category": "Pâtes",
           "image": "assets/images/pates_carbonara.jpg",
           "quantity": 2,
-          "state": "NOT_ASSIGNED",
+          "state": "DONE",
           "ingredients": [
-            {"name": "Pâtes"},
-            {"name": "Lardons"},
-            {"name": "Œufs"},
-            {"name": "Parmesan"},
-            {"name": "Poivre noir"},
-            {"name": "Sel"}
+            {
+              "name": "Pâtes"
+            },
+            {
+              "name": "Lardons"
+            },
+            {
+              "name": "Œufs"
+            },
+            {
+              "name": "Parmesan"
+            },
+            {
+              "name": "Poivre noir"
+            },
+            {
+              "name": "Sel"
+            }
           ],
           "recipe": [
             "Cuire les pâtes al dente.",
@@ -61,12 +100,24 @@
           "quantity": 1,
           "state": "NOT_ASSIGNED",
           "ingredients": [
-            {"name": "Mascarpone"},
-            {"name": "Œufs"},
-            {"name": "Sucre"},
-            {"name": "Biscuits à la cuillère"},
-            {"name": "Café fort"},
-            {"name": "Cacao en poudre"}
+            {
+              "name": "Mascarpone"
+            },
+            {
+              "name": "Œufs"
+            },
+            {
+              "name": "Sucre"
+            },
+            {
+              "name": "Biscuits à la cuillère"
+            },
+            {
+              "name": "Café fort"
+            },
+            {
+              "name": "Cacao en poudre"
+            }
           ],
           "recipe": [
             "Mélanger le mascarpone, les jaunes d'œufs et le sucre.",
@@ -81,46 +132,34 @@
           "category": "Entrées",
           "image": "assets/images/bruschetta.jpg",
           "quantity": 1,
-          "state": "NOT_ASSIGNED",
+          "state": "DONE",
           "ingredients": [
-            {"name": "Pain"},
-            {"name": "Tomates"},
-            {"name": "Ail"},
-            {"name": "Huile d'olive"},
-            {"name": "Basilic"},
-            {"name": "Sel"},
-            {"name": "Poivre"}
+            {
+              "name": "Pain"
+            },
+            {
+              "name": "Tomates"
+            },
+            {
+              "name": "Ail"
+            },
+            {
+              "name": "Huile d'olive"
+            },
+            {
+              "name": "Basilic"
+            },
+            {
+              "name": "Sel"
+            },
+            {
+              "name": "Poivre"
+            }
           ],
           "recipe": [
             "Griller les tranches de pain.",
             "Frotter avec de l'ail et arroser d'huile d'olive.",
             "Garnir avec des tomates coupées, du basilic, saler et poivrer."
-          ]
-        },
-        {
-          "id": 20,
-          "tableId": 1,
-          "name": "Bruschetta avec supplément mozza",
-          "category": "Entrées",
-          "image": "assets/images/bruschetta.jpg",
-          "quantity": 1,
-          "customerSpecification": ["Supplément mozza"],
-          "state": "NOT_ASSIGNED",
-          "ingredients": [
-            {"name": "Pain"},
-            {"name": "Tomates"},
-            {"name": "Ail"},
-            {"name": "Huile d'olive"},
-            {"name": "Basilic"},
-            {"name": "Sel"},
-            {"name": "Poivre"},
-            {"name": "Mozzarella"}
-          ],
-          "recipe": [
-            "Griller les tranches de pain.",
-            "Frotter avec de l'ail et arroser d'huile d'olive.",
-            "Garnir avec des tomates coupées, du basilic, saler et poivrer.",
-            "Ajouter la mozzarella sur le dessus et griller jusqu'à ce que le fromage soit fondu."
           ]
         }
       ]
@@ -140,12 +179,24 @@
           "quantity": 1,
           "state": "DONE",
           "ingredients": [
-            {"name": "Pâte à pizza"},
-            {"name": "Mozzarella"},
-            {"name": "Gorgonzola"},
-            {"name": "Parmesan"},
-            {"name": "Fontina"},
-            {"name": "Sauce tomate"}
+            {
+              "name": "Pâte à pizza"
+            },
+            {
+              "name": "Mozzarella"
+            },
+            {
+              "name": "Gorgonzola"
+            },
+            {
+              "name": "Parmesan"
+            },
+            {
+              "name": "Fontina"
+            },
+            {
+              "name": "Sauce tomate"
+            }
           ],
           "recipe": [
             "Préparer la pâte à pizza.",
@@ -160,16 +211,32 @@
           "category": "Pâtes",
           "image": "assets/images/pates_puttanesca.jpg",
           "quantity": 2,
-          "state": "DONE",
+          "state": "NOT_ASSIGNED",
           "ingredients": [
-            {"name": "Pâtes"},
-            {"name": "Tomates"},
-            {"name": "Anchois"},
-            {"name": "Olives noires"},
-            {"name": "Câpres"},
-            {"name": "Ail"},
-            {"name": "Huile d'olive"},
-            {"name": "Piment rouge"}
+            {
+              "name": "Pâtes"
+            },
+            {
+              "name": "Tomates"
+            },
+            {
+              "name": "Anchois"
+            },
+            {
+              "name": "Olives noires"
+            },
+            {
+              "name": "Câpres"
+            },
+            {
+              "name": "Ail"
+            },
+            {
+              "name": "Huile d'olive"
+            },
+            {
+              "name": "Piment rouge"
+            }
           ],
           "recipe": [
             "Cuire les pâtes al dente.",
@@ -194,12 +261,24 @@
           "quantity": 1,
           "state": "NOT_ASSIGNED",
           "ingredients": [
-            {"name": "Tomates"},
-            {"name": "Mozzarella"},
-            {"name": "Basilic"},
-            {"name": "Huile d'olive"},
-            {"name": "Sel"},
-            {"name": "Poivre"}
+            {
+              "name": "Tomates"
+            },
+            {
+              "name": "Mozzarella"
+            },
+            {
+              "name": "Basilic"
+            },
+            {
+              "name": "Huile d'olive"
+            },
+            {
+              "name": "Sel"
+            },
+            {
+              "name": "Poivre"
+            }
           ],
           "recipe": [
             "Couper les tomates et la mozzarella en tranches.",
@@ -222,22 +301,42 @@
           "category": "Pizzas",
           "image": "assets/images/pizza_margherita.jpg",
           "quantity": 1,
-          "state": "DONE",
+          "state": "NOT_ASSIGNED",
           "ingredients": [
-            {"name": "Fleur de sel", "image": "assets/images/fleur_de_sel_de_guerande.jpg"},
-            {"name": "Levure Boulangère", "image": "assets/images/levure.jpg"},
-            {"name": "Huile d'olive", "image": "assets/images/huile_dolive.jpg"},
-            {"name": "Farine", "image": "assets/images/farine.jpg"},
-            {"name": "Eau minérale", "image": "assets/images/eau_minérale.jpg"},
-            {"name": "Poivre et sel", "image": "assets/images/poivre_et_sel.jpg"},
-            {"name": "Feuille de laurier", "image": "assets/images/feuille_de_laurier.jpg"}
+            {
+              "name": "Fleur de sel",
+              "image": "assets/images/fleur_de_sel_de_guerande.jpg"
+            },
+            {
+              "name": "Levure Boulangère",
+              "image": "assets/images/levure.jpg"
+            },
+            {
+              "name": "Huile d'olive",
+              "image": "assets/images/huile_dolive.jpg"
+            },
+            {
+              "name": "Farine",
+              "image": "assets/images/farine.jpg"
+            },
+            {
+              "name": "Eau minérale",
+              "image": "assets/images/eau_minérale.jpg"
+            },
+            {
+              "name": "Poivre et sel",
+              "image": "assets/images/poivre_et_sel.jpg"
+            },
+            {
+              "name": "Feuille de laurier",
+              "image": "assets/images/feuille_de_laurier.jpg"
+            }
           ],
           "recipe": [
             "Préparer la pâte avec farine, eau, levure, huile d'olive, sel et laisser reposer.",
             "Étaler la pâte et garnir avec les ingrédients restants.",
             "Cuire au four préchauffé à 220°C pendant environ 15 minutes."
           ]
-
         },
         {
           "id": 9,
@@ -248,12 +347,24 @@
           "quantity": 2,
           "state": "NOT_ASSIGNED",
           "ingredients": [
-            {"name": "Pâtes"},
-            {"name": "Lardons"},
-            {"name": "Œufs"},
-            {"name": "Parmesan"},
-            {"name": "Poivre noir"},
-            {"name": "Sel"}
+            {
+              "name": "Pâtes"
+            },
+            {
+              "name": "Lardons"
+            },
+            {
+              "name": "Œufs"
+            },
+            {
+              "name": "Parmesan"
+            },
+            {
+              "name": "Poivre noir"
+            },
+            {
+              "name": "Sel"
+            }
           ],
           "recipe": [
             "Cuire les pâtes al dente.",
@@ -270,12 +381,24 @@
           "quantity": 3,
           "state": "NOT_ASSIGNED",
           "ingredients": [
-            {"name": "Mascarpone"},
-            {"name": "Œufs"},
-            {"name": "Sucre"},
-            {"name": "Biscuits à la cuillère"},
-            {"name": "Café fort"},
-            {"name": "Cacao en poudre"}
+            {
+              "name": "Mascarpone"
+            },
+            {
+              "name": "Œufs"
+            },
+            {
+              "name": "Sucre"
+            },
+            {
+              "name": "Biscuits à la cuillère"
+            },
+            {
+              "name": "Café fort"
+            },
+            {
+              "name": "Cacao en poudre"
+            }
           ],
           "recipe": [
             "Mélanger le mascarpone, les jaunes d'œufs et le sucre.",
@@ -292,13 +415,27 @@
           "quantity": 1,
           "state": "NOT_ASSIGNED",
           "ingredients": [
-            {"name": "Pain"},
-            {"name": "Tomates"},
-            {"name": "Ail"},
-            {"name": "Huile d'olive"},
-            {"name": "Basilic"},
-            {"name": "Sel"},
-            {"name": "Poivre"}
+            {
+              "name": "Pain"
+            },
+            {
+              "name": "Tomates"
+            },
+            {
+              "name": "Ail"
+            },
+            {
+              "name": "Huile d'olive"
+            },
+            {
+              "name": "Basilic"
+            },
+            {
+              "name": "Sel"
+            },
+            {
+              "name": "Poivre"
+            }
           ],
           "recipe": [
             "Griller les tranches de pain.",
@@ -313,16 +450,32 @@
           "category": "Pâtes",
           "image": "assets/images/pates_puttanesca.jpg",
           "quantity": 1,
-          "state": "DONE",
+          "state": "NOT_ASSIGNED",
           "ingredients": [
-            {"name": "Pâtes"},
-            {"name": "Tomates"},
-            {"name": "Anchois"},
-            {"name": "Olives noires"},
-            {"name": "Câpres"},
-            {"name": "Ail"},
-            {"name": "Huile d'olive"},
-            {"name": "Piment rouge"}
+            {
+              "name": "Pâtes"
+            },
+            {
+              "name": "Tomates"
+            },
+            {
+              "name": "Anchois"
+            },
+            {
+              "name": "Olives noires"
+            },
+            {
+              "name": "Câpres"
+            },
+            {
+              "name": "Ail"
+            },
+            {
+              "name": "Huile d'olive"
+            },
+            {
+              "name": "Piment rouge"
+            }
           ],
           "recipe": [
             "Cuire les pâtes al dente.",
@@ -340,16 +493,32 @@
           "customerSpecification": [
             "Supplément tomate"
           ],
-          "state": "DONE",
+          "state": "NOT_ASSIGNED",
           "ingredients": [
-            {"name": "Pâtes"},
-            {"name": "Tomates"},
-            {"name": "Anchois"},
-            {"name": "Olives noires"},
-            {"name": "Câpres"},
-            {"name": "Ail"},
-            {"name": "Huile d'olive"},
-            {"name": "Piment rouge"}
+            {
+              "name": "Pâtes"
+            },
+            {
+              "name": "Tomates"
+            },
+            {
+              "name": "Anchois"
+            },
+            {
+              "name": "Olives noires"
+            },
+            {
+              "name": "Câpres"
+            },
+            {
+              "name": "Ail"
+            },
+            {
+              "name": "Huile d'olive"
+            },
+            {
+              "name": "Piment rouge"
+            }
           ],
           "recipe": [
             "Cuire les pâtes al dente.",
@@ -364,20 +533,36 @@
           "category": "Pâtes",
           "image": "assets/images/pates_puttanesca.jpg",
           "quantity": 1,
-          "state": "DONE",
+          "state": "NOT_ASSIGNED",
           "customerSpecification": [
             "Sans olives",
             "Sans fromage"
           ],
           "ingredients": [
-            {"name": "Pâtes"},
-            {"name": "Tomates"},
-            {"name": "Anchois"},
-            {"name": "Olives noires"},
-            {"name": "Câpres"},
-            {"name": "Ail"},
-            {"name": "Huile d'olive"},
-            {"name": "Piment rouge"}
+            {
+              "name": "Pâtes"
+            },
+            {
+              "name": "Tomates"
+            },
+            {
+              "name": "Anchois"
+            },
+            {
+              "name": "Olives noires"
+            },
+            {
+              "name": "Câpres"
+            },
+            {
+              "name": "Ail"
+            },
+            {
+              "name": "Huile d'olive"
+            },
+            {
+              "name": "Piment rouge"
+            }
           ],
           "recipe": [
             "Cuire les pâtes al dente.",
@@ -402,12 +587,24 @@
           "quantity": 1,
           "state": "NOT_ASSIGNED",
           "ingredients": [
-            {"name": "Tomates"},
-            {"name": "Mozzarella"},
-            {"name": "Basilic"},
-            {"name": "Huile d'olive"},
-            {"name": "Sel"},
-            {"name": "Poivre"}
+            {
+              "name": "Tomates"
+            },
+            {
+              "name": "Mozzarella"
+            },
+            {
+              "name": "Basilic"
+            },
+            {
+              "name": "Huile d'olive"
+            },
+            {
+              "name": "Sel"
+            },
+            {
+              "name": "Poivre"
+            }
           ],
           "recipe": [
             "Couper les tomates et la mozzarella en tranches.",
