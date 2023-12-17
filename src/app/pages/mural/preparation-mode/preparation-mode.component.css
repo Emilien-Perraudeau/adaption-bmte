@@ -1,38 +1,64 @@
 /* preparation-mode.component.css */
 .preparation-mode {
   padding: 20px;
+  background-color: #f4f4f4; /* Couleur de fond */
+  font-family: 'Arial', sans-serif; /* Police de caractères générale */
 }
 
 .customer-specification {
-  color: red;
+  color: #e74c3c; /* Rouge pour les spécifications du client */
 }
 
-.bouton-retour{
+.bouton-retour {
   margin-top: 20px;
   float: right;
+}
+
+:host ::ng-deep .ingredients-container h3 {
+  background-color: #3498db;
+  color: #fff;
+  border-radius: 8px 8px 0 0;
+  padding: 10px;
+  margin-top: 0;
+}
+
+:host ::ng-deep .ingredients-container ul {
+  list-style: none;
+  padding: 10px;
+  margin: 0;
+}
+
+:host ::ng-deep .ingredients-container li {
+  margin-bottom: 5px;
+  padding: 5px;
+  background-color: #ecf0f1;
+  border-radius: 5px;
 }
 
 .preparation-title {
   text-align: center;
   margin-bottom: 20px;
+  font-size: 28px;
+  color: #3498db; /* Bleu pour le titre */
 }
 
 .selected-dish .mat-expansion-panel-header {
-  background-color: #f8f8f8;
-  border-bottom: 1px solid #ccc;
+  background-color: #ecf0f1; /* Gris clair */
+  border-bottom: 1px solid #bdc3c7; /* Bordure plus claire */
 }
 
 /* Style pour la div contenant l'étape */
 .step-container {
-  border: 1px solid #ccc;
+  border: 1px solid #bdc3c7;
   padding: 2%;
   margin-bottom: 1%;
-  border-radius: 5px;
-  background-color: #f8f8f8;
+  border-radius: 10px; /* Coins plus arrondis */
+  background-color: #fff;
   cursor: pointer;
   width: 96%;
   box-sizing: border-box;
   position: relative;
+  transition: transform 0.2s ease; /* Ajout d'une légère transition au survol */
 }
 
 .step-container.hasNextStep::after {
@@ -40,26 +66,38 @@
   position: absolute;
   right: 10px;
   bottom: 10px;
-  font-size: 20px;
-  color: #666;
-  display: none;
+  font-size: 24px;
+  color: #7f8c8d; /* Gris plus foncé */
 }
 
-.step-container.hasNextStep::after {
-  display: block;
+.step-container:hover {
+  transform: scale(1.02); /* Légère mise à l'échelle au survol */
 }
 
 /* Style pour le bouton "Retour" */
 .step-back-button {
   margin-top: 1%;
-  display: block; /* S'assurer que le bouton est toujours visible */
+  display: block;
+  background-color: #e74c3c; /* Rouge */
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.step-back-button:hover {
+  background-color: #c0392b; /* Rouge plus foncé au survol */
 }
 
 /* Styles pour les médias queries */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .preparation-mode {
-    padding: 10px;
+    padding: 15px; /* Ajustement du rembourrage pour les petits écrans */
   }
+
+
 
   .step-container {
     padding: 5px;
@@ -70,12 +108,12 @@
 .validate-icon {
   width: 20px;
   height: 20px;
-  border: 5px solid #ccc; /* Bordure plus épaisse */
+  border: 5px solid #ccc;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  margin-right: 30px; /* Ajoutez un peu d'espace à gauche si nécessaire */
+  margin-right: 30px;
 }
 
 .strikethrough {

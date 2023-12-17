@@ -44,13 +44,11 @@ export class TableComponent implements OnInit {
   }
 
   getDisplayedDishes(): DishComponent[] {
-    // Retourne tous les plats si la table est en mode détaillé
-    //return this.isTabletMode && this.isDetailedMode ? this.dishes : this.dishes.slice(0, 4);
     if(this.isTabletMode){
       if(this.isDetailedMode){
         return this.dishes;
       }
-      else{
+      else if(this.sharedDataService.numberOfCooks != 1 ){
         return this.dishes.slice(0, 4);
       }
     }
@@ -105,6 +103,10 @@ export class TableComponent implements OnInit {
 
     // Met à jour le Set de tables sélectionnées dans SharedDataService
     this._sharedDataService.setTables(tables);
+  }
+
+  numberOfCooks(): number {
+    return this._sharedDataService.numberOfCooks;
   }
 
 }
