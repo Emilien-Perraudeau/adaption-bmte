@@ -81,3 +81,10 @@
 .strikethrough {
   text-decoration: line-through;
 }
+
+.tutorial-image {
+  width: 100%; /* Ajustez selon la taille souhaitée */
+  max-width: 400px; /* Limitez la taille maximale */
+  display: block; /* Pour que l'image ne soit pas en ligne avec d'autres éléments */
+  margin: 10px auto; /* Centrez l'image et ajoutez une marge */
+}

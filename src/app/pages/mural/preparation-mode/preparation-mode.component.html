@@ -67,10 +67,14 @@
       <!-- Affichage de l'étape actuelle en mode novice -->
       <div class="step-container" [class.hasNextStep]="hasNextStep(dish.id)" (click)="nextStep(dish.id)">
         <p>{{ getCurrentStep(dish.id) }}</p>
+        <!-- Image tutorial sous chaque étape -->
+        <img src="assets/images/photo_tuto.png" alt="Image Tutorial" class="tutorial-image" (click)="$event.stopPropagation()">
+        <!-- Bouton Retour -->
         <button *ngIf="hasPreviousStep(dish.id)" mat-button class="step-back-button" (click)="previousStep(dish.id, $event)">
           Retour
         </button>
       </div>
+
 
       <!-- Bouton "Retour" en mode novice -->
 
