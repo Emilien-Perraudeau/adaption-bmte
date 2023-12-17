@@ -222,7 +222,7 @@
           "category": "Pizzas",
           "image": "assets/images/pizza_margherita.jpg",
           "quantity": 1,
-          "state": "NOT_ASSIGNED",
+          "state": "DONE",
           "ingredients": [
             {"name": "Fleur de sel", "image": "assets/images/fleur_de_sel_de_guerande.jpg"},
             {"name": "Levure Boulangère", "image": "assets/images/levure.jpg"},
