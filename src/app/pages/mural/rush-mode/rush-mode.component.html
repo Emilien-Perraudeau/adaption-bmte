@@ -47,7 +47,9 @@
       <div class="category-container">
         <div class="category-header">
           <h2>{{ this.position_category }}</h2>
-          <h3><b>{{upcomingDishesByCategory.get(position_category) == undefined ? 0 : upcomingDishesByCategory.get(position_category)?.length}}</b> plats à venir</h3>
+          <h3 *ngIf="upcomingDishesByCategory.get(this.position_category) != undefined">
+            <b>{{upcomingDishesByCategory.get(position_category)?.length}}</b> plats à venir
+          </h3>
         </div>
         <div class="dishes-in-category">
           <div *ngFor="let dish of groupedDishesForView[this.position_category]">
