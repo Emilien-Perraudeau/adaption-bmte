@@ -4,7 +4,7 @@
       "id": 1,
       "numberTable": 1,
       "numberOrder": 202,
-      "time": "2023-12-06T15:30:00.000Z",
+      "time": "2023-12-06T15:32:00.000Z",
       "dishes": [
         {
           "id": 1,
@@ -20,7 +20,7 @@
             "Sans assiette",
             "Sans couverts"
           ],
-          "state": "IN_PROGRESS",
+          "state": "NOT_ASSIGNED",
           "ingredients": [
             {
               "name": "Fleur de sel",
@@ -133,7 +133,7 @@
       "id": 2,
       "numberTable": 2,
       "numberOrder": 203,
-      "time": "2023-12-06T15:32:00.000Z",
+      "time": "2023-12-06T15:30:00.000Z",
       "dishes": [
         {
           "id": 5,
@@ -142,7 +142,7 @@
           "category": "Pizzas",
           "image": "assets/images/pizza_quattro_formaggi.jpg",
           "quantity": 1,
-          "state": "DONE",
+          "state": "NOT_ASSIGNED",
           "ingredients": [
             "ingredient1",
             "ingredient2"
@@ -159,7 +159,7 @@
           "category": "Pâtes",
           "image": "assets/images/pates_puttanesca.jpg",
           "quantity": 2,
-          "state": "DONE",
+          "state": "NOT_ASSIGNED",
           "ingredients": [
             "ingredient1",
             "ingredient2"
@@ -209,7 +209,7 @@
           "category": "Pizzas",
           "image": "assets/images/pizza_margherita.jpg",
           "quantity": 1,
-          "state": "DONE",
+          "state": "NOT_ASSIGNED",
           "ingredients": [
             "ingredient1",
             "ingredient2"
@@ -277,7 +277,7 @@
           "category": "Pâtes",
           "image": "assets/images/pates_puttanesca.jpg",
           "quantity": 1,
-          "state": "DONE",
+          "state": "NOT_ASSIGNED",
           "ingredients": [
             "ingredient1",
             "ingredient2"
@@ -297,7 +297,7 @@
           "customerSpecification": [
             "Supplément tomate"
           ],
-          "state": "DONE",
+          "state": "NOT_ASSIGNED",
           "ingredients": [
             "ingredient1",
             "ingredient2"
@@ -314,7 +314,7 @@
           "category": "Pâtes",
           "image": "assets/images/pates_puttanesca.jpg",
           "quantity": 1,
-          "state": "DONE",
+          "state": "NOT_ASSIGNED",
           "customerSpecification": [
             "Sans olives",
             "Sans fromage"

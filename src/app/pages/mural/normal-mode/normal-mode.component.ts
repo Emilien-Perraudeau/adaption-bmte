@@ -64,7 +64,7 @@ export class NormalModeComponent implements OnInit, OnDestroy {
   }
 
   checkIfRushMode() {
-    const numberOfDishToBeInRushMode = 30*this._sharedDataService.numberOfCooks;
+    const numberOfDishToBeInRushMode = 4*this._sharedDataService.numberOfCooks;
     const sommeTotale: number = this.tables.reduce((somme, table) => somme + this.getSommeDishComponentByTable(table), 0);
     return sommeTotale > numberOfDishToBeInRushMode && this._sharedDataService.numberOfCooks > 1;
   }
