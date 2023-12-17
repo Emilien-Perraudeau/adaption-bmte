@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import { TableService } from "../../../services/table.service";
 import { DishComponent } from "../../../shared/components/dish/dish.component";
 import { TableComponent } from "../../../shared/components/table/table.component";
 import {DishState} from "../../../shared/enums/dish-state";
 import {SharedDataService} from "../../../services/shared-data.service";
 import {BreakpointObserver, Breakpoints} from "@angular/cdk/layout";
-import {forkJoin} from "rxjs";
+import {forkJoin, Subscription} from "rxjs";
 import {Router} from "@angular/router";
 import {DishService} from "../../../services/dish.service";
 
@@ -14,7 +14,7 @@ import {DishService} from "../../../services/dish.service";
   templateUrl: './rush-mode.component.html',
   styleUrls: ['./rush-mode.component.css']
 })
-export class RushModeComponent implements OnInit {
+export class RushModeComponent implements OnInit, OnDestroy {
   isTabletMode = false;
   position_category = "Pizzas";
   DishState = DishState;
@@ -31,6 +31,7 @@ export class RushModeComponent implements OnInit {
   upcomingDishes = new Map<string, number>();
   upcomingDishesByCategory = new Map<string, DishComponent[]>();
   timeline: { time: Date, color: string }[] = [];
+  private subscription = new Subscription();
 
   constructor(private tableService: TableService,
               private _sharedDataService: SharedDataService,
@@ -40,7 +41,6 @@ export class RushModeComponent implements OnInit {
 
   ngOnInit(): void {
     this.availableCooks = this.sharedDataService.numberOfCooks;
-    console.log("maxCategoriesToShow "+ this.availableCooks)
     this.tableService.getTables().subscribe(receivedTables => {
       receivedTables.sort((a, b) => new Date(a.time).getTime() - new Date(b.time).getTime());
 
@@ -59,6 +59,28 @@ export class RushModeComponent implements OnInit {
           this.isTabletMode = result.matches;
         });
     });
+
+    this.subscription.add(this.tableService.getTablesUpdates().subscribe(receivedTables => {
+      receivedTables.sort((a, b) => new Date(a.time).getTime() - new Date(b.time).getTime());
+      this.tables = receivedTables;
+      console.log(this.tables)
+      this.timeline = [];
+      this.tables.forEach(table => {
+        this.timeline.push({ time: new Date(table.time), color: this.generateColor(table.id) });
+        console.log("timeline "+ table.color)
+      });
+
+      this.populateDishesWithTables();
+      this.updateViewData();
+    }));
+    this.breakpointObserver.observe([Breakpoints.Handset, Breakpoints.Tablet])
+      .subscribe(result => {
+        this.isTabletMode = result.matches;
+      });
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 
   updateViewData(): void {

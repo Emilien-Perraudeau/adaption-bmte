@@ -1,47 +1,53 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
 import {TableService} from "../../../services/table.service";
 import {TableComponent} from "../../../shared/components/table/table.component";
 import {Router} from "@angular/router";
 import {SharedDataService} from "../../../services/shared-data.service";
-import {forkJoin, Observable} from "rxjs";
+import {forkJoin, Observable, Subscription} from "rxjs";
 import {DishState} from "../../../shared/enums/dish-state";
-import {DishComponent} from "../../../shared/components/dish/dish.component";
-import {HttpClient} from "@angular/common/http";
 import {DishService} from "../../../services/dish.service";
-import {TimelineComponent} from "../../../shared/components/timeline/timeline.component";
 
 @Component({
   selector: 'app-normal-mode',
   templateUrl: './normal-mode.component.html',
   styleUrls: ['./normal-mode.component.css']
 })
-export class NormalModeComponent implements OnInit {
+export class NormalModeComponent implements OnInit, OnDestroy {
 
   tables: TableComponent[] = [];
   isTabletMode = false;
   timeline: { time: Date, color: string }[] = [];
+  private subscription = new Subscription();
 
   constructor(
     private tableService: TableService,
     private dishService: DishService,
     private breakpointObserver: BreakpointObserver,
     private router: Router,
-    private _sharedDataService: SharedDataService,
-    private http: HttpClient
+    private _sharedDataService: SharedDataService
   ) {
   }
 
   ngOnInit() {
-    this.tableService.getTables().subscribe(receivedTables => {
+    this.tableService.getTables().subscribe(tables => {
+      tables.sort((a, b) => new Date(a.time).getTime() - new Date(b.time).getTime());
+      this.tables = tables;
+      this.tables.forEach(table => {
+        this.timeline.push({ time: new Date(table.time), color: this.generateColor(table.id) });
+      });
+    });
+
+    this.subscription.add(this.tableService.getTablesUpdates().subscribe(receivedTables => {
       receivedTables.sort((a, b) => new Date(a.time).getTime() - new Date(b.time).getTime());
       this.tables = receivedTables;
       console.log(this.tables)
+      this.timeline = [];
       this.tables.forEach(table => {
         this.timeline.push({ time: new Date(table.time), color: this.generateColor(table.id) });
         console.log("timeline "+ table.color)
       });
-    });
+    }));
 
     // Detect changes in screen size to determine tablet mode
     this.breakpointObserver.observe([Breakpoints.Handset, Breakpoints.Tablet])
@@ -53,8 +59,12 @@ export class NormalModeComponent implements OnInit {
 
   }
 
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+  }
+
   checkIfRushMode() {
-    const numberOfDishToBeInRushMode = 3*this._sharedDataService.numberOfCooks;
+    const numberOfDishToBeInRushMode = 30*this._sharedDataService.numberOfCooks;
     const sommeTotale: number = this.tables.reduce((somme, table) => somme + this.getSommeDishComponentByTable(table), 0);
     return sommeTotale > numberOfDishToBeInRushMode && this._sharedDataService.numberOfCooks > 1;
   }
@@ -108,8 +118,8 @@ export class NormalModeComponent implements OnInit {
     const nouvelleTable = {
         "id": id,
         "numberTable": Math.floor(Math.random() * 20) + 1,
-        "numberOrder": 202,
-        "time": "2023-12-06T16:00:00.000Z",
+        "numberOrder": 202 + Math.floor(Math.random() * 20) + 1,
+        "time": Date.now(),
         "dishes": [
           {
             "id": 1,
