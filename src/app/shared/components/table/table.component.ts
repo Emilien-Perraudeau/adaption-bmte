@@ -77,12 +77,19 @@ export class TableComponent implements OnInit {
   }
 
   toggleSelection() {
-    if (this.isTabletMode && this.isAllStatesGreen() && this._sharedDataService.getServeurMode()) {
+    const numberOfCooks = this.sharedDataService.numberOfCooks;
+    const isServeurMode = this.sharedDataService.getServeurMode();
+
+    if (this.isTabletMode && (isServeurMode && this.isAllStatesGreen()) || (numberOfCooks === 1)) {
       this.isSelected = !this.isSelected;
       console.log(`Table ${this.numberTable} sélectionnée: ${this.isSelected}`);
       this.updateSelectedTablesInSharedDataService();
+    } else {
+      console.log("Sélection de la table non autorisée.");
     }
   }
+
+
 
   private updateSelectedTablesInSharedDataService() {
     const tables = this._sharedDataService.getTables();

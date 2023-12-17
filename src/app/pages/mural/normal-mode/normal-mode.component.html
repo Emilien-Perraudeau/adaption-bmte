@@ -60,19 +60,27 @@
     <p>Total des plats à venir: {{ getTotalDishesCount() }}</p>
     </div>
     <div class="bouton-valider">
-      <!-- Bouton Valider pour le mode serveur -->
+      <!-- Bouton pour le mode serveur -->
       <button *ngIf="sharedDataService.getServeurMode()" mat-raised-button color="primary"
               [disabled]="!isAnyTableSelected()"
               (click)="onValidateMode()">
         Valider
       </button>
 
-      <!-- Bouton Préparer pour les autres modes -->
-      <button *ngIf="!sharedDataService.getServeurMode()" mat-raised-button color="primary"
+      <!-- Bouton pour le mode avec un seul cuisinier -->
+      <button *ngIf="!sharedDataService.getServeurMode() && sharedDataService.numberOfCooks === 1" mat-raised-button color="primary"
+              [disabled]="!isAnyTableSelected()"
+              (click)="onPreparationMode()">
+        Préparer
+      </button>
+
+      <!-- Bouton pour le mode normal avec plusieurs cuisiniers -->
+      <button *ngIf="!sharedDataService.getServeurMode() && sharedDataService.numberOfCooks > 1" mat-raised-button color="primary"
               [disabled]="!isAnyDishSelected()"
               (click)="onPreparationMode()">
         Préparer
       </button>
+
     </div>
   </div>
 

@@ -1,7 +1,7 @@
 <div class="table-container"
      [ngClass]="{
        'selected': isSelected,
-       'non-selectable': !isAllStatesGreen()
+       'non-selectable': isTabletMode && !isAllStatesGreen() && sharedDataService.numberOfCooks > 1
      }"
      [ngStyle]="{ 'border-color': generateColor(this.id) }"
      [class.detailed-mode]="isDetailedMode"
