@@ -20,7 +20,7 @@
             "Sans assiette",
             "Sans couverts"
           ],
-          "state": "IN_PROGRESS",
+          "state": "DONE",
           "ingredients": [
             {
               "name": "Fleur de sel",
@@ -64,7 +64,7 @@
           "category": "Pâtes",
           "image": "assets/images/pates_carbonara.jpg",
           "quantity": 2,
-          "state": "NOT_ASSIGNED",
+          "state": "DONE",
           "ingredients": [
             {
               "name": "Pâtes"
@@ -98,7 +98,7 @@
           "category": "Desserts",
           "image": "assets/images/tiramisu.jpg",
           "quantity": 1,
-          "state": "NOT_ASSIGNED",
+          "state": "DONE",
           "ingredients": [
             {
               "name": "Mascarpone"
@@ -132,7 +132,7 @@
           "category": "Entrées",
           "image": "assets/images/bruschetta.jpg",
           "quantity": 1,
-          "state": "NOT_ASSIGNED",
+          "state": "DONE",
           "ingredients": [
             {
               "name": "Pain"
@@ -177,7 +177,7 @@
           "category": "Entrées",
           "image": "assets/images/caprese_salad.jpg",
           "quantity": 1,
-          "state": "DONE",
+          "state": "NOT_ASSIGNED",
           "ingredients": [
             {
               "name": "Tomates"
@@ -545,7 +545,7 @@
           "category": "Pizzas",
           "image": "assets/images/pizza_margherita.jpg",
           "quantity": 5,
-          "state": "IN_PROGRESS",
+          "state": "DONE",
           "ingredients": [
             "ingredient1",
             "ingredient2"
@@ -566,7 +566,7 @@
           "category": "Pâtes",
           "image": "assets/images/pates_carbonara.jpg",
           "quantity": 2,
-          "state": "NOT_ASSIGNED",
+          "state": "DONE",
           "ingredients": [
             "ingredient1",
             "ingredient2"
@@ -587,7 +587,7 @@
           "category": "Desserts",
           "image": "assets/images/tiramisu.jpg",
           "quantity": 3,
-          "state": "NOT_ASSIGNED",
+          "state": "DONE",
           "ingredients": [
             "ingredient1",
             "ingredient2"
@@ -608,7 +608,7 @@
           "category": "Entrées",
           "image": "assets/images/bruschetta.jpg",
           "quantity": 2,
-          "state": "NOT_ASSIGNED",
+          "state": "DONE",
           "ingredients": [
             "ingredient1",
             "ingredient2"
