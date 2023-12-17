@@ -47,6 +47,7 @@ export class NormalModeComponent implements OnInit, OnDestroy {
         this.timeline.push({ time: new Date(table.time), color: this.generateColor(table.id) });
         console.log("timeline "+ table.color)
       });
+      if (this.checkIfRushMode()) this.router.navigate(['/rush-mode'])
     }));
 
     // Detect changes in screen size to determine tablet mode
@@ -66,7 +67,7 @@ export class NormalModeComponent implements OnInit, OnDestroy {
   }
 
   checkIfRushMode() {
-    const numberOfDishToBeInRushMode = 30*this._sharedDataService.numberOfCooks;
+    const numberOfDishToBeInRushMode = 4*this._sharedDataService.numberOfCooks;
     // Si le mode serveur est activé, ne pas passer au rush-mode
     if (this._sharedDataService.getServeurMode()) {
       return false;

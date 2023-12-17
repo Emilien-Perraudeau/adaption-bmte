@@ -64,7 +64,7 @@
   margin-top: 1rem;
 }
 
-.boutoon-valider{
+.bouton-valider{
   float: right;
   padding: 1rem;
 }
@@ -139,7 +139,7 @@
     color : white;
   }
 
-  .boutoon-valider{
+  .bouton-valider{
     height: 100%;
     float: right;
     padding: 1rem;

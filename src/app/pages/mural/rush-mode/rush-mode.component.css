@@ -167,4 +167,10 @@
     max-width: 10em;
     border-radius: 4px;
   }
+
+  .bouton-valider{
+    height: 100%;
+    float: right;
+    padding: 1rem;
+  }
 }
