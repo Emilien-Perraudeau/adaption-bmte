@@ -81,7 +81,6 @@ export class NormalModeComponent implements OnInit, OnDestroy {
     return table.dishes.length;
   }
 
-
   onPreparationMode() {
     this.sharedDataService.setPreviousMode("normal-mode");
     this.dishService.getTables().subscribe(tables => {
