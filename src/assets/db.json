@@ -209,7 +209,7 @@
           "category": "Pizzas",
           "image": "assets/images/pizza_margherita.jpg",
           "quantity": 1,
-          "state": "NOT_ASSIGNED",
+          "state": "DONE",
           "ingredients": [
             "ingredient1",
             "ingredient2"
