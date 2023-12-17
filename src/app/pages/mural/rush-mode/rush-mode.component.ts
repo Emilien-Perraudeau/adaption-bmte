@@ -125,16 +125,20 @@ export class RushModeComponent implements OnInit, OnDestroy {
   }
 
   calculateUpcomingDishes() {
+    console.log('Calculating upcoming dishes');
     this.groupedDishes.forEach((dishes, category) => {
-      if (dishes.length > 4 || this.groupedDishes.size >= this.availableCooks) {
-        this.upcomingDishes.set(category,  dishes.length > 4  ? dishes.length - 4 : dishes.length);
-        this.groupedDishes.set(category, dishes.slice(0, 4));
+      const numberOfPlatsVisible = Math.min(dishes.length, 4);
+      this.groupedDishes.set(category, dishes.slice(0, numberOfPlatsVisible));
+      if (dishes.length > 4) {
+        this.upcomingDishes.set(category, dishes.length - numberOfPlatsVisible);
+        this.upcomingDishesByCategory.set(category, dishes.slice(numberOfPlatsVisible));
       } else {
         this.upcomingDishes.set(category, 0);
       }
     });
     this.prepareUpcomingDishes();
   }
+
 
   prepareUpcomingDishes() {
     this.groupedDishes.forEach((dishes, category) => {
@@ -156,14 +160,6 @@ export class RushModeComponent implements OnInit, OnDestroy {
       result.push(chunk);
     }
     return result;
-  }
-
-  get visibleCategories(): string[] {
-    return this.groupedDishesCategories.slice(0, this.availableCooks);
-  }
-
-  get hiddenCategories(): string[] {
-    return this.groupedDishesCategories.slice(this.availableCooks);
   }
 
   getTableNumberForDish(dish: DishComponent): number  {
