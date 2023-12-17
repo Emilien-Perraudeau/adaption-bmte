@@ -215,7 +215,7 @@ export class NormalModeComponent implements OnInit, OnDestroy {
       this.tableService.updateTablesAfterAddition().subscribe((tables: TableComponent[]) => {
         this.tables = tables;
       });
-
+      this.timeline = [];
       this.tables.forEach(table => {
         this.timeline.push({ time: new Date(table.time), color: table.color });
       });
