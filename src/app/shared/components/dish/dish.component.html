@@ -12,7 +12,7 @@
     <img [src]="image" *ngIf="isExpanded" class="image" alt="Image du plat">
   </div>
   <div class="text-container">
-    <p>{{ this.quantity }}x {{ name }}</p>
+    <h3><b>{{ this.quantity }}x {{ name }}</b></h3>
     <div class="customer-specification" *ngIf="customerSpecification && customerSpecification.length > 0">
       <p>{{ customerSpecification.join(', ') }}</p>
     </div>
