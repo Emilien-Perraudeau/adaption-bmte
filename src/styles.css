@@ -12,3 +12,19 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .tables-container .table-container {
   width: 100%;
 }
+
+h2 {
+  font-size: 2rem !important;
+}
+
+h3 {
+  font-size: 1.5rem !important;
+}
+
+p {
+  font-size: 1.2rem !important;
+}
+
+h1 {
+  font-size: 2.5rem !important;
+}
