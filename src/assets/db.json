@@ -20,7 +20,7 @@
             "Sans assiette",
             "Sans couverts"
           ],
-          "state": "NOT_ASSIGNED",
+          "state": "IN_PROGRESS",
           "ingredients": [
             {
               "name": "Fleur de sel",
@@ -64,7 +64,7 @@
           "category": "Pâtes",
           "image": "assets/images/pates_carbonara.jpg",
           "quantity": 2,
-          "state": "DONE",
+          "state": "NOT_ASSIGNED",
           "ingredients": [
             {
               "name": "Pâtes"
@@ -132,7 +132,7 @@
           "category": "Entrées",
           "image": "assets/images/bruschetta.jpg",
           "quantity": 1,
-          "state": "DONE",
+          "state": "NOT_ASSIGNED",
           "ingredients": [
             {
               "name": "Pain"
@@ -301,7 +301,7 @@
           "category": "Pizzas",
           "image": "assets/images/pizza_margherita.jpg",
           "quantity": 1,
-          "state": "NOT_ASSIGNED",
+          "state": "IN_PROGRESS",
           "ingredients": [
             {
               "name": "Fleur de sel",
