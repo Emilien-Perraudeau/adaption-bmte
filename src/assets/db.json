@@ -13,47 +13,21 @@
           "category": "Pizzas",
           "image": "assets/images/pizza_margherita.jpg",
           "quantity": 1,
-          "customerSpecification": [
-            "Sans olives",
-            "Sans fromage",
-            "Sans pates",
-            "Sans assiette",
-            "Sans couverts"
-          ],
+          "customerSpecification": ["Sans olives", "Sans fromage", "Sans pates", "Sans assiette", "Sans couverts"],
           "state": "IN_PROGRESS",
           "ingredients": [
-            {
-              "name": "Fleur de sel",
-              "image": "assets/images/fleur_de_sel_de_guerande.jpg"
-            },
-            {
-              "name": "Levure Boulangère",
-              "image": "assets/images/levure.jpg"
-            },
-            {
-              "name": "Huile d'olive",
-              "image": "assets/images/huile_dolive.jpg"
-            },
-            {
-              "name": "Farine",
-              "image": "assets/images/farine.jpg"
-            },
-            {
-              "name": "Eau minérale",
-              "image": "assets/images/eau_minérale.jpg"
-            },
-            {
-              "name": "Poive et sel",
-              "image": "assets/images/poivre_et_sel.jpg"
-            },
-            {
-              "name": "Feuille de laurier",
-              "image": "assets/images/feuille_de_laurier.jpg"
-            }
+            {"name": "Fleur de sel", "image": "assets/images/fleur_de_sel_de_guerande.jpg"},
+            {"name": "Levure Boulangère", "image": "assets/images/levure.jpg"},
+            {"name": "Huile d'olive", "image": "assets/images/huile_dolive.jpg"},
+            {"name": "Farine", "image": "assets/images/farine.jpg"},
+            {"name": "Eau minérale", "image": "assets/images/eau_minérale.jpg"},
+            {"name": "Poivre et sel", "image": "assets/images/poivre_et_sel.jpg"},
+            {"name": "Feuille de laurier", "image": "assets/images/feuille_de_laurier.jpg"}
           ],
           "recipe": [
-            "Étape Expert 1 pour Tiramisu",
-            "Étape Expert 2 pour Tiramisu"
+            "Préparer la pâte avec farine, eau, levure, huile d'olive, sel et laisser reposer.",
+            "Étaler la pâte et garnir avec les ingrédients restants.",
+            "Cuire au four préchauffé à 220°C pendant environ 15 minutes."
           ]
         },
         {
@@ -65,12 +39,17 @@
           "quantity": 2,
           "state": "NOT_ASSIGNED",
           "ingredients": [
-            "ingredient1",
-            "ingredient2"
+            {"name": "Pâtes"},
+            {"name": "Lardons"},
+            {"name": "Œufs"},
+            {"name": "Parmesan"},
+            {"name": "Poivre noir"},
+            {"name": "Sel"}
           ],
           "recipe": [
-            "Étape Expert 1 pour Tiramisu",
-            "Étape Expert 2 pour Tiramisu"
+            "Cuire les pâtes al dente.",
+            "Faire revenir les lardons, mélanger avec les pâtes.",
+            "Ajouter les œufs battus et le parmesan, mélanger jusqu'à ce que la sauce épaississe."
           ]
         },
         {
@@ -82,12 +61,17 @@
           "quantity": 1,
           "state": "NOT_ASSIGNED",
           "ingredients": [
-            "ingredient1",
-            "ingredient2"
+            {"name": "Mascarpone"},
+            {"name": "Œufs"},
+            {"name": "Sucre"},
+            {"name": "Biscuits à la cuillère"},
+            {"name": "Café fort"},
+            {"name": "Cacao en poudre"}
           ],
           "recipe": [
-            "Étape Expert 1 pour Tiramisu",
-            "Étape Expert 2 pour Tiramisu"
+            "Mélanger le mascarpone, les jaunes d'œufs et le sucre.",
+            "Tremper les biscuits dans le café et les disposer dans un plat.",
+            "Couvrir avec la crème au mascarpone, répéter les couches, saupoudrer de cacao."
           ]
         },
         {
@@ -99,32 +83,44 @@
           "quantity": 1,
           "state": "NOT_ASSIGNED",
           "ingredients": [
-            "ingredient1",
-            "ingredient2"
+            {"name": "Pain"},
+            {"name": "Tomates"},
+            {"name": "Ail"},
+            {"name": "Huile d'olive"},
+            {"name": "Basilic"},
+            {"name": "Sel"},
+            {"name": "Poivre"}
           ],
           "recipe": [
-            "Étape Expert 1 pour Tiramisu",
-            "Étape Expert 2 pour Tiramisu"
+            "Griller les tranches de pain.",
+            "Frotter avec de l'ail et arroser d'huile d'olive.",
+            "Garnir avec des tomates coupées, du basilic, saler et poivrer."
           ]
         },
         {
           "id": 20,
           "tableId": 1,
-          "name": "Bruschetta",
+          "name": "Bruschetta avec supplément mozza",
           "category": "Entrées",
           "image": "assets/images/bruschetta.jpg",
           "quantity": 1,
-          "customerSpecification": [
-            "Supplément mozza"
-          ],
+          "customerSpecification": ["Supplément mozza"],
           "state": "NOT_ASSIGNED",
           "ingredients": [
-            "ingredient1",
-            "ingredient2"
+            {"name": "Pain"},
+            {"name": "Tomates"},
+            {"name": "Ail"},
+            {"name": "Huile d'olive"},
+            {"name": "Basilic"},
+            {"name": "Sel"},
+            {"name": "Poivre"},
+            {"name": "Mozzarella"}
           ],
           "recipe": [
-            "Étape Expert 1 pour Tiramisu",
-            "Étape Expert 2 pour Tiramisu"
+            "Griller les tranches de pain.",
+            "Frotter avec de l'ail et arroser d'huile d'olive.",
+            "Garnir avec des tomates coupées, du basilic, saler et poivrer.",
+            "Ajouter la mozzarella sur le dessus et griller jusqu'à ce que le fromage soit fondu."
           ]
         }
       ]
@@ -144,12 +140,17 @@
           "quantity": 1,
           "state": "DONE",
           "ingredients": [
-            "ingredient1",
-            "ingredient2"
+            {"name": "Pâte à pizza"},
+            {"name": "Mozzarella"},
+            {"name": "Gorgonzola"},
+            {"name": "Parmesan"},
+            {"name": "Fontina"},
+            {"name": "Sauce tomate"}
           ],
           "recipe": [
-            "Étape Expert 1 pour Tiramisu",
-            "Étape Expert 2 pour Tiramisu"
+            "Préparer la pâte à pizza.",
+            "Étaler la sauce tomate et répartir les fromages.",
+            "Cuire au four préchauffé à 220°C pendant 15-20 minutes."
           ]
         },
         {
@@ -161,12 +162,19 @@
           "quantity": 2,
           "state": "DONE",
           "ingredients": [
-            "ingredient1",
-            "ingredient2"
+            {"name": "Pâtes"},
+            {"name": "Tomates"},
+            {"name": "Anchois"},
+            {"name": "Olives noires"},
+            {"name": "Câpres"},
+            {"name": "Ail"},
+            {"name": "Huile d'olive"},
+            {"name": "Piment rouge"}
           ],
           "recipe": [
-            "Étape Expert 1 pour Tiramisu",
-            "Étape Expert 2 pour Tiramisu"
+            "Cuire les pâtes al dente.",
+            "Faire revenir l'ail, les anchois, les olives, les câpres et le piment.",
+            "Ajouter les tomates, cuire la sauce et mélanger avec les pâtes."
           ]
         }
       ]
@@ -186,17 +194,22 @@
           "quantity": 1,
           "state": "NOT_ASSIGNED",
           "ingredients": [
-            "ingredient1",
-            "ingredient2"
+            {"name": "Tomates"},
+            {"name": "Mozzarella"},
+            {"name": "Basilic"},
+            {"name": "Huile d'olive"},
+            {"name": "Sel"},
+            {"name": "Poivre"}
           ],
           "recipe": [
-            "Étape Expert 1 pour Tiramisu",
-            "Étape Expert 2 pour Tiramisu"
+            "Couper les tomates et la mozzarella en tranches.",
+            "Disposer en alternance, garnir de basilic.",
+            "Assaisonner avec de l'huile d'olive, du sel et du poivre."
           ]
         }
       ]
     },
-    {
+      {
       "id": 4,
       "numberTable": 4,
       "numberOrder": 205,
@@ -211,13 +224,20 @@
           "quantity": 1,
           "state": "NOT_ASSIGNED",
           "ingredients": [
-            "ingredient1",
-            "ingredient2"
+            {"name": "Fleur de sel", "image": "assets/images/fleur_de_sel_de_guerande.jpg"},
+            {"name": "Levure Boulangère", "image": "assets/images/levure.jpg"},
+            {"name": "Huile d'olive", "image": "assets/images/huile_dolive.jpg"},
+            {"name": "Farine", "image": "assets/images/farine.jpg"},
+            {"name": "Eau minérale", "image": "assets/images/eau_minérale.jpg"},
+            {"name": "Poivre et sel", "image": "assets/images/poivre_et_sel.jpg"},
+            {"name": "Feuille de laurier", "image": "assets/images/feuille_de_laurier.jpg"}
           ],
           "recipe": [
-            "Étape Expert 1 pour Tiramisu",
-            "Étape Expert 2 pour Tiramisu"
+            "Préparer la pâte avec farine, eau, levure, huile d'olive, sel et laisser reposer.",
+            "Étaler la pâte et garnir avec les ingrédients restants.",
+            "Cuire au four préchauffé à 220°C pendant environ 15 minutes."
           ]
+
         },
         {
           "id": 9,
@@ -228,12 +248,17 @@
           "quantity": 2,
           "state": "NOT_ASSIGNED",
           "ingredients": [
-            "ingredient1",
-            "ingredient2"
+            {"name": "Pâtes"},
+            {"name": "Lardons"},
+            {"name": "Œufs"},
+            {"name": "Parmesan"},
+            {"name": "Poivre noir"},
+            {"name": "Sel"}
           ],
           "recipe": [
-            "Étape Expert 1 pour Tiramisu",
-            "Étape Expert 2 pour Tiramisu"
+            "Cuire les pâtes al dente.",
+            "Faire revenir les lardons, mélanger avec les pâtes.",
+            "Ajouter les œufs battus et le parmesan, mélanger jusqu'à ce que la sauce épaississe."
           ]
         },
         {
@@ -245,12 +270,17 @@
           "quantity": 3,
           "state": "NOT_ASSIGNED",
           "ingredients": [
-            "ingredient1",
-            "ingredient2"
+            {"name": "Mascarpone"},
+            {"name": "Œufs"},
+            {"name": "Sucre"},
+            {"name": "Biscuits à la cuillère"},
+            {"name": "Café fort"},
+            {"name": "Cacao en poudre"}
           ],
           "recipe": [
-            "Étape Expert 1 pour Tiramisu",
-            "Étape Expert 2 pour Tiramisu"
+            "Mélanger le mascarpone, les jaunes d'œufs et le sucre.",
+            "Tremper les biscuits dans le café et les disposer dans un plat.",
+            "Couvrir avec la crème au mascarpone, répéter les couches, saupoudrer de cacao."
           ]
         },
         {
@@ -262,12 +292,18 @@
           "quantity": 1,
           "state": "NOT_ASSIGNED",
           "ingredients": [
-            "ingredient1",
-            "ingredient2"
+            {"name": "Pain"},
+            {"name": "Tomates"},
+            {"name": "Ail"},
+            {"name": "Huile d'olive"},
+            {"name": "Basilic"},
+            {"name": "Sel"},
+            {"name": "Poivre"}
           ],
           "recipe": [
-            "Étape Expert 1 pour Tiramisu",
-            "Étape Expert 2 pour Tiramisu"
+            "Griller les tranches de pain.",
+            "Frotter avec de l'ail et arroser d'huile d'olive.",
+            "Garnir avec des tomates coupées, du basilic, saler et poivrer."
           ]
         },
         {
@@ -279,12 +315,19 @@
           "quantity": 1,
           "state": "DONE",
           "ingredients": [
-            "ingredient1",
-            "ingredient2"
+            {"name": "Pâtes"},
+            {"name": "Tomates"},
+            {"name": "Anchois"},
+            {"name": "Olives noires"},
+            {"name": "Câpres"},
+            {"name": "Ail"},
+            {"name": "Huile d'olive"},
+            {"name": "Piment rouge"}
           ],
           "recipe": [
-            "Étape Expert 1 pour Tiramisu",
-            "Étape Expert 2 pour Tiramisu"
+            "Cuire les pâtes al dente.",
+            "Faire revenir l'ail, les anchois, les olives, les câpres et le piment.",
+            "Ajouter les tomates, cuire la sauce et mélanger avec les pâtes."
           ]
         },
         {
@@ -299,12 +342,19 @@
           ],
           "state": "DONE",
           "ingredients": [
-            "ingredient1",
-            "ingredient2"
+            {"name": "Pâtes"},
+            {"name": "Tomates"},
+            {"name": "Anchois"},
+            {"name": "Olives noires"},
+            {"name": "Câpres"},
+            {"name": "Ail"},
+            {"name": "Huile d'olive"},
+            {"name": "Piment rouge"}
           ],
           "recipe": [
-            "Étape Expert 1 pour Tiramisu",
-            "Étape Expert 2 pour Tiramisu"
+            "Cuire les pâtes al dente.",
+            "Faire revenir l'ail, les anchois, les olives, les câpres et le piment.",
+            "Ajouter les tomates, cuire la sauce et mélanger avec les pâtes."
           ]
         },
         {
@@ -320,12 +370,19 @@
             "Sans fromage"
           ],
           "ingredients": [
-            "ingredient1",
-            "ingredient2"
+            {"name": "Pâtes"},
+            {"name": "Tomates"},
+            {"name": "Anchois"},
+            {"name": "Olives noires"},
+            {"name": "Câpres"},
+            {"name": "Ail"},
+            {"name": "Huile d'olive"},
+            {"name": "Piment rouge"}
           ],
           "recipe": [
-            "Étape Expert 1 pour Tiramisu",
-            "Étape Expert 2 pour Tiramisu"
+            "Cuire les pâtes al dente.",
+            "Faire revenir l'ail, les anchois, les olives, les câpres et le piment.",
+            "Ajouter les tomates, cuire la sauce et mélanger avec les pâtes."
           ]
         }
       ]
@@ -345,12 +402,17 @@
           "quantity": 1,
           "state": "NOT_ASSIGNED",
           "ingredients": [
-            "ingredient1",
-            "ingredient2"
+            {"name": "Tomates"},
+            {"name": "Mozzarella"},
+            {"name": "Basilic"},
+            {"name": "Huile d'olive"},
+            {"name": "Sel"},
+            {"name": "Poivre"}
           ],
           "recipe": [
-            "Étape Expert 1 pour Tiramisu",
-            "Étape Expert 2 pour Tiramisu"
+            "Couper les tomates et la mozzarella en tranches.",
+            "Disposer en alternance, garnir de basilic.",
+            "Assaisonner avec de l'huile d'olive, du sel et du poivre."
           ]
         }
       ]
