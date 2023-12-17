@@ -25,7 +25,7 @@ export class NormalModeComponent implements OnInit, OnDestroy {
     private dishService: DishService,
     private breakpointObserver: BreakpointObserver,
     private router: Router,
-    private _sharedDataService: SharedDataService
+    private _sharedDataService: SharedDataService,
   ) {
   }
 
@@ -55,7 +55,9 @@ export class NormalModeComponent implements OnInit, OnDestroy {
         this.isTabletMode = result.matches;
       });
 
-    if (this.checkIfRushMode()) this.router.navigate(['/rush-mode'])
+    if (this.checkIfRushMode()) {
+      this.router.navigate(['/rush-mode']);
+    }
 
   }
 
@@ -65,6 +67,11 @@ export class NormalModeComponent implements OnInit, OnDestroy {
 
   checkIfRushMode() {
     const numberOfDishToBeInRushMode = 30*this._sharedDataService.numberOfCooks;
+    // Si le mode serveur est activé, ne pas passer au rush-mode
+    if (this._sharedDataService.getServeurMode()) {
+      return false;
+    }
+
     const sommeTotale: number = this.tables.reduce((somme, table) => somme + this.getSommeDishComponentByTable(table), 0);
     return sommeTotale > numberOfDishToBeInRushMode && this._sharedDataService.numberOfCooks > 1;
   }

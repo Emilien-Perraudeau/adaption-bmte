@@ -81,8 +81,6 @@ export class TableComponent implements OnInit {
       this.isSelected = !this.isSelected;
       console.log(`Table ${this.numberTable} sélectionnée: ${this.isSelected}`);
       this.updateSelectedTablesInSharedDataService();
-    } else {
-      console.log("Sélection de la table non autorisée.");
     }
   }
 
