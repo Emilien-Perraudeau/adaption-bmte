@@ -5,6 +5,9 @@ import { TableComponent } from "../../../shared/components/table/table.component
 import {DishState} from "../../../shared/enums/dish-state";
 import {SharedDataService} from "../../../services/shared-data.service";
 import {BreakpointObserver, Breakpoints} from "@angular/cdk/layout";
+import {forkJoin} from "rxjs";
+import {Router} from "@angular/router";
+import {DishService} from "../../../services/dish.service";
 
 @Component({
   selector: 'app-rush-mode',
@@ -29,7 +32,11 @@ export class RushModeComponent implements OnInit {
   upcomingDishesByCategory = new Map<string, DishComponent[]>();
   timeline: { time: Date, color: string }[] = [];
 
-  constructor(private tableService: TableService, private sharedDataService: SharedDataService, private breakpointObserver: BreakpointObserver) {}
+  constructor(private tableService: TableService,
+              private _sharedDataService: SharedDataService,
+              private breakpointObserver: BreakpointObserver,
+              private router: Router,
+              private dishService: DishService) {}
 
   ngOnInit(): void {
     this.availableCooks = this.sharedDataService.numberOfCooks;
@@ -146,8 +153,73 @@ export class RushModeComponent implements OnInit {
     return -1;
   }
 
+  get sharedDataService(): SharedDataService {
+    return this._sharedDataService;
+  }
+
   generateColor(tableId: number): string {
     const hue = (tableId * 137.508) % 360;
     return `hsl(${hue}, 70%, 70%)`;
+  }
+
+  isAnyDishSelected(): boolean {
+    return this.sharedDataService.getSelectedDishes().length > 0;
+  }
+
+  isAnyTableSelected(): boolean {
+    return this.sharedDataService.isAnyTableSelected();
+  }
+
+  onValidateMode() {
+    const tables = Array.from(this.sharedDataService.getTables());
+    const selectedTables = tables.filter(table => table.isSelected && table.isAllStatesGreen());
+
+    selectedTables.forEach(table => {
+      // Supprimez la table de la base de données ou effectuez d'autres actions nécessaires
+      this.tableService.deleteTable(table.id).subscribe(() => {
+        console.log(`Table ${table.numberTable} validée et supprimée`);
+        // Mettez à jour la liste des tables dans SharedDataService
+        this.updateTablesAfterDeletion(table.id);
+      });
+    });
+  }
+
+  private updateTablesAfterDeletion(tableId: number) {
+    let tables = Array.from(this.sharedDataService.getTables());
+    tables = tables.filter(table => table.id !== tableId);
+    this.sharedDataService.setTables(new Set(tables));
+  }
+
+  onPreparationMode() {
+    this.sharedDataService.setPreviousMode("normal-mode");
+    this.dishService.getTables().subscribe(tables => {
+      const selectedDishes = this._sharedDataService.getSelectedDishes();
+      const tablesToUpdate = tables.filter(table => {
+        let tableNeedsUpdate = false;
+        table.dishes.forEach(dish => {
+          const isSelected = selectedDishes.some(selectedDish => {
+            return selectedDish.id === dish.id;
+          });
+          if (isSelected && dish.state === DishState.NotAssigned) {
+            dish.state = DishState.InProgress;
+            tableNeedsUpdate = true;
+          }
+        });
+        return tableNeedsUpdate;
+      });
+
+
+      console.log('Tables to Update:', tablesToUpdate.length);
+      if (tablesToUpdate.length > 0) {
+
+        const updateRequests = tablesToUpdate.map(table => this.dishService.updateTable(table));
+        forkJoin(updateRequests).subscribe(results => {
+          console.log('All tables updated:', results);
+          this.router.navigate(['/preparation-mode']);
+        });
+      } else {
+        this.router.navigate(['/preparation-mode']);
+      }
+    });
   }
 }

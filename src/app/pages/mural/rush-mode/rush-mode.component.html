@@ -14,15 +14,18 @@
         <div class="dishes-in-category">
           <div *ngFor="let dish of groupedDishesForView[category]">
             <app-dish
+              [id]="dish.id"
+              [tableId]="dish.tableId"
               [name]="dish.name"
               [image]="dish.image"
               [quantity]="dish.quantity"
               [category]="dish.category"
               [customerSpecification]="dish.customerSpecification"
+              [state]="dish.state"
+              [ingredients]="dish.ingredients"
+              [recipe]="dish.recipe"
               [isExpanded]="true"
               [color]="dish.color"
-              [tableId]="dish.tableId"
-              [state]="dish.state"
             ></app-dish>
           </div>
         </div>
@@ -41,18 +44,37 @@
         <div class="dishes-in-category">
           <div *ngFor="let dish of groupedDishesForView[this.position_category]">
             <app-dish
+              [id]="dish.id"
+              [tableId]="dish.tableId"
               [name]="dish.name"
               [image]="dish.image"
               [quantity]="dish.quantity"
               [category]="dish.category"
               [customerSpecification]="dish.customerSpecification"
+              [state]="dish.state"
+              [ingredients]="dish.ingredients"
+              [recipe]="dish.recipe"
               [isExpanded]="true"
               [color]="dish.color"
-              [tableId]="dish.tableId"
             ></app-dish>
           </div>
         </div>
       </div>
+    </div>
+    <div class="bouton-valider">
+      <!-- Bouton Valider pour le mode serveur -->
+      <button *ngIf="sharedDataService.getServeurMode()" mat-raised-button color="primary"
+              [disabled]="!isAnyTableSelected()"
+              (click)="onValidateMode()">
+        Valider
+      </button>
+
+      <!-- Bouton Préparer pour les autres modes -->
+      <button *ngIf="!sharedDataService.getServeurMode()" mat-raised-button color="primary"
+              [disabled]="!isAnyDishSelected()"
+              (click)="onPreparationMode()">
+        Préparer
+      </button>
     </div>
   </div>
 
