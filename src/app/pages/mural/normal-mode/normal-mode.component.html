@@ -11,7 +11,7 @@
     <div class="timeline-container"><app-timeline [timeline]="timeline"></app-timeline></div>
   <div [ngClass]="this.numberOfCooks()===1? 'oneCook': 'tables-container'">
     <div class="for-each-table" *ngFor="let table of tables; let i = index">
-      <app-table *ngIf="(i <= 3 && !isTabletMode) || this.sharedDataService.getServeurMode() "
+      <app-table *ngIf="(i <= 3 && !isTabletMode) || (i <= 3 && this.sharedDataService.getServeurMode()) "
                  [id]="table.id"
                  [numberTable]="table.numberTable"
                  [numberOrder]="table.numberOrder"
@@ -19,7 +19,7 @@
                  [simpleView]="false"
                  [time]="table.time"
       ></app-table>
-      <app-table *ngIf="i < this.numberOfCooks() && isTabletMode"
+      <app-table *ngIf="i < this.numberOfCooks() && isTabletMode && !this.sharedDataService.getServeurMode()"
                  [id]="table.id"
                  [numberTable]="table.numberTable"
                  [numberOrder]="table.numberOrder"

@@ -165,88 +165,6 @@
       ]
     },
     {
-      "id": 2,
-      "numberTable": 2,
-      "numberOrder": 203,
-      "time": "2023-12-06T15:32:00.000Z",
-      "dishes": [
-        {
-          "id": 5,
-          "tableId": 2,
-          "name": "Pizza Quattro Formaggi",
-          "category": "Pizzas",
-          "image": "assets/images/pizza_quattro_formaggi.jpg",
-          "quantity": 1,
-          "state": "DONE",
-          "ingredients": [
-            {
-              "name": "Pâte à pizza"
-            },
-            {
-              "name": "Mozzarella"
-            },
-            {
-              "name": "Gorgonzola"
-            },
-            {
-              "name": "Parmesan"
-            },
-            {
-              "name": "Fontina"
-            },
-            {
-              "name": "Sauce tomate"
-            }
-          ],
-          "recipe": [
-            "Préparer la pâte à pizza.",
-            "Étaler la sauce tomate et répartir les fromages.",
-            "Cuire au four préchauffé à 220°C pendant 15-20 minutes."
-          ]
-        },
-        {
-          "id": 6,
-          "tableId": 2,
-          "name": "Pâtes Puttanesca",
-          "category": "Pâtes",
-          "image": "assets/images/pates_puttanesca.jpg",
-          "quantity": 2,
-          "state": "NOT_ASSIGNED",
-          "ingredients": [
-            {
-              "name": "Pâtes"
-            },
-            {
-              "name": "Tomates"
-            },
-            {
-              "name": "Anchois"
-            },
-            {
-              "name": "Olives noires"
-            },
-            {
-              "name": "Câpres"
-            },
-            {
-              "name": "Ail"
-            },
-            {
-              "name": "Huile d'olive"
-            },
-            {
-              "name": "Piment rouge"
-            }
-          ],
-          "recipe": [
-            "Cuire les pâtes al dente.",
-            "Faire revenir l'ail, les anchois, les olives, les câpres et le piment.",
-            "Ajouter les tomates, cuire la sauce et mélanger avec les pâtes."
-          ]
-        }
-      ]
-    },
-    {
       "id": 3,
       "numberTable": 3,
       "numberOrder": 204,
@@ -259,7 +177,7 @@
           "category": "Entrées",
           "image": "assets/images/caprese_salad.jpg",
           "quantity": 1,
-          "state": "NOT_ASSIGNED",
+          "state": "DONE",
           "ingredients": [
             {
               "name": "Tomates"
@@ -301,7 +219,7 @@
           "category": "Pizzas",
           "image": "assets/images/pizza_margherita.jpg",
           "quantity": 1,
-          "state": "IN_PROGRESS",
+          "state": "NOT_ASSIGNED",
           "ingredients": [
             {
               "name": "Fleur de sel",
@@ -610,6 +528,98 @@
             "Couper les tomates et la mozzarella en tranches.",
             "Disposer en alternance, garnir de basilic.",
             "Assaisonner avec de l'huile d'olive, du sel et du poivre."
+          ]
+        }
+      ]
+    },
+    {
+      "id": 0.6667517984256263,
+      "numberTable": 17,
+      "numberOrder": 216,
+      "time": 1702847071350,
+      "dishes": [
+        {
+          "id": 1,
+          "tableId": 0.6667517984256263,
+          "name": "Pizza Margherita",
+          "category": "Pizzas",
+          "image": "assets/images/pizza_margherita.jpg",
+          "quantity": 5,
+          "state": "IN_PROGRESS",
+          "ingredients": [
+            "ingredient1",
+            "ingredient2"
+          ],
+          "recipeExpert": [
+            "Étape Expert 1 pour Pizza Margherita",
+            "Étape Expert 2 pour Pizza Margherita"
+          ],
+          "recipeNovice": [
+            "Étape Novice 1 pour Pizza Margherita",
+            "Étape Novice 2 pour Pizza Margherita"
+          ]
+        },
+        {
+          "id": 2,
+          "tableId": 0.6667517984256263,
+          "name": "Pâtes Carbonara",
+          "category": "Pâtes",
+          "image": "assets/images/pates_carbonara.jpg",
+          "quantity": 2,
+          "state": "NOT_ASSIGNED",
+          "ingredients": [
+            "ingredient1",
+            "ingredient2"
+          ],
+          "recipeExpert": [
+            "Étape Expert 1 pour Pâtes Carbonara",
+            "Étape Expert 2 pour Pâtes Carbonara"
+          ],
+          "recipeNovice": [
+            "Étape Novice 1 pour Pâtes Carbonara",
+            "Étape Novice 2 pour Pâtes Carbonara"
+          ]
+        },
+        {
+          "id": 3,
+          "tableId": 0.6667517984256263,
+          "name": "Tiramisu",
+          "category": "Desserts",
+          "image": "assets/images/tiramisu.jpg",
+          "quantity": 3,
+          "state": "NOT_ASSIGNED",
+          "ingredients": [
+            "ingredient1",
+            "ingredient2"
+          ],
+          "recipeExpert": [
+            "Étape Expert 1 pour Tiramisu",
+            "Étape Expert 2 pour Tiramisu"
+          ],
+          "recipeNovice": [
+            "Étape Novice 1 pour Tiramisu",
+            "Étape Novice 2 pour Tiramisu"
+          ]
+        },
+        {
+          "id": 4,
+          "tableId": 0.6667517984256263,
+          "name": "Bruschetta",
+          "category": "Entrées",
+          "image": "assets/images/bruschetta.jpg",
+          "quantity": 2,
+          "state": "NOT_ASSIGNED",
+          "ingredients": [
+            "ingredient1",
+            "ingredient2"
+          ],
+          "recipeExpert": [
+            "Étape Expert 1 pour Bruschetta",
+            "Étape Expert 2 pour Bruschetta"
+          ],
+          "recipeNovice": [
+            "Étape Novice 1 pour Bruschetta",
+            "Étape Novice 2 pour Bruschetta"
           ]
         }
       ]
