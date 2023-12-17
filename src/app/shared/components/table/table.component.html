@@ -1,7 +1,7 @@
 <div class="table-container"
      [ngClass]="{
        'selected': isSelected,
-       'non-selectable': !isAllStatesGreen()
+       'non-selectable': isTabletMode && !isAllStatesGreen() && sharedDataService.numberOfCooks > 1
      }"
      [ngStyle]="{ 'border-color': generateColor(this.id) }"
      [class.detailed-mode]="isDetailedMode"
@@ -21,7 +21,24 @@
   </div>
 
   <!-- Affiche la liste des plats en dessous -->
-  <div *ngIf="!simpleView && shouldDisplayImages" class="dishes-list">
+  <div *ngIf="!simpleView && shouldDisplayImages && !isTabletMode" class="dishes-list">
+    <app-dish *ngFor="let dish of getDisplayedDishes()"
+              [id]="dish.id"
+              [tableId]="dish.tableId"
+              [name]="dish.name"
+              [image]="dish.image"
+              [quantity]="dish.quantity"
+              [customerSpecification]="dish.customerSpecification ?? []"
+              [ingredients]="dish.ingredients"
+              [state]="dish.state"
+              [recipe] = "dish.recipe"
+              [color]="color"
+              [isExpanded]="true"
+              [shouldDisplayImage]="true"
+    ></app-dish>
+  </div>
+
+  <div *ngIf="!simpleView && isTabletMode" class="dishes-list">
     <app-dish *ngFor="let dish of getDisplayedDishes()"
               [id]="dish.id"
               [tableId]="dish.tableId"

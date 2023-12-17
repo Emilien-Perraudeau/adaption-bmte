@@ -25,7 +25,7 @@ export class NormalModeComponent implements OnInit, OnDestroy {
     private dishService: DishService,
     private breakpointObserver: BreakpointObserver,
     private router: Router,
-    private _sharedDataService: SharedDataService
+    private _sharedDataService: SharedDataService,
   ) {
   }
 
@@ -56,7 +56,9 @@ export class NormalModeComponent implements OnInit, OnDestroy {
         this.isTabletMode = result.matches;
       });
 
-    if (this.checkIfRushMode()) this.router.navigate(['/rush-mode'])
+    if (this.checkIfRushMode()) {
+      this.router.navigate(['/rush-mode']);
+    }
 
   }
 
@@ -66,6 +68,11 @@ export class NormalModeComponent implements OnInit, OnDestroy {
 
   checkIfRushMode() {
     const numberOfDishToBeInRushMode = 4*this._sharedDataService.numberOfCooks;
+    // Si le mode serveur est activé, ne pas passer au rush-mode
+    if (this._sharedDataService.getServeurMode()) {
+      return false;
+    }
+
     const sommeTotale: number = this.tables.reduce((somme, table) => somme + this.getSommeDishComponentByTable(table), 0);
     return sommeTotale > numberOfDishToBeInRushMode && this._sharedDataService.numberOfCooks > 1;
   }
@@ -74,36 +81,47 @@ export class NormalModeComponent implements OnInit, OnDestroy {
     return table.dishes.length;
   }
 
-
   onPreparationMode() {
     this.sharedDataService.setPreviousMode("normal-mode");
+    const numberOfCooks = this.sharedDataService.numberOfCooks;
+    const isSingleCook = numberOfCooks === 1;
+
     this.dishService.getTables().subscribe(tables => {
-      const selectedDishes = this._sharedDataService.getSelectedDishes();
-      const tablesToUpdate = tables.filter(table => {
-        let tableNeedsUpdate = false;
-        table.dishes.forEach(dish => {
-          const isSelected = selectedDishes.some(selectedDish => {
-            return selectedDish.id === dish.id;
-          });
-          if (isSelected && dish.state === DishState.NotAssigned) {
+      // Cas où il y a un seul cuisinier
+      if (isSingleCook) {
+        const selectedTables = this.sharedDataService.getTables();
+        selectedTables.forEach(table => {
+          table.dishes.forEach(dish => {
             dish.state = DishState.InProgress;
-            tableNeedsUpdate = true;
-          }
+            this.sharedDataService.selectDish(dish);
+          });
         });
-        return tableNeedsUpdate;
-      });
-
-
-      console.log('Tables to Update:', tablesToUpdate.length);
-      if (tablesToUpdate.length > 0) {
-
-        const updateRequests = tablesToUpdate.map(table => this.dishService.updateTable(table));
-        forkJoin(updateRequests).subscribe(results => {
-          console.log('All tables updated:', results);
-          this.router.navigate(['/preparation-mode']);
-        });
-      } else {
         this.router.navigate(['/preparation-mode']);
+      }
+      // Cas normal avec plusieurs cuisiniers
+      else {
+        const selectedDishes = this.sharedDataService.getSelectedDishes();
+        const tablesToUpdate = tables.filter(table => {
+          let tableNeedsUpdate = false;
+          table.dishes.forEach(dish => {
+            const isSelected = selectedDishes.some(selectedDish => selectedDish.id === dish.id);
+            if (isSelected && dish.state === DishState.NotAssigned) {
+              dish.state = DishState.InProgress;
+              tableNeedsUpdate = true;
+            }
+          });
+          return tableNeedsUpdate;
+        });
+
+        if (tablesToUpdate.length > 0) {
+          const updateRequests = tablesToUpdate.map(table => this.dishService.updateTable(table));
+          forkJoin(updateRequests).subscribe(results => {
+            console.log('All tables updated:', results);
+            this.router.navigate(['/preparation-mode']);
+          });
+        } else {
+          this.router.navigate(['/preparation-mode']);
+        }
       }
     });
   }

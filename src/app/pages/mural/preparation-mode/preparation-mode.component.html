@@ -7,8 +7,12 @@
     <mat-expansion-panel *ngFor="let dish of selectedDishes">
       <mat-expansion-panel-header>
         <mat-panel-title>
-          {{ dish.name }}
+          <span [class.strikethrough]="dish.state === 'DONE'">{{ dish.name }}</span>
         </mat-panel-title>
+        <!-- Icône de validation pour le mode expert -->
+        <div class="validate-icon" [class.checked]="dish.state === 'DONE'" (click)="validateDish(dish.id, $event)">
+          <span *ngIf="dish.state === 'DONE'">✔</span>
+        </div>
       </mat-expansion-panel-header>
 
       <!-- Affichage des ingrédients (aussi en mode expert) -->
@@ -20,7 +24,7 @@
       <div>
         <h3>Ingrédients</h3>
         <ul>
-          <li *ngFor="let ingredient of dish.ingredients">{{ ingredient.name }}</li>
+          <li *ngFor="let ingredient of dish.ingredients">{{ ingredient }}</li>
         </ul>
       </div>
 
@@ -54,7 +58,7 @@
       <div>
         <h3>Ingrédients</h3>
         <ul>
-          <li *ngFor="let ingredient of dish.ingredients">{{ ingredient.name }}</li>
+          <li *ngFor="let ingredient of dish.ingredients">{{ ingredient }}</li>
         </ul>
       </div>
 
