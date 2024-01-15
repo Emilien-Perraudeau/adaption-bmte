@@ -25,6 +25,8 @@ import {AppRoutingModule} from "./app-routing-module";
 import { HeaderComponent } from './shared/components/header/header.component';
 import { TimelineComponent } from './shared/components/timeline/timeline.component';
 import { IngredientComponent } from './shared/components/ingredient/ingredient.component';
+import { TableModeComponent } from './pages/mural/table-mode/table-mode.component';
+import { ModificationModeComponent } from './pages/mural/modification-mode/modification-mode.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,9 @@ import { IngredientComponent } from './shared/components/ingredient/ingredient.c
     PreparationModeComponent,
     HeaderComponent,
     TimelineComponent,
-    IngredientComponent
+    IngredientComponent,
+    TableModeComponent,
+    ModificationModeComponent
   ],
   imports: [
     BrowserModule,

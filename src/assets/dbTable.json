@@ -1,0 +1,489 @@
+{
+  "dishes": [
+    {
+      "id": 1,
+      "name": "Pizza Margherita",
+      "category": "Pizzas",
+      "image": "assets/images/pizza_margherita.jpg",
+      "ingredients": [
+        {
+          "id": 26,
+          "name": "Fleur de sel",
+          "image": "assets/images/fleur_de_sel_de_guerande.jpg"
+        },
+        {
+          "id": 28,
+          "name": "Levure Boulangère",
+          "image": "assets/images/levure_boulanger.jpg"
+        }
+      ],
+      "recipe": [
+        "Préparer la pâte",
+        "Étaler la pâte",
+        "Cuire au four"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Pizza Pepperoni",
+      "category": "Pizzas",
+      "image": "assets/images/pizza_pepperoni.jpg",
+      "ingredients": [
+        {
+          "id": 26,
+          "name": "Fleur de sel",
+          "image": "assets/images/fleur_de_sel_de_guerande.jpg"
+        },
+        {
+          "id": 28,
+          "name": "Levure Boulangère",
+          "image": "assets/images/levure.jpg"
+        }
+      ],
+      "recipe": [
+        "Préparer la pâte",
+        "Étaler la pâte",
+        "Cuire au four"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Pizza Vegetarienne",
+      "category": "Pizzas",
+      "image": "assets/images/pizza_vegetarienne.jpg",
+      "ingredients": [
+        {
+          "name": "Pepperoni",
+          "image": "assets/images/pepperoni.jpg"
+        },
+        {
+          "name": "Fromage",
+          "image": "assets/images/fromage.jpg"
+        }
+      ],
+      "recipe": [
+        "Préparer la pâte",
+        "Étaler la pâte",
+        "Cuire au four"
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Pizza Reine",
+      "category": "Pizzas",
+      "image": "assets/images/pizza_reine.jpg",
+      "ingredients": [
+        {
+          "name": "Pepperoni",
+          "image": "assets/images/pepperoni.jpg"
+        },
+        {
+          "name": "Fromage",
+          "image": "assets/images/fromage.jpg"
+        }
+      ],
+      "recipe": [
+        "Préparer la pâte",
+        "Étaler la pâte",
+        "Cuire au four"
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Pizza Calzone",
+      "category": "Pizzas",
+      "image": "assets/images/pizza_calzone.jpg",
+      "ingredients": [
+        {
+          "name": "Pepperoni",
+          "image": "assets/images/pepperoni.jpg"
+        },
+        {
+          "name": "Fromage",
+          "image": "assets/images/fromage.jpg"
+        }
+      ],
+      "recipe": [
+        "Préparer la pâte",
+        "Étaler la pâte",
+        "Cuire au four"
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Pizza Regina",
+      "category": "Pizzas",
+      "image": "assets/images/pizza_regina.jpg",
+      "ingredients": [
+        {
+          "name": "Pepperoni",
+          "image": "assets/images/pepperoni.jpg"
+        },
+        {
+          "name": "Fromage",
+          "image": "assets/images/fromage.jpg"
+        }
+      ],
+      "recipe": [
+        "Préparer la pâte",
+        "Étaler la pâte",
+        "Cuire au four"
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Pizza Orientale",
+      "category": "Pizzas",
+      "image": "assets/images/pizza_orientale.jpg",
+      "ingredients": [
+        {
+          "name": "Pepperoni",
+          "image": "assets/images/pepperoni.jpg"
+        },
+        {
+          "name": "Fromage",
+          "image": "assets/images/fromage.jpg"
+        }
+      ],
+      "recipe": [
+        "Préparer la pâte",
+        "Étaler la pâte",
+        "Cuire au four"
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Spaghetti Carbonara",
+      "category": "Pâtes",
+      "image": "assets/images/spaghetti_carbonara.jpg",
+      "ingredients": [
+        {
+          "name": "Lardons",
+          "image": "assets/images/lardons.jpg"
+        },
+        {
+          "name": "Œufs",
+          "image": "assets/images/oeufs.jpg"
+        }
+      ],
+      "recipe": [
+        "Cuire les pâtes",
+        "Préparer la sauce",
+        "Mélanger et servir"
+      ]
+    },
+    {
+      "id": 8,
+      "name": "Tagliatelles Saumon",
+      "category": "Pâtes",
+      "image": "assets/images/spaghetti_carbonara.jpg",
+      "ingredients": [
+        {
+          "name": "Lardons",
+          "image": "assets/images/lardons.jpg"
+        },
+        {
+          "name": "Œufs",
+          "image": "assets/images/oeufs.jpg"
+        }
+      ],
+      "recipe": [
+        "Cuire les pâtes",
+        "Préparer la sauce",
+        "Mélanger et servir"
+      ]
+    },
+    {
+      "id": 9,
+      "name": "Tagliatelles Gorgonzola",
+      "category": "Pâtes",
+      "image": "assets/images/spaghetti_carbonara.jpg",
+      "ingredients": [
+        {
+          "name": "Lardons",
+          "image": "assets/images/lardons.jpg"
+        },
+        {
+          "name": "Œufs",
+          "image": "assets/images/oeufs.jpg"
+        }
+      ],
+      "recipe": [
+        "Cuire les pâtes",
+        "Préparer la sauce",
+        "Mélanger et servir"
+      ]
+    },
+    {
+      "id": 10,
+      "name": "Pennes Napolitaine",
+      "category": "Pâtes",
+      "image": "assets/images/spaghetti_carbonara.jpg",
+      "ingredients": [
+        {
+          "name": "Lardons",
+          "image": "assets/images/lardons.jpg"
+        },
+        {
+          "name": "Œufs",
+          "image": "assets/images/oeufs.jpg"
+        }
+      ],
+      "recipe": [
+        "Cuire les pâtes",
+        "Préparer la sauce",
+        "Mélanger et servir"
+      ]
+    },
+    {
+      "id": 11,
+      "name": "Pennes Alla Matriciana",
+      "category": "Pâtes",
+      "image": "assets/images/spaghetti_carbonara.jpg",
+      "ingredients": [
+        {
+          "name": "Lardons",
+          "image": "assets/images/lardons.jpg"
+        },
+        {
+          "name": "Œufs",
+          "image": "assets/images/oeufs.jpg"
+        }
+      ],
+      "recipe": [
+        "Cuire les pâtes",
+        "Préparer la sauce",
+        "Mélanger et servir"
+      ]
+    },
+    {
+      "id": 12,
+      "name": "Spaghettis 4 Fromages",
+      "category": "Pâtes",
+      "image": "assets/images/spaghetti_carbonara.jpg",
+      "ingredients": [
+        {
+          "name": "Lardons",
+          "image": "assets/images/lardons.jpg"
+        },
+        {
+          "name": "Œufs",
+          "image": "assets/images/oeufs.jpg"
+        }
+      ],
+      "recipe": [
+        "Cuire les pâtes",
+        "Préparer la sauce",
+        "Mélanger et servir"
+      ]
+    },
+    {
+      "id": 13,
+      "name": "Tiramisu",
+      "category": "Desserts",
+      "image": "assets/images/tiramisu.jpg",
+      "ingredients": [
+        {
+          "name": "Mascarpone",
+          "image": "assets/images/mascarpone.jpg"
+        },
+        {
+          "name": "Café",
+          "image": "assets/images/cafe.jpg"
+        }
+      ],
+      "recipe": [
+        "Préparer le café",
+        "Monter le tiramisu",
+        "Réfrigérer"
+      ]
+    },
+    {
+      "id": 14,
+      "name": "Eclair au chocolat",
+      "category": "Desserts",
+      "image": "assets/images/tiramisu.jpg",
+      "ingredients": [
+        {
+          "name": "Mascarpone",
+          "image": "assets/images/mascarpone.jpg"
+        },
+        {
+          "name": "Café",
+          "image": "assets/images/cafe.jpg"
+        }
+      ],
+      "recipe": [
+        "Préparer le café",
+        "Monter le tiramisu",
+        "Réfrigérer"
+      ]
+    },
+    {
+      "id": 15,
+      "name": "Panna cotta",
+      "category": "Desserts",
+      "image": "assets/images/tiramisu.jpg",
+      "ingredients": [
+        {
+          "name": "Mascarpone",
+          "image": "assets/images/mascarpone.jpg"
+        },
+        {
+          "name": "Café",
+          "image": "assets/images/cafe.jpg"
+        }
+      ],
+      "recipe": [
+        "Préparer le café",
+        "Monter le tiramisu",
+        "Réfrigérer"
+      ]
+    },
+    {
+      "id": 16,
+      "name": "Fromage blanc",
+      "category": "Desserts",
+      "image": "assets/images/tiramisu.jpg",
+      "ingredients": [
+        {
+          "name": "Mascarpone",
+          "image": "assets/images/mascarpone.jpg"
+        },
+        {
+          "name": "Café",
+          "image": "assets/images/cafe.jpg"
+        }
+      ],
+      "recipe": [
+        "Préparer le café",
+        "Monter le tiramisu",
+        "Réfrigérer"
+      ]
+    },
+    {
+      "id": 17,
+      "name": "Muffin sucré",
+      "category": "Desserts",
+      "image": "assets/images/tiramisu.jpg",
+      "ingredients": [
+        {
+          "name": "Mascarpone",
+          "image": "assets/images/mascarpone.jpg"
+        },
+        {
+          "name": "Café",
+          "image": "assets/images/cafe.jpg"
+        }
+      ],
+      "recipe": [
+        "Préparer le café",
+        "Monter le tiramisu",
+        "Réfrigérer"
+      ]
+    },
+    {
+      "id": 18,
+      "name": "tartelette aux fruits",
+      "category": "Desserts",
+      "image": "assets/images/tiramisu.jpg",
+      "ingredients": [
+        {
+          "name": "Mascarpone",
+          "image": "assets/images/mascarpone.jpg"
+        },
+        {
+          "name": "Café",
+          "image": "assets/images/cafe.jpg"
+        }
+      ],
+      "recipe": [
+        "Préparer le café",
+        "Monter le tiramisu",
+        "Réfrigérer"
+      ]
+    }
+  ],
+  "ingredients": [
+    {
+      "id": 19,
+      "name": "ail",
+      "image": "assets/images/ail.jpg"
+    },
+    {
+      "id": 20,
+      "name": "basilic",
+      "image": "assets/images/basilic.jpg"
+    },
+    {
+      "id": 21,
+      "name": "bruschetta",
+      "image": "assets/images/bruschetta.jpg"
+    },
+    {
+      "id": 22,
+      "name": "eau_minérale",
+      "image": "assets/images/eau_minerale.jpg"
+    },
+    {
+      "id": 23,
+      "name": "farine",
+      "image": "assets/images/farine.jpg"
+    },
+    {
+      "id": 24,
+      "name": "feuille_de_laurier",
+      "image": "assets/images/feuille_de_laurier.jpg"
+    },
+    {
+      "id": 25,
+      "name": "feuille de thym",
+      "image": "assets/images/feuille_de_thym.jpg"
+    },
+    {
+      "id": 26,
+      "name": "fleur_de_sel_de_guerande",
+      "image": "assets/images/fleur_de_sel_de_guerande.jpg"
+    },
+    {
+      "id": 27,
+      "name": "huile_dolive",
+      "image": "assets/images/huile_dolive.jpg"
+    },
+    {
+      "id": 28,
+      "name": "levure_boulanger",
+      "image": "assets/images/levure_boulanger.jpg"
+    },
+    {
+      "id": 29,
+      "name": "mozzarella",
+      "image": "assets/images/mozzarella.jpg"
+    },
+    {
+      "id": 30,
+      "name": "parmesan",
+      "image": "assets/images/parmesan.jpg"
+    },
+    {
+      "id": 31,
+      "name": "poivre_et_sel",
+      "image": "assets/images/poivre_et_sel.jpg"
+    },
+    {
+      "id": 32,
+      "name": "sucre_de_cannes",
+      "image": "assets/images/sucre_de_cannes.jpg"
+    },
+    {
+      "id": 33,
+      "name": "tomate_en_tube",
+      "image": "assets/images/tomate_en_tube.jpg"
+    },
+    {
+      "id": 34,
+      "name": "tomate_pelee",
+      "image": "assets/images/tomate_pele.jpg"
+    }
+  ]
+}

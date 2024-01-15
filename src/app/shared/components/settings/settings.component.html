@@ -10,6 +10,7 @@
     <div mat-menu-item>
       <mat-checkbox [(ngModel)]="isServeurMode" (change)="onServeurModeChange()" (click) = "$event.stopPropagation()">Mode Serveur</mat-checkbox>
     </div>
+    <button (click)="modeTable()">mode Table</button>
 <br>
     <p>Nombre de cuisiniers</p>
     <!-- Button toggle for selecting the number of cooks -->

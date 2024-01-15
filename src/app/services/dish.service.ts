@@ -10,9 +10,9 @@ import {io} from "socket.io-client";
   providedIn: 'root'
 })
 export class DishService {
-  private baseUrl = 'http://localhost:3000/tables';
+  private baseUrl = 'http://localhost:3000/dishes';
   private socket;
-  private tablesSubject = new BehaviorSubject<TableComponent[]>([]);
+  private dishesSubject = new BehaviorSubject<DishComponent[]>([]);
 
   constructor(private http: HttpClient) {
     this.socket = io('http://localhost:3000');
@@ -21,18 +21,22 @@ export class DishService {
 
   private listenForChanges() {
     this.socket.on('database_changed', () => {
-      console.log('tables updated');
-      this.getTables().subscribe(tables => {
-        this.tablesSubject.next(tables);
+      console.log('dish updated');
+      this.getDishes().subscribe(dishes => {
+        this.dishesSubject.next(dishes);
       });
     });
   }
 
-  getTablesUpdates(): Observable<TableComponent[]> {
-    return this.tablesSubject.asObservable();
+  getDishesUpdates(): Observable<DishComponent[]> {
+    return this.dishesSubject.asObservable();
   }
   getDishes(): Observable<DishComponent[]> {
     return this.http.get<DishComponent[]>(this.baseUrl);
+  }
+
+  getDishById(id: number | null): Observable<DishComponent> {
+    return this.http.get<DishComponent>(this.baseUrl + '/' + id);
   }
 
   updateDish(dish: DishComponent): Observable<DishComponent> {

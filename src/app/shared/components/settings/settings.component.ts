@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { SharedDataService} from "../../../services/shared-data.service";
+import {Component, OnInit} from '@angular/core';
+import {SharedDataService} from "../../../services/shared-data.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-settings',
@@ -12,7 +13,9 @@ export class SettingsComponent implements OnInit {
   isServeurMode: boolean = false;
   selectedNumberOfCooks: string = '4';
 
-  constructor(private sharedDataService: SharedDataService) {}
+  constructor(private sharedDataService: SharedDataService,
+              private router: Router,) {
+  }
 
   ngOnInit(): void {
     this.isExpertMode = this.sharedDataService.getMode() === 'expert';
@@ -26,6 +29,11 @@ export class SettingsComponent implements OnInit {
     this.sharedDataService.setServeurMode(this.isServeurMode);
   }
 
+  modeTable() : void {
+    this.router.navigate(['/table-mode']);
+    console.log("test table mode")
+  }
+
   selectNumberOfCooks(numberOfCooks: number): void {
     // Check if numberOfCooks is within the allowed range
     if (numberOfCooks >= 1 && numberOfCooks <= 4) {
@@ -35,7 +43,6 @@ export class SettingsComponent implements OnInit {
       console.error("Invalid numberOfCooks value. Must be in the range 1-4.");
     }
   }
-
 
 
 }

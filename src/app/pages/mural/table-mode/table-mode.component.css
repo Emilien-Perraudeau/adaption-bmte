@@ -1,0 +1,79 @@
+/* Style général des boutons */
+button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  padding: 10px;
+  margin: 5px;
+  border-radius: 5px;
+  background-color: transparent; /* Rend l'arrière-plan du bouton transparent */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button:hover {
+  background-color: #f2f2f2;
+}
+
+/* Style des images dans les boutons */
+button img {
+  width: 100px; /* ou une largeur spécifique */
+  height: 100px; /* Ajuster selon la taille souhaitée */
+}
+
+/* Style de la page entière */
+.container {
+  display: flex;
+  height: 100vh; /* Ajuste la hauteur de la container pour prendre toute la hauteur de la fenêtre */
+}
+
+/* Section des boutons de catégorie */
+.category-buttons {
+  flex: 0 0 15%; /* Prend 20% de la largeur de la page */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centre les éléments verticalement */
+  justify-content: center; /* Centre les éléments horizontalement */
+  padding: 10px;
+}
+
+/* Section de la liste des plats */
+.plats {
+  flex: 0 0 70%; /* Prend 60% de la largeur de la page */
+  display: flex;
+  flex-direction: row;
+  align-items: center; /* Centre les éléments verticalement */
+  overflow-x: auto; /* Permet le défilement horizontal si nécessaire */
+}
+
+/* Section du bouton Ajouter */
+.bouton-ajouter {
+  flex: 0 0 15%; /* Prend 20% de la largeur de la page */
+  display: flex;
+  align-items: center; /* Centre les éléments verticalement */
+  justify-content: center; /* Centre les éléments horizontalement */
+  padding: 10px;
+}
+
+.plats-scroll {
+  display: flex;
+  overflow-x: auto;
+  justify-content: center;
+}
+
+.plat {
+  flex: 0 0 auto; /* Pour éviter que les éléments ne s'étirent ou ne se rétrécissent */
+  width: 25%; /* Chaque plat prendra 25% de l'espace, affichant 4 plats à la fois */
+  margin: 10px; /* Ajustez selon vos besoins */
+  /* Autres styles pour vos plats */
+}
+
+.image-plat {
+  width: 100px; /* ou la taille souhaitée */
+  height: auto; /* pour garder le ratio de l'image */
+  margin: 10px;
+  /* Autres styles si nécessaire */
+}
+
+/* Autres styles spécifiques si nécessaire */

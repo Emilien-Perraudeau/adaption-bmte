@@ -1,0 +1,36 @@
+<div class="allPage">
+
+  <div class="ingredients-disponibles2">
+    <div *ngFor="let ingredient of ingredients">
+      <div class="ingredient">
+        <img [src]="ingredient.image" alt="{{ ingredient.name }}">
+        <div>{{ ingredient.name }}</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="milieuPage">
+    <div class="cercle-ingredients" [ngStyle]="{'background-image': getUrlFondEcran(category)}">
+      <!-- Contenu du cercle -->
+    </div>
+    <div class="etapes-rectangulaire">
+      <div *ngFor="let etape of recette">
+        <div class="etape">{{ etape }}</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ingredients-disponibles">
+    <div *ngFor="let ingredient of ingredients">
+      <div class="ingredient">
+        <img [src]="ingredient.image" alt="{{ ingredient.name }}">
+        <div>{{ ingredient.name }}</div>
+      </div>
+    </div>
+  </div>
+
+
+</div>
+
+
+
