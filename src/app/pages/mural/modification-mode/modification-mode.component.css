@@ -1,22 +1,33 @@
 .allPage {
   display: flex;
   flex-direction: column; /* Organise le contenu de haut en bas */
+  width: 100%;
   height: 100vh; /* Utilise toute la hauteur de la fenêtre de visualisation */
   background-color: #f0f0f0; /* Couleur de fond pour allPage */
 }
 
 .ingredients-disponibles, .ingredients-disponibles2 {
-  width: 100%;
   height: 15%;
   overflow-x: auto; /* Active le défilement horizontal si nécessaire */
   overflow-y: hidden; /* Cache le défilement vertical */
   display: flex; /* Affiche les éléments enfants côte à côte */
   align-items: center; /* Centre les éléments verticalement */
   background-color: #ffcc99; /* Couleur pour ingredients-disponibles */
+  justify-content: flex-start; /* Aligner les éléments au début */
+  width: 100%;
 }
 
 .ingredients-disponibles2 {
   transform: rotate(180deg); /* Retourne l'élément */
+}
+
+.ingredient {
+  width: 100px; /* Largeur de l'élément ingrédient */
+  margin-right: 10px; /* Espace entre les ingrédients */
+  display: flex; /* Utilisation de Flexbox */
+  flex-direction: column; /* Empilement vertical des éléments */
+  align-items: center; /* Centrer les éléments horizontalement */
+  text-align: center; /* Alignement du texte au centre */
 }
 
 .milieuPage {
@@ -35,18 +46,49 @@
 .etapes-rectangulaire {
   flex: 30%; /* Prend 30% de l'espace restant dans milieuPage */
   background-color: #99ff99; /* Couleur pour etapes-rectangulaire */
+  transition: transform 0.5s ease;
 
-  /* Autres styles pour etapes-rectangulaire ici */
+  display: flex;          /* Active Flexbox pour ce conteneur */
+  flex-direction: column; /* Empile les éléments verticalement */
+  justify-content: space-between; /* Répartit l'espace entre les enfants */
+  height: 100%;          /* Assurez-vous que la div a une hauteur définie */
 }
 
+.button-bas {
+  margin-top: auto; /* Pousse le bouton vers le bas */
+}
+
+.button-haut {
+  transform: rotate(180deg);
+}
+
+
 .ingredients-disponibles .ingredient img {
-  width: 5%; /* Largeur de l'image */
+  width: 50%; /* Largeur de l'image */
   height: auto; /* Hauteur automatique pour conserver les proportions */
   border-radius: 5px; /* Bords arrondis pour l'image */
+
 }
 
 .ingredients-disponibles2 .ingredient img {
-  width: 5%; /* Largeur de l'image */
+  width: 50%; /* Largeur de l'image */
   height: auto; /* Hauteur automatique pour conserver les proportions */
   border-radius: 5px; /* Bords arrondis pour l'image */
 }
+
+.milieuPage .ingredient img {
+  width: 50%; /* Largeur de l'image */
+  height: auto; /* Hauteur automatique pour conserver les proportions */
+  border-radius: 5px; /* Bords arrondis pour l'image */
+}
+
+.cdk-drag-preview {
+  transform: scale(0.5);
+}
+
+.cdk-drag-preview img {
+  max-width: 50px;
+  max-height: 50px;
+}
+
+

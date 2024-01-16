@@ -8,13 +8,15 @@
       "ingredients": [
         {
           "id": 26,
-          "name": "Fleur de sel",
-          "image": "assets/images/fleur_de_sel_de_guerande.jpg"
+          "name": "fleur_de_sel_de_guerande",
+          "image": "assets/images/fleur_de_sel_de_guerande.jpg",
+          "step": "step fleur de sel de guerande"
         },
         {
-          "id": 28,
-          "name": "Levure Boulangère",
-          "image": "assets/images/levure_boulanger.jpg"
+          "id": 27,
+          "name": "huile_dolive",
+          "image": "assets/images/huile_dolive.jpg",
+          "step": "step huile d'olive"
         }
       ],
       "recipe": [
@@ -31,13 +33,15 @@
       "ingredients": [
         {
           "id": 26,
-          "name": "Fleur de sel",
-          "image": "assets/images/fleur_de_sel_de_guerande.jpg"
+          "name": "fleur_de_sel_de_guerande",
+          "image": "assets/images/fleur_de_sel_de_guerande.jpg",
+          "step": "step fleur de sel de guerande"
         },
         {
-          "id": 28,
-          "name": "Levure Boulangère",
-          "image": "assets/images/levure.jpg"
+          "id": 27,
+          "name": "huile_dolive",
+          "image": "assets/images/huile_dolive.jpg",
+          "step": "step huile d'olive"
         }
       ],
       "recipe": [
@@ -408,82 +412,98 @@
     {
       "id": 19,
       "name": "ail",
-      "image": "assets/images/ail.jpg"
+      "image": "assets/images/ail.jpg",
+      "step": "step ail"
     },
     {
       "id": 20,
       "name": "basilic",
-      "image": "assets/images/basilic.jpg"
+      "image": "assets/images/basilic.jpg",
+      "step": "step basilic"
     },
     {
       "id": 21,
       "name": "bruschetta",
-      "image": "assets/images/bruschetta.jpg"
+      "image": "assets/images/bruschetta.jpg",
+      "step": "step bruschetta"
     },
     {
       "id": 22,
       "name": "eau_minérale",
-      "image": "assets/images/eau_minerale.jpg"
+      "image": "assets/images/eau_minerale.jpg",
+      "step": "step eau minérale"
     },
     {
       "id": 23,
       "name": "farine",
-      "image": "assets/images/farine.jpg"
+      "image": "assets/images/farine.jpg",
+      "step": "step farine"
     },
     {
       "id": 24,
       "name": "feuille_de_laurier",
-      "image": "assets/images/feuille_de_laurier.jpg"
+      "image": "assets/images/feuille_de_laurier.jpg",
+      "step": "step feuille de laurier"
     },
     {
       "id": 25,
       "name": "feuille de thym",
-      "image": "assets/images/feuille_de_thym.jpg"
+      "image": "assets/images/feuille_de_thym.jpg",
+      "step": "step feuille de thym"
     },
     {
       "id": 26,
       "name": "fleur_de_sel_de_guerande",
-      "image": "assets/images/fleur_de_sel_de_guerande.jpg"
+      "image": "assets/images/fleur_de_sel_de_guerande.jpg",
+      "step": "step fleur de sel de guerande"
     },
     {
       "id": 27,
       "name": "huile_dolive",
-      "image": "assets/images/huile_dolive.jpg"
+      "image": "assets/images/huile_dolive.jpg",
+      "step": "step huile d'olive"
     },
     {
       "id": 28,
       "name": "levure_boulanger",
-      "image": "assets/images/levure_boulanger.jpg"
+      "image": "assets/images/levure_boulanger.jpg",
+      "step": "step levure boulanger"
     },
     {
       "id": 29,
       "name": "mozzarella",
-      "image": "assets/images/mozzarella.jpg"
+      "image": "assets/images/mozzarella.jpg",
+      "step": "step mozzarella"
     },
     {
       "id": 30,
       "name": "parmesan",
-      "image": "assets/images/parmesan.jpg"
+      "image": "assets/images/parmesan.jpg",
+      "step": "step parmesan"
     },
     {
       "id": 31,
       "name": "poivre_et_sel",
-      "image": "assets/images/poivre_et_sel.jpg"
+      "image": "assets/images/poivre_et_sel.jpg",
+      "step": "step poivre et sel"
     },
     {
       "id": 32,
       "name": "sucre_de_cannes",
-      "image": "assets/images/sucre_de_cannes.jpg"
+      "image": "assets/images/sucre_de_cannes.jpg",
+      "step": "step sucre de cannes"
     },
     {
       "id": 33,
       "name": "tomate_en_tube",
-      "image": "assets/images/tomate_en_tube.jpg"
+      "image": "assets/images/tomate_en_tube.jpg",
+      "step": "step tomate en tube"
     },
     {
       "id": 34,
       "name": "tomate_pelee",
-      "image": "assets/images/tomate_pele.jpg"
+      "image": "assets/images/tomate_pele.jpg",
+      "step": "step tomate pelee"
     }
   ]
 }

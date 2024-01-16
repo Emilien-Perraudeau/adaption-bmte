@@ -9,7 +9,7 @@ import {io} from "socket.io-client";
   providedIn: 'root'
 })
 export class IngredientService {
-  private baseUrl = 'http://localhost:3000';
+  private baseUrl = 'http://localhost:3000/';
   private socket;
   private dishesSubject = new BehaviorSubject<DishComponent[]>([]);
 
@@ -32,8 +32,8 @@ export class IngredientService {
     return this.http.get<DishComponent[]>(this.baseUrl + 'dishes');
   }
 
-  getIngredients(): Observable<DishComponent[]> {
-    return this.http.get<DishComponent[]>(this.baseUrl + 'ingredients');
+  getIngredients(): Observable<IngredientComponent[]> {
+    return this.http.get<IngredientComponent[]>(this.baseUrl + 'ingredients');
   }
 
 }

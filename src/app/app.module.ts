@@ -27,6 +27,7 @@ import { TimelineComponent } from './shared/components/timeline/timeline.compone
 import { IngredientComponent } from './shared/components/ingredient/ingredient.component';
 import { TableModeComponent } from './pages/mural/table-mode/table-mode.component';
 import { ModificationModeComponent } from './pages/mural/modification-mode/modification-mode.component';
+import {DragDropModule} from "@angular/cdk/drag-drop";
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { ModificationModeComponent } from './pages/mural/modification-mode/modif
     MatButtonModule,
     MatButtonToggleModule,
     MatExpansionModule,
-    AppRoutingModule
+    AppRoutingModule,
+    DragDropModule
   ],
   providers: [],
   bootstrap: [AppComponent]
