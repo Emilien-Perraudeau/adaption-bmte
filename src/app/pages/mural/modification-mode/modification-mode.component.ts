@@ -4,6 +4,7 @@ import {IngredientService} from "../../../services/ingredient.service";
 import {DishService} from "../../../services/dish.service";
 import {IngredientComponent} from "../../../shared/components/ingredient/ingredient.component";
 import {CdkDragDrop, CdkDropList, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
+import {DishComponent} from "../../../shared/components/dish/dish.component";
 
 @Component({
   selector: 'app-modification-mode',
@@ -11,7 +12,7 @@ import {CdkDragDrop, CdkDropList, moveItemInArray, transferArrayItem} from '@ang
   styleUrls: ['./modification-mode.component.css']
 })
 export class ModificationModeComponent implements OnInit {
-  category: string | null | undefined;
+  category!: string;
   id: number | null | undefined;
   ingredients: IngredientComponent[] = [];
   dishIngredients: IngredientComponent[] = [];
@@ -24,11 +25,14 @@ export class ModificationModeComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.category = this.route.snapshot.paramMap.get('category');
+    const categoryParam = this.route.snapshot.paramMap.get('category');
+    this.category = categoryParam ?? 'ValeurParDefaut';
     this.id = this.route.snapshot.paramMap.get('id') ? Number(this.route.snapshot.paramMap.get('id')) : null;
 
     this.getIngredients()
     this.getDishById(this.id);
+
+
 
     // Logique pour charger les données du plat si id est non null
   }
@@ -118,6 +122,13 @@ export class ModificationModeComponent implements OnInit {
   }
 
 
-
+  onStepDrop(event: CdkDragDrop<any[]>) {
+    if (event.previousContainer === event.container) {
+      // Réarrangez simplement les objets dans `dishIngredients`
+      moveItemInArray(this.dishIngredients, event.previousIndex, event.currentIndex);
+      // Notez que `updateStepsOrder()` n'est pas nécessaire ici
+    }
+  }
 
 }
+

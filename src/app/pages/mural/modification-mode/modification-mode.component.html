@@ -14,6 +14,7 @@
 
   <!-- Milieu de la page pour déposer les ingrédients -->
   <div class="milieuPage">
+
     <div cdkDropList #dishIngredientsList="cdkDropList" [cdkDropListData]="dishIngredients"
          [cdkDropListConnectedTo]="[availableIngredientsList, availableIngredientsList2]"
          (cdkDropListDropped)="onDrop($event)"
@@ -24,13 +25,21 @@
     </div>
 
     <!-- Étapes rectangulaires -->
-    <div class="etapes-rectangulaire" [style.transform]="'rotate(' + angleDeRotation + 'deg)'">
+    <div class="etapes-rectangulaire" [style.transform]="'rotate(' + angleDeRotation + 'deg)'" cdkDropList (cdkDropListDropped)="onStepDrop($event)">
+      <!-- Bouton en haut -->
       <button class="button-haut" (click)="swapEtape()">Swap Etape</button>
-      <div *ngFor="let step of getUniqueSteps()" cdkDrag>
-        <h3>{{ step }}</h3>
+
+      <!-- Div pour le contenu défilant -->
+      <div class="etapes-scroll">
+        <div *ngFor="let step of getUniqueSteps()" cdkDrag>
+          <h3>{{ step }}</h3>
+        </div>
       </div>
+
+      <!-- Bouton en bas -->
       <button class="button-bas" (click)="swapEtape()">Swap Etape</button>
     </div>
+
 
 
 

@@ -36,6 +36,7 @@ button img {
   align-items: center; /* Centre les éléments verticalement */
   justify-content: center; /* Centre les éléments horizontalement */
   padding: 10px;
+  background-color: #d9d9d9;
 }
 
 /* Section de la liste des plats */
@@ -45,6 +46,7 @@ button img {
   flex-direction: row;
   align-items: center; /* Centre les éléments verticalement */
   overflow-x: auto; /* Permet le défilement horizontal si nécessaire */
+  background-color: #e6e6e6;
 }
 
 /* Section du bouton Ajouter */
@@ -54,6 +56,7 @@ button img {
   align-items: center; /* Centre les éléments verticalement */
   justify-content: center; /* Centre les éléments horizontalement */
   padding: 10px;
+  background-color: #f2f2f2;
 }
 
 .plats-scroll {

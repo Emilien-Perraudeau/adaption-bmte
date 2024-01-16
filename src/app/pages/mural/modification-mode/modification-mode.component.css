@@ -44,15 +44,22 @@
 }
 
 .etapes-rectangulaire {
-  flex: 30%; /* Prend 30% de l'espace restant dans milieuPage */
-  background-color: #99ff99; /* Couleur pour etapes-rectangulaire */
+  flex: 30%;
+  background-color: #99ff99;
   transition: transform 0.5s ease;
-
-  display: flex;          /* Active Flexbox pour ce conteneur */
-  flex-direction: column; /* Empile les éléments verticalement */
-  justify-content: space-between; /* Répartit l'espace entre les enfants */
-  height: 100%;          /* Assurez-vous que la div a une hauteur définie */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
 }
+
+.etapes-scroll {
+  flex-grow: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+
 
 .button-bas {
   margin-top: auto; /* Pousse le bouton vers le bas */

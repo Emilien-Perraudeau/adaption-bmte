@@ -4,6 +4,7 @@ import {BehaviorSubject, map, Observable, switchMap} from 'rxjs';
 import { DishComponent} from "../shared/components/dish/dish.component";
 import {TableComponent} from "../shared/components/table/table.component";
 import {io} from "socket.io-client";
+import {IngredientComponent} from "../shared/components/ingredient/ingredient.component";
 
 
 @Injectable({
@@ -39,7 +40,12 @@ export class DishService {
     return this.http.get<DishComponent>(this.baseUrl + '/' + id);
   }
 
-  updateDish(dish: DishComponent): Observable<DishComponent> {
+  updateDish(dish: {
+    name: string;
+    ingredients: IngredientComponent[];
+    id: number;
+    category: string
+  }): Observable<DishComponent> {
     return this.http.put<DishComponent>(`${this.baseUrl}/${dish.id}`, dish);
   }
 
