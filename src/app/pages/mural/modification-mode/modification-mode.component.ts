@@ -1,5 +1,5 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {IngredientService} from "../../../services/ingredient.service";
 import {DishService} from "../../../services/dish.service";
 import {IngredientComponent} from "../../../shared/components/ingredient/ingredient.component";
@@ -21,7 +21,8 @@ export class ModificationModeComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
               private ingredientService: IngredientService,
-              private dishService: DishService) {
+              private dishService: DishService,
+              private router: Router) {
   }
 
   ngOnInit() {
@@ -46,7 +47,7 @@ export class ModificationModeComponent implements OnInit {
       case 'Pâtes':
         return 'url(/chemin/vers/image-pates.jpg)';
       case 'Pizzas':
-        return 'url(../../assets/images/pizza.jpg)';
+        return 'url(../../assets/images/pizza.png)';
       case 'Desserts':
         return 'url(/chemin/vers/image-desserts.jpg)';
       default:
@@ -129,6 +130,46 @@ export class ModificationModeComponent implements OnInit {
       // Notez que `updateStepsOrder()` n'est pas nécessaire ici
     }
   }
+
+  validerPlat() {
+    if (this.id) {
+      this.updateExistingDish();
+    } else {
+      this.createNewDish();
+    }
+    this.router.navigate(['/table-mode']);
+  }
+
+  updateExistingDish() {
+    const dishToUpdate = {
+      id: this.id,
+      name: "nomTest",
+      category: this.category,
+      image: "assets/images/pizza_margherita.jpg",
+      ingredients: this.dishIngredients,
+      // autres propriétés si nécessaire
+    };
+    console.log(dishToUpdate)
+    this.dishService.updateDish(dishToUpdate).subscribe(/* gérer la réponse */);
+  }
+
+  createNewDish() {
+    this.dishService.getLastDishId().subscribe(lastId => {
+      const newId = lastId + 1;
+      const newDish = {
+        id: newId,
+        name: "nomTest",
+        category: this.category,
+        image: "assets/images/pizza_margherita.jpg",
+        ingredients: this.dishIngredients,
+      };
+      this.dishService.createDish(newDish).subscribe(/* gérer la réponse */);
+    });
+  }
+
+
+
+
 
 }
 

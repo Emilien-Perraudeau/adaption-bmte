@@ -85,4 +85,6 @@ export class DishComponent implements OnInit {
   get sharedDataService(): SharedDataService {
     return this._sharedDataService;
   }
+
+
 }

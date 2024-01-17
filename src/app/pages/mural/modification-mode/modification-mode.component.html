@@ -14,7 +14,7 @@
 
   <!-- Milieu de la page pour déposer les ingrédients -->
   <div class="milieuPage">
-
+    <button (click)="validerPlat()">Valider</button>
     <div cdkDropList #dishIngredientsList="cdkDropList" [cdkDropListData]="dishIngredients"
          [cdkDropListConnectedTo]="[availableIngredientsList, availableIngredientsList2]"
          (cdkDropListDropped)="onDrop($event)"

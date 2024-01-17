@@ -41,12 +41,23 @@ export class DishService {
   }
 
   updateDish(dish: {
+    id: number | null | undefined;
     name: string;
-    ingredients: IngredientComponent[];
-    id: number;
     category: string
+    image: string
+    ingredients: IngredientComponent[];
   }): Observable<DishComponent> {
     return this.http.put<DishComponent>(`${this.baseUrl}/${dish.id}`, dish);
+  }
+
+  createDish(dish: {
+    id: number | null | undefined;
+    name: string
+    category: string
+    image: string
+    ingredients: IngredientComponent[];
+  }): Observable<DishComponent> {
+    return this.http.post<any>(this.baseUrl, dish);
   }
 
   getTables(): Observable<TableComponent[]> {
@@ -72,6 +83,14 @@ export class DishService {
         return table;
       }),
       switchMap(table => this.http.put<TableComponent>(`${this.baseUrl}/${table.numberTable}`, table))
+    );
+  }
+
+  getLastDishId(): Observable<number> {
+    return this.http.get<DishComponent[]>(this.baseUrl).pipe(
+      map(dishes => {
+        return dishes.reduce((maxId, dish) => Math.max(dish.id, maxId), 0);
+      })
     );
   }
 

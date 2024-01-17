@@ -2,7 +2,7 @@
   "dishes": [
     {
       "id": 1,
-      "name": "nomTest",
+      "name": "Pizza Margherita",
       "category": "Pizzas",
       "image": "assets/images/pizza_margherita.jpg",
       "ingredients": [
@@ -17,25 +17,12 @@
           "name": "huile_dolive",
           "image": "assets/images/huile_dolive.jpg",
           "step": "step huile d'olive"
-        },
-        {
-          "id": 19,
-          "name": "ail",
-          "image": "assets/images/ail.jpg",
-          "step": "step ail"
-        },
-        {
-          "id": 21,
-          "name": "bruschetta",
-          "image": "assets/images/bruschetta.jpg",
-          "step": "step bruschetta"
-        },
-        {
-          "id": 20,
-          "name": "basilic",
-          "image": "assets/images/basilic.jpg",
-          "step": "step basilic"
         }
+      ],
+      "recipe": [
+        "Préparer la pâte",
+        "Étaler la pâte",
+        "Cuire au four"
       ]
     },
     {
@@ -418,32 +405,6 @@
         "Préparer le café",
         "Monter le tiramisu",
         "Réfrigérer"
-      ]
-    },
-    {
-      "id": 19,
-      "name": "nomTest",
-      "category": "Pizzas",
-      "image": "assets/images/pizza_margherita.jpg",
-      "ingredients": [
-        {
-          "id": 29,
-          "name": "mozzarella",
-          "image": "assets/images/mozzarella.jpg",
-          "step": "step mozzarella"
-        },
-        {
-          "id": 30,
-          "name": "parmesan",
-          "image": "assets/images/parmesan.jpg",
-          "step": "step parmesan"
-        },
-        {
-          "id": 28,
-          "name": "levure_boulanger",
-          "image": "assets/images/levure_boulanger.jpg",
-          "step": "step levure boulanger"
-        }
       ]
     }
   ],
