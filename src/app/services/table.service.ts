@@ -13,13 +13,13 @@ export class TableService {
   private tablesSubject = new BehaviorSubject<TableComponent[]>([]);
 
   constructor(private http: HttpClient) {
-    this.socket = io('http://localhost:3010');
+    this.socket = io('http://localhost:3005');
     this.listenForChanges();
   }
 
   private listenForChanges() {
     console.log('listen for changes');
-    this.socket.on('database_changed', () => {
+    this.socket.on('tableUpdated', () => {
       console.log('tables updated');
       this.getTables().subscribe(tables => {
         this.tablesSubject.next(tables);

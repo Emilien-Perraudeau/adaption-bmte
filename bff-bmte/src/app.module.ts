@@ -5,10 +5,11 @@ import { HttpModule } from '@nestjs/axios';
 import { MenuService } from './menu/menu.service';
 import { TableService } from './table/table.service';
 import { TableController } from './table/table.controller';
+import { EventsGateway } from './websocket.gateway';
 
 @Module({
   imports: [HttpModule],
   controllers: [AppController, TableController],
-  providers: [AppService, MenuService, TableService],
+  providers: [AppService, MenuService, TableService, EventsGateway],
 })
 export class AppModule {}

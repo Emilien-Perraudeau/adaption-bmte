@@ -1,7 +1,6 @@
 import { Injectable, OnModuleInit } from '@nestjs/common';
-import { TableDto } from '../dto/table.dto';
+import { TableDto, DishDto } from '../dto/table.dto';
 import { HttpService } from '@nestjs/axios';
-import { request } from 'http';
 
 @Injectable()
 export class TableService implements OnModuleInit {
@@ -9,24 +8,108 @@ export class TableService implements OnModuleInit {
 
   onModuleInit() {
     console.log('onModuleInit');
-    this.addTableToBackend();
+    //this.addTableToBackend();
+    this.getTables();
   }
 
   async getTables(): Promise<TableDto[]> {
     console.log('getTables');
-    this.httpService
-      .get('http://localhost:3002/preparations?state=preparationStarted')
-      .subscribe((response) => {
-        console.log(response.data);
-      });
+    const preparationResponse = await this.httpService
+      .get<
+        PreparationResponse[]
+      >('http://localhost:3002/preparations?state=preparationStarted')
+      .toPromise();
+    console.log('preparationResponse', preparationResponse.data);
 
-    return [];
+    // Étape 1: Regrouper les préparations par tableNumber
+    const preparationsByTableNumber: { [key: number]: PreparationGroup } =
+      preparationResponse.data.reduce((acc, preparation) => {
+        if (!acc[preparation.tableNumber]) {
+          acc[preparation.tableNumber] = {
+            tableNumber: preparation.tableNumber,
+            time: preparation.shouldBeReadyAt,
+            preparations: [],
+          };
+        }
+        acc[preparation.tableNumber].preparations.push(preparation);
+        return acc;
+      }, {});
+
+    // Étape 2: Créer un TableDto pour chaque groupe de préparations
+    const tableDtos = await Promise.all(
+      Object.values(preparationsByTableNumber).map(
+        async (group: PreparationGroup) => {
+          const dishes = await Promise.all(
+            group.preparations.flatMap((preparation) =>
+              preparation.preparedItems.map(async (preparedItem) => {
+                const menuItem = await this.fetchMenuItem(
+                  preparedItem.shortName,
+                ); // Assurez-vous que cette fonction existe et fonctionne correctement
+                if (menuItem) {
+                  const dishDto: DishDto = {
+                    id: preparedItem._id,
+                    tableId: group.tableNumber,
+                    name: menuItem.shortName,
+                    category: menuItem.category,
+                    image: menuItem.image,
+                    quantity: preparedItem.quantity || 1,
+                    customerSpecification:
+                      preparedItem.customerSpecification || [],
+                    state: preparedItem.state || 'NOT_ASSIGNED',
+                    ingredients: [], // À déterminer comment remplir
+                    recipe: [], // À déterminer comment remplir
+                  };
+                  return dishDto;
+                } else {
+                  return null;
+                }
+              }),
+            ),
+          );
+
+          const tableDto: TableDto = {
+            id: group.tableNumber, // Vous devrez peut-être ajuster cette partie
+            numberTable: group.tableNumber,
+            numberOrder: group.tableNumber, // Vous devrez peut-être ajuster cette partie
+            time: group.time, // Vous devrez peut-être ajuster cette partie pour refléter la bonne heure
+            dishes: dishes.filter((dish) => dish !== null),
+          };
+          return tableDto;
+        },
+      ),
+    );
+
+    console.log('Table DTOs:', tableDtos);
+    return tableDtos;
+  }
+
+  async fetchMenuItem(menuShortName: string): Promise<any> {
+    try {
+      console.log('fetchMenuItem');
+      console.log('menuShortName', menuShortName);
+      const menuItemResponse = await this.httpService
+        .get('http://localhost:3000/menus')
+        .toPromise();
+      const menuItem = menuItemResponse.data.find(
+        (item) => item.shortName === menuShortName,
+      );
+
+      if (!menuItem) {
+        console.log('No menu item found');
+      } else {
+        console.log('menuItem', menuItem);
+        return menuItem;
+      }
+    } catch (e) {
+      console.log(e.response.data);
+    }
   }
 
   async addTable(nouvelleTable: TableDto): Promise<TableDto> {
     // Logique pour ajouter une nouvelle table
 
     console.log(nouvelleTable);
+    this.addTableToBackend();
     return nouvelleTable;
   }
 
@@ -101,4 +184,19 @@ export class TableService implements OnModuleInit {
       console.log('No available tables.');
     }
   }
+}
+
+interface PreparationResponse {
+  _id: string;
+  tableNumber: number;
+  shouldBeReadyAt: string;
+  completedAt: string | null;
+  takenForServiceAt: string | null;
+  preparedItems: any[]; // Remplacez any[] par le type approprié si vous en avez un
+}
+
+interface PreparationGroup {
+  tableNumber: number;
+  time: string;
+  preparations: PreparationResponse[];
 }
