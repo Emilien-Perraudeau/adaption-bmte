@@ -9,12 +9,12 @@ import {io} from "socket.io-client";
   providedIn: 'root'
 })
 export class IngredientService {
-  private baseUrl = 'http://localhost:3000/';
+  private baseUrl = 'http://localhost:3010/';
   private socket;
   private dishesSubject = new BehaviorSubject<DishComponent[]>([]);
 
   constructor(private http: HttpClient) {
-    this.socket = io('http://localhost:3000');
+    this.socket = io('http://localhost:3010');
     this.listenForChanges();
   }
 

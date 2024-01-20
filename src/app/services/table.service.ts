@@ -8,12 +8,12 @@ import { io } from 'socket.io-client';
   providedIn: 'root'
 })
 export class TableService {
-  private baseUrl = 'http://localhost:3000/tables';
+  private baseUrl = 'http://localhost:3010/tables';
   private socket;
   private tablesSubject = new BehaviorSubject<TableComponent[]>([]);
 
   constructor(private http: HttpClient) {
-    this.socket = io('http://localhost:3000');
+    this.socket = io('http://localhost:3010');
     this.listenForChanges();
   }
 

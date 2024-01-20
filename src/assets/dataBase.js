@@ -1,7 +1,7 @@
 const jsonServer = require('json-server');
 const app = jsonServer.create();
 const middlewares = jsonServer.defaults();
-const router = jsonServer.router('dbTable.json');
+const router = jsonServer.router('db.json');
 
 const server = require('http').createServer(app);
 const io = require('socket.io')(server, {
@@ -34,6 +34,6 @@ router.render = (req, res) => {
   originalRender(req, res); // Assurez-vous d'appeler la fonction d'origine
 };
 
-server.listen(3000, () => {
-  console.log('JSON Server et Socket.IO en écoute sur le port 3000');
+server.listen(3010, () => {
+  console.log('JSON Server et Socket.IO en écoute sur le port 3010');
 });

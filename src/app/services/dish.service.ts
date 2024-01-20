@@ -11,12 +11,12 @@ import {IngredientComponent} from "../shared/components/ingredient/ingredient.co
   providedIn: 'root'
 })
 export class DishService {
-  private baseUrl = 'http://localhost:3000/dishes';
+  private baseUrl = 'http://localhost:3010/dishes';
   private socket;
   private dishesSubject = new BehaviorSubject<DishComponent[]>([]);
 
   constructor(private http: HttpClient) {
-    this.socket = io('http://localhost:3000');
+    this.socket = io('http://localhost:3010');
     this.listenForChanges();
   }
 
@@ -61,11 +61,11 @@ export class DishService {
   }
 
   getTables(): Observable<TableComponent[]> {
-    return this.http.get<TableComponent[]>('http://localhost:3000/tables');
+    return this.http.get<TableComponent[]>('http://localhost:3010/tables');
   }
 
   updateTable(table: TableComponent): Observable<TableComponent> {
-    return this.http.put<TableComponent>(`http://localhost:3000/tables/${table.id}`, table);
+    return this.http.put<TableComponent>(`http://localhost:3010/tables/${table.id}`, table);
   }
 
 
