@@ -8,7 +8,7 @@ import { io } from 'socket.io-client';
   providedIn: 'root'
 })
 export class TableService {
-  private baseUrl = 'http://localhost:3010/tables';
+  private baseUrl = 'http://localhost:3005/tables';
   private socket;
   private tablesSubject = new BehaviorSubject<TableComponent[]>([]);
 
@@ -18,6 +18,7 @@ export class TableService {
   }
 
   private listenForChanges() {
+    console.log('listen for changes');
     this.socket.on('database_changed', () => {
       console.log('tables updated');
       this.getTables().subscribe(tables => {
@@ -27,22 +28,27 @@ export class TableService {
   }
 
   getTables(): Observable<TableComponent[]> {
+    console.log('get tables');
     return this.http.get<TableComponent[]>(this.baseUrl);
   }
 
   getTablesUpdates(): Observable<TableComponent[]> {
+    console.log('get tables updates');
     return this.tablesSubject.asObservable();
   }
 
   addTable(nouvelleTable: any): Observable<any> {
+    console.log('add table');
     return this.http.post(this.baseUrl, nouvelleTable);
   }
 
   deleteTable(tableId: number): Observable<any> {
+    console.log('delete table');
     return this.http.delete(`${this.baseUrl}/${tableId}`);
   }
 
   updateTablesAfterAddition(): Observable<TableComponent[]> {
+    console.log('update tables after addition');
     return this.http.get<TableComponent[]>(this.baseUrl);
   }
 

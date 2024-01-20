@@ -1,0 +1,115 @@
+<div class="component-container">
+  <div class="header-container">
+<app-header></app-header>
+  </div>
+
+<div class="main-container">
+  <div *ngIf="!isTabletMode">
+    <div class="truc-container"><div *ngIf="isTabletMode" class="setting-container"><app-settings></app-settings></div>
+      <div class="cooks-container"><p>Cuisiniers disponibles : <b>{{availableCooks}}</b></p></div></div>
+    <div class="timeline-container"><app-timeline [timeline]="timeline"></app-timeline></div>
+    <div class="current-dishes-container" *ngIf="groupedDishes.size > 0; else isNormal">
+      <div class="category-container" *ngFor="let category of groupedDishesCategories">
+        <div class="category-header">
+          <h2>{{ category }}</h2>
+          <h3 *ngIf="upcomingDishesByCategory.get(category) != undefined">
+            <b>{{upcomingDishesByCategory.get(category)?.length}}</b> plats à venir
+          </h3>
+        </div>
+        <div class="dishes-in-category">
+          <div *ngFor="let dish of groupedDishesForView[category]">
+            <app-dish
+              [id]="dish.id"
+              [tableId]="dish.tableId"
+              [name]="dish.name"
+              [image]="dish.image"
+              [quantity]="dish.quantity"
+              [category]="dish.category"
+              [customerSpecification]="dish.customerSpecification"
+              [state]="dish.state"
+              [ingredients]="dish.ingredients"
+              [recipe]="dish.recipe"
+              [isExpanded]="true"
+              [color]="dish.color"
+            ></app-dish>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div *ngIf="isTabletMode">
+    <div class="truc-container"><div class="setting-container"><app-settings></app-settings></div>
+      <div class="cooks-container"><h2><b>Cuisiniers disponibles : </b>{{availableCooks}}</h2></div></div>
+    <div class="timeline-container"><app-timeline [timeline]="timeline"></app-timeline></div>
+    <div class="current-dishes-container" *ngIf="groupedDishes.size > 0; else isNormal">
+      <div class="category-container">
+        <div class="category-header">
+          <h2>{{ this.position_category }}</h2>
+          <h3 *ngIf="upcomingDishesByCategory.get(this.position_category) != undefined">
+            <b>{{upcomingDishesByCategory.get(position_category)?.length}}</b> plats à venir
+          </h3>
+        </div>
+        <div class="dishes-in-category">
+          <div *ngFor="let dish of groupedDishesForView[this.position_category]">
+            <app-dish
+              [id]="dish.id"
+              [tableId]="dish.tableId"
+              [name]="dish.name"
+              [image]="dish.image"
+              [quantity]="dish.quantity"
+              [category]="dish.category"
+              [customerSpecification]="dish.customerSpecification"
+              [state]="dish.state"
+              [ingredients]="dish.ingredients"
+              [recipe]="dish.recipe"
+              [isExpanded]="true"
+              [color]="dish.color"
+            ></app-dish>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="bouton-valider">
+      <!-- Bouton Valider pour le mode serveur -->
+      <button *ngIf="sharedDataService.getServeurMode()" mat-raised-button color="primary"
+              [disabled]="!isAnyTableSelected()"
+              (click)="onValidateMode()">
+        Valider
+      </button>
+
+      <!-- Bouton Préparer pour les autres modes -->
+      <button *ngIf="!sharedDataService.getServeurMode()" mat-raised-button color="primary"
+              [disabled]="!isAnyDishSelected()"
+              (click)="onPreparationMode()">
+        Préparer
+      </button>
+    </div>
+  </div>
+
+  <!--<div *ngIf="upcomingDishesByCategory.size > 0" class="footer">
+    <div *ngFor="let entry of upcomingDishesByCategory | keyvalue">
+      <h3>{{ entry.key }}</h3>
+      <div class="upcoming-dishes-category">
+        <div *ngFor="let dish of entry.value">
+          <app-dish
+            [name]="dish.name"
+            [image]="dish.image"
+            [quantity]="dish.quantity"
+            [category]="dish.category"
+            [state]="DishState.NotAssigned"
+            [isExpanded]="false"
+          ></app-dish>
+        </div>
+      </div>
+    </div>
+  </div>-->
+
+
+</div>
+
+<ng-template #isNormal>
+  <app-normal-mode></app-normal-mode>
+</ng-template>
+</div>
