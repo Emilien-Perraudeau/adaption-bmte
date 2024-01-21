@@ -47,6 +47,7 @@ export class TableService implements OnModuleInit {
                   preparedItem.shortName,
                 ); // Assurez-vous que cette fonction existe et fonctionne correctement
                 if (menuItem) {
+                  const recipe = await this.fetchReceipe(preparedItem);
                   const dishDto: DishDto = {
                     id: preparedItem._id,
                     tableId: group.tableNumber,
@@ -58,7 +59,7 @@ export class TableService implements OnModuleInit {
                       preparedItem.customerSpecification || [],
                     state: preparedItem.state || 'NOT_ASSIGNED',
                     ingredients: [], // À déterminer comment remplir
-                    recipe: await this.fetchReceipe(preparedItem),
+                    recipe: recipe,
                   };
                   return dishDto;
                 } else {
@@ -106,11 +107,13 @@ export class TableService implements OnModuleInit {
     }
   }
 
-  async fetchReceipe(menuItem: any): Promise<string[]> {
+  async fetchReceipe(preparedItem: any): Promise<string[]> {
     try {
       console.log('fetchReceipe');
       const receipeResponse = await this.httpService
-        .get('http://localhost:3000/' + menuItem._id + '/recipe')
+        .get(
+          'http://localhost:3002/preparedItems/' + preparedItem._id + '/recipe',
+        )
         .toPromise();
       const receipe = receipeResponse.data;
       if (!receipe) {

@@ -16,7 +16,7 @@ export class DishService {
   private dishesSubject = new BehaviorSubject<DishComponent[]>([]);
 
   constructor(private http: HttpClient) {
-    this.socket = io('http://localhost:3010');
+    this.socket = io('http://localhost:3005');
     this.listenForChanges();
   }
 
