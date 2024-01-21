@@ -2,6 +2,7 @@ import {
   Controller,
   Get,
   Post,
+  Put,
   Body,
   Delete,
   Param,
@@ -37,6 +38,16 @@ export class TableController {
   async deleteTable(@Param('tableId') tableId: number) {
     await this.tableService.deleteTable(tableId);
     this.eventsGateway.sendTableUpdate({ id: tableId }); // Envoyer l'événement via WebSocket
+  }
+
+  @Put(':tableId')
+  @HttpCode(HttpStatus.NO_CONTENT)
+  async updateTable(
+    @Param('tableId') tableId: number,
+    @Body() table: TableDto,
+  ) {
+    const updatedTable = await this.tableService.updateTable(tableId, table);
+    this.eventsGateway.sendTableUpdate({ updatedTable }); // Envoyer l'événement via WebSocket
   }
 
   // La méthode updateTablesAfterAddition semble redondante avec getTables.

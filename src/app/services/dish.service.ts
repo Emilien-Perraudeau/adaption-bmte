@@ -62,12 +62,12 @@ export class DishService {
 
   getTables(): Observable<TableComponent[]> {
     console.log('get tables - dish service');
-    return this.http.get<TableComponent[]>('http://localhost:3010/tables');
+    return this.http.get<TableComponent[]>('http://localhost:3005/tables');
   }
 
   updateTable(table: TableComponent): Observable<TableComponent> {
     console.log('update table - dish service');
-    return this.http.put<TableComponent>(`http://localhost:3010/tables/${table.id}`, table);
+    return this.http.put<TableComponent>(`http://localhost:3005/tables/${table.id}`, table);
   }
 
 

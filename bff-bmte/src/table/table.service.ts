@@ -26,6 +26,7 @@ export class TableService implements OnModuleInit {
       preparationResponse.data.reduce((acc, preparation) => {
         if (!acc[preparation.tableNumber]) {
           acc[preparation.tableNumber] = {
+            id: preparation._id,
             tableNumber: preparation.tableNumber,
             time: preparation.shouldBeReadyAt,
             preparations: [],
@@ -57,7 +58,7 @@ export class TableService implements OnModuleInit {
                       preparedItem.customerSpecification || [],
                     state: preparedItem.state || 'NOT_ASSIGNED',
                     ingredients: [], // À déterminer comment remplir
-                    recipe: [], // À déterminer comment remplir
+                    recipe: await this.fetchReceipe(preparedItem),
                   };
                   return dishDto;
                 } else {
@@ -70,7 +71,7 @@ export class TableService implements OnModuleInit {
           const tableDto: TableDto = {
             id: group.tableNumber, // Vous devrez peut-être ajuster cette partie
             numberTable: group.tableNumber,
-            numberOrder: group.tableNumber, // Vous devrez peut-être ajuster cette partie
+            numberOrder: group.id, // Vous devrez peut-être ajuster cette partie
             time: group.time, // Vous devrez peut-être ajuster cette partie pour refléter la bonne heure
             dishes: dishes.filter((dish) => dish !== null),
           };
@@ -99,6 +100,24 @@ export class TableService implements OnModuleInit {
       } else {
         console.log('menuItem', menuItem);
         return menuItem;
+      }
+    } catch (e) {
+      console.log(e.response.data);
+    }
+  }
+
+  async fetchReceipe(menuItem: any): Promise<string[]> {
+    try {
+      console.log('fetchReceipe');
+      const receipeResponse = await this.httpService
+        .get('http://localhost:3000/' + menuItem._id + '/recipe')
+        .toPromise();
+      const receipe = receipeResponse.data;
+      if (!receipe) {
+        console.log('No receipe found');
+      } else {
+        console.log('receipe', receipe);
+        return receipe.cookingSteps;
       }
     } catch (e) {
       console.log(e.response.data);
@@ -184,6 +203,13 @@ export class TableService implements OnModuleInit {
       console.log('No available tables.');
     }
   }
+
+  async updateTable(tableId: number, table: TableDto): Promise<TableDto> {
+    // Logique pour mettre à jour une table
+
+    console.log(tableId, table);
+    return table;
+  }
 }
 
 interface PreparationResponse {
@@ -196,6 +222,7 @@ interface PreparationResponse {
 }
 
 interface PreparationGroup {
+  id: string;
   tableNumber: number;
   time: string;
   preparations: PreparationResponse[];

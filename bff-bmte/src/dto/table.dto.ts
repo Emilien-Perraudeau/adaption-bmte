@@ -1,7 +1,7 @@
 export class TableDto {
-  id?: number;
+  id: number;
   numberTable: number;
-  numberOrder: number;
+  numberOrder: string;
   time: string;
   dishes: DishDto[]; // Vous devrez également définir un DTO pour les plats
 }
