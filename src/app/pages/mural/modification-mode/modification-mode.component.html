@@ -19,9 +19,18 @@
          [cdkDropListConnectedTo]="[availableIngredientsList, availableIngredientsList2]"
          (cdkDropListDropped)="onDrop($event)"
          class="cercle-ingredients" [ngStyle]="{'background-image': getUrlFondEcran(category)}">
-      <div class="ingredient" *ngFor="let ingredient of dishIngredients" cdkDrag>
-        <img [src]="ingredient.image" alt="{{ ingredient.name }}">
+      <div *ngIf="dish">
+        <app-dish
+          [cdkDropListConnectedTo]="['availableIngredientsList', 'availableIngredientsList2']"
+          [id]="dish.id"
+          [name]="dish.name"
+          [category]="dish.category"
+          [image]="dish.image"
+          [ingredients]="dish.ingredients"
+          [showIngredientsImageOnly]="true">
+        </app-dish>
       </div>
+
     </div>
 
     <!-- Étapes rectangulaires -->

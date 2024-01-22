@@ -7,28 +7,22 @@
       "image": "assets/images/pizza_margherita.jpg",
       "ingredients": [
         {
-          "id": 26,
-          "name": "fleur_de_sel_de_guerande",
-          "image": "assets/images/fleur_de_sel_de_guerande.jpg",
-          "step": "step fleur de sel de guerande"
-        },
-        {
-          "id": 27,
-          "name": "huile_dolive",
-          "image": "assets/images/huile_dolive.jpg",
-          "step": "step huile d'olive"
-        },
-        {
           "id": 19,
           "name": "ail",
           "image": "assets/images/ail.jpg",
           "step": "step ail"
         },
         {
-          "id": 21,
-          "name": "bruschetta",
-          "image": "assets/images/bruschetta.jpg",
-          "step": "step bruschetta"
+          "id": 29,
+          "name": "mozzarella",
+          "image": "assets/images/mozzarella.jpg",
+          "step": "step mozzarella"
+        },
+        {
+          "id": 30,
+          "name": "parmesan",
+          "image": "assets/images/parmesan.jpg",
+          "step": "step parmesan"
         },
         {
           "id": 20,

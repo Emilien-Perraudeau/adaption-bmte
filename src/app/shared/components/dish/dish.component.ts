@@ -25,6 +25,8 @@ export class DishComponent implements OnInit {
   @Input() color!:string;
   isServerMode: boolean = false;
   @Input() shouldDisplayImage: boolean = true;
+  @Input() showIngredientsImageOnly: boolean = false;
+  @Input() cdkDropListConnectedTo: string[] = [];
 
   isTabletMode:boolean = false;
   isSelected: boolean = false;

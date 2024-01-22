@@ -13,7 +13,7 @@
       <div *ngFor="let plat of plats">
         <img src="{{ plat.image }}" alt="{{ plat.name }}" class="image-plat">
         <!-- Autres détails du plat -->
-        <button (click)="modifierPlat(plat.id)">Modifier</button>
+        <button (click)="modifierPlat(plat)">Modifier</button>
       </div>
     </div>
   </div>

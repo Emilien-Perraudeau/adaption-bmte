@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Router} from "@angular/router";
 import {DishService} from "../../../services/dish.service";
+import {DishComponent} from "../../../shared/components/dish/dish.component";
 
 @Component({
   selector: 'app-table-mode',
@@ -29,8 +30,9 @@ export class TableModeComponent implements OnInit {
   }
 
 
-  modifierPlat(id: number) {
-    this.router.navigate(['/modification-mode', this.category, id]);
+  modifierPlat(dish : DishComponent) {
+    this.dishService.setSelectedDish(dish);
+    this.router.navigate(['/modification-mode',dish.category, dish.id]);
   }
 
   creerNouveauPlat() {

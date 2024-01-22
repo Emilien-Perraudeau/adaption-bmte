@@ -15,6 +15,8 @@ export class DishService {
   private socket;
   private dishesSubject = new BehaviorSubject<DishComponent[]>([]);
 
+  private selectedDishSubject = new BehaviorSubject<DishComponent | null>(null);
+
   constructor(private http: HttpClient) {
     this.socket = io('http://localhost:3000');
     this.listenForChanges();
@@ -27,6 +29,14 @@ export class DishService {
         this.dishesSubject.next(dishes);
       });
     });
+  }
+
+  setSelectedDish(dish: DishComponent) {
+    this.selectedDishSubject.next(dish);
+  }
+
+  getSelectedDish(): Observable<DishComponent | null> {
+    return this.selectedDishSubject.asObservable();
   }
 
   getDishesUpdates(): Observable<DishComponent[]> {

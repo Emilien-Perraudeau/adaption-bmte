@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {ChangeDetectorRef, Component, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {IngredientService} from "../../../services/ingredient.service";
 import {DishService} from "../../../services/dish.service";
@@ -18,11 +18,13 @@ export class ModificationModeComponent implements OnInit {
   dishIngredients: IngredientComponent[] = [];
   @ViewChild('availableIngredientsList', { static: true }) availableIngredientsList: CdkDropList | undefined;
   angleDeRotation: number = 0;
+  dish: DishComponent | null = null;
 
   constructor(private route: ActivatedRoute,
               private ingredientService: IngredientService,
               private dishService: DishService,
-              private router: Router) {
+              private router: Router,
+              private changeDetectorRef: ChangeDetectorRef) {
   }
 
   ngOnInit() {
@@ -33,9 +35,9 @@ export class ModificationModeComponent implements OnInit {
     this.getIngredients()
     this.getDishById(this.id);
 
-
-
-    // Logique pour charger les données du plat si id est non null
+    this.dishService.getSelectedDish().subscribe(dish => {
+      this.dish = dish;
+    });
   }
 
   getUrlFondEcran(categorie: string | null | undefined): string {
@@ -47,7 +49,7 @@ export class ModificationModeComponent implements OnInit {
       case 'Pâtes':
         return 'url(/chemin/vers/image-pates.jpg)';
       case 'Pizzas':
-        return 'url(../../assets/images/pizza.png)';
+        return '../../assets/images/pizza.png';
       case 'Desserts':
         return 'url(/chemin/vers/image-desserts.jpg)';
       default:
@@ -109,6 +111,12 @@ export class ModificationModeComponent implements OnInit {
 
     console.log('After drop - Ingredients:', this.ingredients);
     console.log('After drop - Dish Ingredients:', this.dishIngredients);
+    if (this.dish) {
+      this.dish.ingredients = this.dishIngredients;
+    } else {
+      console.error('Erreur : dish est null');
+    }
+    this.updateData();
   }
 
   getUniqueSteps(): string[] {
@@ -167,7 +175,9 @@ export class ModificationModeComponent implements OnInit {
     });
   }
 
-
+  updateData() {
+    this.changeDetectorRef.detectChanges();
+  }
 
 
 
