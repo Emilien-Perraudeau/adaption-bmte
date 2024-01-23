@@ -1,23 +1,19 @@
-<div class="dish-container"
-     (click)="toggleSelection()"
-     [ngClass]="{
+<ng-container *ngIf="!showIngredientsImageOnly">
+  <div class="dish-container"
+       (click)="toggleSelection()"
+       [ngClass]="{
        'selected': isSelected && isTabletMode && !isServerMode,
        'non-selectable': isTabletMode && state !== this.DishState.NotAssigned && this.sharedDataService.numberOfCooks > 1,
        'server-mode': isServerMode
      }"
-     [ngStyle]="{ 'border-color': generateColor(this.tableId) }">
-  <div class="color-square" [ngStyle]="{ 'background-color': getColor() }"></div>
+       [ngStyle]="{ 'border-color': generateColor(this.tableId) }">
+    <div class="color-square" [ngStyle]="{ 'background-color': getColor() }"></div>
 
-  <!-- Section pour afficher uniquement les images des ingrédients si showIngredientsImageOnly est vrai -->
-  <div class="dish-ingredients">
-    <div *ngFor="let ingredient of ingredients" cdkDrag>
-      <img [src]="ingredient.image" alt="{{ ingredient.name }}">
-      <!-- Autres détails de l'ingrédient -->
-    </div>
-  </div>
+    <!-- Section pour afficher uniquement les images des ingrédients si showIngredientsImageOnly est vrai -->
 
-  <!-- Section pour afficher le reste du contenu si showIngredientsImageOnly est faux -->
-  <ng-container *ngIf="!showIngredientsImageOnly">
+
+    <!-- Section pour afficher le reste du contenu si showIngredientsImageOnly est faux -->
+
     <div class="image-and-text">
       <div class="image-container" *ngIf="this.shouldDisplayImage">
         <img [src]="image" *ngIf="isExpanded" class="image" alt="Image du plat">
@@ -30,5 +26,16 @@
         </div>
       </div>
     </div>
-  </ng-container>
-</div>
+
+  </div>
+</ng-container>
+
+<ng-container *ngIf="showIngredientsImageOnly">
+
+  <div class="dish-ingredients">
+    <div *ngFor="let ingredient of ingredients" cdkDrag>
+      <img [src]="ingredient.image" alt="{{ ingredient.name }}">
+      <!-- Autres détails de l'ingrédient -->
+    </div>
+  </div>
+</ng-container>

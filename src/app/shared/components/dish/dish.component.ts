@@ -88,5 +88,18 @@ export class DishComponent implements OnInit {
     return this._sharedDataService;
   }
 
+  getBackgroundImage(): string {
+    console.log(this.category)
+    switch (this.category) {
+      case 'Pâtes':
+        return '../../../../assets/images/pate.jpg';
+      case 'Pizzas':
+        return '../../../../assets/images/pizza.jpg';
+      case 'Desserts':
+        return '../../../../assets/images/dessert.jpg';
+      default:
+        return ''; // URL d'une image de fond par défaut ou vide
+    }
+  }
 
 }

@@ -41,6 +41,8 @@ export class ModificationModeComponent implements OnInit {
   }
 
   getUrlFondEcran(categorie: string | null | undefined): string {
+    console.log(categorie)
+
     if (!categorie) {
       return 'url(/chemin/vers/image-par-defaut.jpg)';
     }
@@ -49,7 +51,7 @@ export class ModificationModeComponent implements OnInit {
       case 'Pâtes':
         return 'url(/chemin/vers/image-pates.jpg)';
       case 'Pizzas':
-        return '../../assets/images/pizza.png';
+        return 'url(../../assets/images/pizza.jpg)';
       case 'Desserts':
         return 'url(/chemin/vers/image-desserts.jpg)';
       default:

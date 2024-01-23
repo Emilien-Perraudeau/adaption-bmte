@@ -81,6 +81,13 @@
   }
 }
 
+.dish-ingredients {
+  background-color: transparent;
+}
+
+/* ... Reste du CSS ... */
+
+
 .dish-container.selected {
   background-color: #a8e3d5;
 }
@@ -90,11 +97,16 @@
 }
 
 /* Dans dish.component.css */
-.dish-container img {
-  max-width: 100px;  /* ou toute autre taille appropriée */
+.dish-ingredients img {
+  max-width: 50px;  /* ou toute autre taille appropriée */
   height: auto;      /* pour conserver les proportions de l'image */
   display: block;    /* pour éviter des problèmes d'espacement autour de l'image */
   margin: 0 auto;    /* si vous souhaitez centrer l'image */
+}
+
+.cdk-drag-preview img {
+  max-width: 50px;
+  max-height: 50px;
 }
 
 
