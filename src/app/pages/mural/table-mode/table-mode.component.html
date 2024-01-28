@@ -9,7 +9,7 @@
   <!-- Section de la liste des plats -->
   <div class="plats-scroll">
     <div class="plats">
-      <div *ngFor="let plat of plats">
+      <div class ="plat" *ngFor="let plat of plats">
         <button (click)="modifierPlat(plat)"><img class="platimage" src="{{ plat.image }}" alt="Modifier {{ plat.name }}" class="bouton-image"></button>
       </div>
     </div>

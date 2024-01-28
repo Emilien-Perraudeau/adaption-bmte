@@ -48,6 +48,12 @@ button img {
   margin-left: 10em;
   border-radius: 40px;
 }
+.category-buttons img{
+  height: 140px;
+  width: 140px;
+  border-radius : 15px;
+  margin-top: 50px;
+}
 
 /* Section de la liste des plats */
 .plats {
@@ -60,13 +66,16 @@ button img {
   background-size: cover; /* L'image couvre toute la zone disponible */
   background-repeat: no-repeat; /* L'image ne se répète pas */
   background-position: center; /* Centre l'image horizontalement et verticalement */
-  margin-top: 10em;
-  margin-bottom: 10em;
+  margin-top: 15em;
+  margin-bottom: 15em;
   margin-left: 10em;
   border-radius: 40px;
 }
-
-.platimage{
+.plat img {
+  margin : 0px;
+}
+.plat img {
+  margin : 0px;
   border-radius : 15px;
 }
 
