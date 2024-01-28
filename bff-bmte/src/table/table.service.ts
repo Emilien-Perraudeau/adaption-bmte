@@ -1,7 +1,6 @@
 import { Injectable, OnModuleInit } from '@nestjs/common';
 import { TableDto, DishDto } from '../dto/table.dto';
 import { HttpService } from '@nestjs/axios';
-import { start } from 'repl';
 
 @Injectable()
 export class TableService implements OnModuleInit {
