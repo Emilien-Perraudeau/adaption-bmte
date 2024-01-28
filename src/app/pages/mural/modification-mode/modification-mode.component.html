@@ -6,31 +6,31 @@
        class="ingredients-disponibles2">
     <div *ngFor="let ingredient of ingredients" cdkDrag>
       <div class="ingredient">
-        <img [src]="ingredient.image" alt="{{ ingredient.name }}">
-        <div>{{ ingredient.name }}</div>
+        <div class="ingredient-content">
+          <img [src]="ingredient.image" alt="{{ ingredient.name }}">
+          <div class="ingredient-name">{{ ingredient.name }}</div>
+        </div>
       </div>
     </div>
   </div>
 
   <!-- Milieu de la page pour déposer les ingrédients -->
   <div class="milieuPage">
-    <button (click)="validerPlat()">Valider</button>
+    <button class="valider" (click)="validerPlat()"><div class="orientation">Valider</div></button>
+    <!-- Placer le composant app-dish en dehors de la boucle *ngFor -->
+    <app-dish *ngIf="dish"
+              [cdkDropListConnectedTo]="['availableIngredientsList', 'availableIngredientsList2']"
+              [id]="dish.id"
+              [name]="dish.name"
+              [category]="dish.category"
+              [image]="dish.image"
+              [ingredients]="dish.ingredients"
+              [showIngredientsImageOnly]="true">
+    </app-dish>
     <div cdkDropList #dishIngredientsList="cdkDropList" [cdkDropListData]="dishIngredients"
          [cdkDropListConnectedTo]="[availableIngredientsList, availableIngredientsList2]"
          (cdkDropListDropped)="onDrop($event)"
-         class="cercle-ingredients" [ngStyle]="{'background-image': getUrlFondEcran(category)}">
-      <div *ngIf="dish">
-        <app-dish
-          [cdkDropListConnectedTo]="['availableIngredientsList', 'availableIngredientsList2']"
-          [id]="dish.id"
-          [name]="dish.name"
-          [category]="dish.category"
-          [image]="dish.image"
-          [ingredients]="dish.ingredients"
-          [showIngredientsImageOnly]="true">
-        </app-dish>
-      </div>
-
+         class="cercle-ingredients">
     </div>
 
     <!-- Étapes rectangulaires -->
@@ -41,18 +41,13 @@
       <!-- Div pour le contenu défilant -->
       <div class="etapes-scroll">
         <div *ngFor="let step of getUniqueSteps()" cdkDrag>
-          <h3>{{ step }}</h3>
+          <h3>{{ step | uppercase}} </h3>
         </div>
       </div>
 
       <!-- Bouton en bas -->
       <button class="button-bas" (click)="swapEtape()">Swap Etape</button>
     </div>
-
-
-
-
-
   </div>
 
   <!-- Ingrédients disponibles (2ème liste) -->
@@ -62,8 +57,10 @@
        class="ingredients-disponibles">
     <div *ngFor="let ingredient of ingredients" cdkDrag>
       <div class="ingredient">
-        <img [src]="ingredient.image" alt="{{ ingredient.name }}">
-        <div>{{ ingredient.name }}</div>
+        <div class="ingredient-content">
+          <img [src]="ingredient.image" alt="{{ ingredient.name }}">
+          <div class="ingredient-name">{{ ingredient.name }}</div>
+        </div>
       </div>
     </div>
   </div>

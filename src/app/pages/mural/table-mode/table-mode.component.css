@@ -28,6 +28,7 @@ button img {
   height: 100vh; /* Ajuste la hauteur de la container pour prendre toute la hauteur de la fenêtre */
 }
 
+
 /* Section des boutons de catégorie */
 .category-buttons {
   flex: 0 0 15%; /* Prend 20% de la largeur de la page */

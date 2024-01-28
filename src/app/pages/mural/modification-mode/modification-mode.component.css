@@ -13,6 +13,7 @@
   display: flex; /* Affiche les éléments enfants côte à côte */
   align-items: center; /* Centre les éléments verticalement */
   background-color: #ffcc99; /* Couleur pour ingredients-disponibles */
+  background-image: url('src/assets/images/bois.jpg');
   justify-content: flex-start; /* Aligner les éléments au début */
   width: 100%;
 }
@@ -21,38 +22,84 @@
   transform: rotate(180deg); /* Retourne l'élément */
 }
 
+
 .ingredient {
-  width: 100px; /* Largeur de l'élément ingrédient */
-  margin-right: 10px; /* Espace entre les ingrédients */
+  width: 120px; /* Largeur fixe de la case d'ingrédient */
+  height: 120px; /* Hauteur fixe de la case d'ingrédient */
+  margin-left : 6px;
+  border-radius: 10px; /* Bordures arrondies */
+  padding: 5px; /* Espacement intérieur pour un meilleur aspect */
+  display: flex; /* Utilisation de Flexbox */
+  justify-content: center; /* Centrer les éléments horizontalement */
+  align-items: center; /* Centrer les éléments verticalement */
+  background-color: #f2f2f2;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5); /* Ajoute une ombre */
+}
+
+.ingredient-content {
+  width: 100%; /* Pour que le contenu occupe toute la largeur de la case */
+  height: 100%; /* Pour que le contenu occupe toute la hauteur de la case */
   display: flex; /* Utilisation de Flexbox */
   flex-direction: column; /* Empilement vertical des éléments */
   align-items: center; /* Centrer les éléments horizontalement */
-  text-align: center; /* Alignement du texte au centre */
+}
+
+.ingredient img {
+  width: 80%; /* Ajuster la taille de l'image */
+  height: auto; /* Hauteur automatique pour conserver les proportions */
+  border-radius: 20px; /* Bords arrondis pour l'image */
+  border: 3px solid #ccc;
+
+}
+
+.ingredient-name {
+  font-family: "Brush Script MT";
+  font-size: 23px;
+  color: #333;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+  margin-top: 5px; /* Espacement entre l'image et le nom */
+  text-align: center; /* Centrer le texte horizontalement */
+  overflow: hidden; /* Masquer le texte qui dépasse */
+  white-space: nowrap; /* Empêcher le texte de se mettre à la ligne */
+  text-overflow: ellipsis; /* Ajouter des points de suspension si le texte dépasse */
+  max-width: 90%; /* Limite de la largeur du texte */
 }
 
 .milieuPage {
   height: 70%; /* Prend 70% de la hauteur disponible */
   display: flex;
   flex-direction: row;
-  background-color: #cccccc; /* Couleur de fond pour milieuPage */
+  background-image: url('src/assets/images/bois.jpg');
+  border-radius: 20px;
 }
 
 .cercle-ingredients {
   flex: 70%; /* Prend 70% de l'espace disponible dans milieuPage */
   background-color: #ff9999; /* Couleur pour cercle-ingredients */
-  /* Autres styles pour cercle-ingredients ici */
-}
+  background-image: url('src/assets/images/pizzadehaut.jpg'); /* Remplacez 'url_de_votre_image.jpg' par le chemin de votre image */
+  background-size: cover; /* L'image couvre toute la zone disponible */
+  background-repeat: no-repeat; /* L'image ne se répète pas */
+  background-position: center; /* Centre l'image horizontalement et verticalement */
+  border-radius : 40px;
+  margin-right: 8px;
+  margin-left: 8px;
 
+
+}
 
 
 .etapes-rectangulaire {
   flex: 30%;
-  background-color: #99ff99;
+  background-image: url('src/assets/images/ardoise.jpg');
+  background-size: cover; /* L'image couvre toute la zone disponible */
+  background-repeat: no-repeat; /* L'image ne se répète pas */
+  background-position: center; /* Centre l'image horizontalement et verticalement */
   transition: transform 0.5s ease;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
+  border-radius: 20px; /* Ajoute des coins arrondis */
 }
 
 .etapes-scroll {
@@ -60,15 +107,34 @@
   overflow-y: auto;
   overflow-x: hidden;
 }
+.etapes-scroll h3 {
+  font-family: "Helvetica Neue";
+  margin-top: 20px;
+  margin-left: 20px;
+  color: white; /* Définir la couleur du texte à blanc */
+}
+
+.valider{
+  border-radius: 20px;
+  margin-right: 5px;
+}
+.orientation{
+  transform : rotate(-90deg);
+  font-size: 1.7em;
+  height : fit-content;
+
+}
 
 
 
 .button-bas {
   margin-top: auto; /* Pousse le bouton vers le bas */
+  border-radius: 15px; /* Ajoute des coins arrondis */
 }
 
 .button-haut {
   transform: rotate(180deg);
+  border-radius: 15px; /* Ajoute des coins arrondis */
 }
 
 
