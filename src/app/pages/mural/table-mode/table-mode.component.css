@@ -26,6 +26,8 @@ button img {
 .container {
   display: flex;
   height: 100vh; /* Ajuste la hauteur de la container pour prendre toute la hauteur de la fenêtre */
+  background-image: url('src/assets/images/bois.jpg');
+
 }
 
 
@@ -37,7 +39,14 @@ button img {
   align-items: center; /* Centre les éléments verticalement */
   justify-content: center; /* Centre les éléments horizontalement */
   padding: 10px;
-  background-color: #d9d9d9;
+  background-image: url('src/assets/images/ardoise.jpg');
+  background-size: cover; /* L'image couvre toute la zone disponible */
+  background-repeat: no-repeat; /* L'image ne se répète pas */
+  background-position: center; /* Centre l'image horizontalement et verticalement */
+  margin-top: 10em;
+  margin-bottom: 10em;
+  margin-left: 10em;
+  border-radius: 40px;
 }
 
 /* Section de la liste des plats */
@@ -47,7 +56,18 @@ button img {
   flex-direction: row;
   align-items: center; /* Centre les éléments verticalement */
   overflow-x: auto; /* Permet le défilement horizontal si nécessaire */
-  background-color: #e6e6e6;
+  background-image: url('src/assets/images/ardoise.jpg');
+  background-size: cover; /* L'image couvre toute la zone disponible */
+  background-repeat: no-repeat; /* L'image ne se répète pas */
+  background-position: center; /* Centre l'image horizontalement et verticalement */
+  margin-top: 10em;
+  margin-bottom: 10em;
+  margin-left: 10em;
+  border-radius: 40px;
+}
+
+.platimage{
+  border-radius : 15px;
 }
 
 /* Section du bouton Ajouter */
@@ -57,7 +77,14 @@ button img {
   align-items: center; /* Centre les éléments verticalement */
   justify-content: center; /* Centre les éléments horizontalement */
   padding: 10px;
-  background-color: #f2f2f2;
+  background-image: url('src/assets/images/ardoise.jpg');
+  background-size: cover; /* L'image couvre toute la zone disponible */
+  background-repeat: no-repeat; /* L'image ne se répète pas */
+  background-position: center; /* Centre l'image horizontalement et verticalement */
+  margin-top: 10em;
+  margin-bottom: 10em;
+  margin-left: 10em;
+  border-radius: 40px;
 }
 
 .plats-scroll {

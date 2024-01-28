@@ -10,13 +10,13 @@
   <div class="plats-scroll">
     <div class="plats">
       <div *ngFor="let plat of plats">
-        <button (click)="modifierPlat(plat)"><img src="{{ plat.image }}" alt="Modifier {{ plat.name }}" class="bouton-image"></button>
+        <button (click)="modifierPlat(plat)"><img class="platimage" src="{{ plat.image }}" alt="Modifier {{ plat.name }}" class="bouton-image"></button>
       </div>
     </div>
   </div>
 
   <!-- Section du bouton Ajouter -->
   <div class="bouton-ajouter">
-    <button (click)="creerNouveauPlat()"><img src="../../../../assets/images/add.jpg" alt="Ajouter"></button>
+    <button (click)="creerNouveauPlat()"><img src="../../../../assets/images/addbutton.png" alt="Ajouter"></button>
   </div>
 </div>
