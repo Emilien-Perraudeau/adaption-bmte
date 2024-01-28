@@ -11,7 +11,7 @@ import {IngredientComponent} from "../shared/components/ingredient/ingredient.co
   providedIn: 'root'
 })
 export class DishService {
-  private baseUrl = 'http://localhost:3010/dishes';
+  private baseUrl = 'http://localhost:3005/dishes';
   private socket;
   private dishesSubject = new BehaviorSubject<DishComponent[]>([]);
 
@@ -67,6 +67,7 @@ export class DishService {
 
   updateTable(table: TableComponent): Observable<TableComponent> {
     console.log('update table - dish service');
+    console.log(table);
     return this.http.put<TableComponent>(`http://localhost:3005/tables/${table.id}`, table);
   }
 

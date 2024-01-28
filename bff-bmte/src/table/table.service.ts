@@ -1,6 +1,7 @@
 import { Injectable, OnModuleInit } from '@nestjs/common';
 import { TableDto, DishDto } from '../dto/table.dto';
 import { HttpService } from '@nestjs/axios';
+import { start } from 'repl';
 
 @Injectable()
 export class TableService implements OnModuleInit {
@@ -14,16 +15,22 @@ export class TableService implements OnModuleInit {
 
   async getTables(): Promise<TableDto[]> {
     console.log('getTables');
-    const preparationResponse = await this.httpService
+    const startedPreparationResponse = await this.httpService
       .get<
         PreparationResponse[]
       >('http://localhost:3002/preparations?state=preparationStarted')
       .toPromise();
-    console.log('preparationResponse', preparationResponse.data);
-
+    const finishedPreparation = await this.httpService
+      .get<
+        PreparationResponse[]
+      >('http://localhost:3002/preparations?state=readyToBeServed')
+      .toPromise();
+    const preparationResponse = startedPreparationResponse.data.concat(
+      finishedPreparation.data,
+    );
     // Étape 1: Regrouper les préparations par tableNumber
     const preparationsByTableNumber: { [key: number]: PreparationGroup } =
-      preparationResponse.data.reduce((acc, preparation) => {
+      preparationResponse.reduce((acc, preparation) => {
         if (!acc[preparation.tableNumber]) {
           acc[preparation.tableNumber] = {
             id: preparation._id,
@@ -48,6 +55,13 @@ export class TableService implements OnModuleInit {
                 ); // Assurez-vous que cette fonction existe et fonctionne correctement
                 if (menuItem) {
                   const recipe = await this.fetchReceipe(preparedItem);
+                  let state = 'NOT_ASSIGNED';
+                  if (preparedItem.finishedAt) {
+                    state = 'DONE';
+                  } else if (preparedItem.startedAt) {
+                    state = 'IN_PROGRESS';
+                  }
+
                   const dishDto: DishDto = {
                     id: preparedItem._id,
                     tableId: group.tableNumber,
@@ -57,7 +71,7 @@ export class TableService implements OnModuleInit {
                     quantity: preparedItem.quantity || 1,
                     customerSpecification:
                       preparedItem.customerSpecification || [],
-                    state: preparedItem.state || 'NOT_ASSIGNED',
+                    state: state,
                     ingredients: [], // À déterminer comment remplir
                     recipe: recipe,
                   };
@@ -81,14 +95,11 @@ export class TableService implements OnModuleInit {
       ),
     );
 
-    console.log('Table DTOs:', tableDtos);
     return tableDtos;
   }
 
   async fetchMenuItem(menuShortName: string): Promise<any> {
     try {
-      console.log('fetchMenuItem');
-      console.log('menuShortName', menuShortName);
       const menuItemResponse = await this.httpService
         .get('http://localhost:3000/menus')
         .toPromise();
@@ -99,7 +110,6 @@ export class TableService implements OnModuleInit {
       if (!menuItem) {
         console.log('No menu item found');
       } else {
-        console.log('menuItem', menuItem);
         return menuItem;
       }
     } catch (e) {
@@ -109,7 +119,6 @@ export class TableService implements OnModuleInit {
 
   async fetchReceipe(preparedItem: any): Promise<string[]> {
     try {
-      console.log('fetchReceipe');
       const receipeResponse = await this.httpService
         .get(
           'http://localhost:3002/preparedItems/' + preparedItem._id + '/recipe',
@@ -119,7 +128,6 @@ export class TableService implements OnModuleInit {
       if (!receipe) {
         console.log('No receipe found');
       } else {
-        console.log('receipe', receipe);
         return receipe.cookingSteps;
       }
     } catch (e) {
@@ -163,13 +171,10 @@ export class TableService implements OnModuleInit {
       tableNumber: table.number,
       customersCount: selectedMenus.length,
     };
-    console.log('Request body:', orderRequestBody);
 
     const order = await this.httpService
       .post('http://localhost:3001/tableOrders', orderRequestBody)
       .toPromise();
-
-    console.log('Order:', order.data);
 
     // Préparer le corps de la requête
     if (order) {
@@ -179,25 +184,21 @@ export class TableService implements OnModuleInit {
           menuItemShortName: item.shortName,
           howMany: 1, // Choisir un nombre aléatoire entre 1 et 3
         };
-        console.log('Request body:', preparationRequestBody);
-        console.log('orderID', order.data._id);
         // Envoyer la requête au backend
         try {
-          const orderResponse = await this.httpService
+          await this.httpService
             .post(
               'http://localhost:3001/tableOrders/' + order.data._id,
               preparationRequestBody,
             )
             .toPromise();
-          console.log('Order response:', orderResponse.data);
-          const preparationResponse = await this.httpService
+          await this.httpService
             .post(
               'http://localhost:3001/tableOrders/' +
                 order.data._id +
                 '/prepare',
             )
             .toPromise();
-          console.log('Preparation response:', preparationResponse.data);
         } catch (e) {
           console.log(e.response.data);
         }
@@ -210,7 +211,31 @@ export class TableService implements OnModuleInit {
   async updateTable(tableId: number, table: TableDto): Promise<TableDto> {
     // Logique pour mettre à jour une table
 
+    console.log('updateTable');
     console.log(tableId, table);
+    console.log('updateTable - dishes');
+    for (const dish of table.dishes) {
+      console.log(dish.state);
+      const saved_dish = await this.httpService
+        .get('http://localhost:3002/preparedItems/' + dish.id)
+        .toPromise();
+      console.log(saved_dish.data);
+      if (dish.state === 'DONE' && saved_dish.data.finishedAt === null) {
+        this.httpService
+          .post(
+            'http://localhost:3002/preparedItems/' + dish.id + '/finish',
+            {},
+          )
+          .toPromise();
+      } else if (
+        dish.state === 'IN_PROGRESS' &&
+        saved_dish.data.startedAt === null
+      ) {
+        this.httpService
+          .post('http://localhost:3002/preparedItems/' + dish.id + '/start', {})
+          .toPromise();
+      }
+    }
     return table;
   }
 }

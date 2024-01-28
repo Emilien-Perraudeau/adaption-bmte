@@ -7,7 +7,7 @@ import { PositionComponent} from "../shared/components/position/position.compone
   providedIn: 'root'
 })
 export class PositionService {
-  private baseUrl = 'http://localhost:3010/positions';
+  private baseUrl = 'http://localhost:3005/positions';
 
   constructor(private http: HttpClient) { }
 
