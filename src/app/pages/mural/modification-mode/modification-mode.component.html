@@ -17,21 +17,26 @@
   <!-- Milieu de la page pour déposer les ingrédients -->
   <div class="milieuPage">
     <button class="valider" (click)="validerPlat()"><div class="orientation">Valider</div></button>
-    <!-- Placer le composant app-dish en dehors de la boucle *ngFor -->
-    <app-dish *ngIf="dish"
-              [cdkDropListConnectedTo]="['availableIngredientsList', 'availableIngredientsList2']"
-              [id]="dish.id"
-              [name]="dish.name"
-              [category]="dish.category"
-              [image]="dish.image"
-              [ingredients]="dish.ingredients"
-              [showIngredientsImageOnly]="true">
-    </app-dish>
     <div cdkDropList #dishIngredientsList="cdkDropList" [cdkDropListData]="dishIngredients"
          [cdkDropListConnectedTo]="[availableIngredientsList, availableIngredientsList2]"
          (cdkDropListDropped)="onDrop($event)"
          class="cercle-ingredients">
+      <div *ngIf="dish">
+        <app-dish *ngIf="dish"
+                  [cdkDropListConnectedTo]="['availableIngredientsList', 'availableIngredientsList2']"
+                  [id]="dish.id"
+                  [name]="dish.name"
+                  [category]="dish.category"
+                  [image]="dish.image"
+                  [ingredients]="dish.ingredients"
+                  [showIngredientsImageOnly]="true">
+        </app-dish>
+      </div>
     </div>
+
+    <!-- Placer le composant app-dish en dehors de la boucle *ngFor -->
+
+
 
     <!-- Étapes rectangulaires -->
     <div class="etapes-rectangulaire" [style.transform]="'rotate(' + angleDeRotation + 'deg)'" cdkDropList (cdkDropListDropped)="onStepDrop($event)">
